@@ -1,6 +1,10 @@
 <div align="center">
 
-# 📏 Camera Module Gap Detection Project
+# 카메라 모듈 갭 검출
+
+**Camera-Module-Gap-Detection-Project**
+
+**기술 분류:** 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
 
 ### 동적 ROI 정렬과 이진화 기반 카메라 모듈 갭 검출
 ### Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Optimized Image Binarization
@@ -13,7 +17,33 @@
 
 [원고 읽기](#quick-start) · [저장소 구성](#structure) · [자료·설정](#data)
 
+[예시 이미지](#preview)
+
 </div>
+
+<a name="preview"></a>
+
+## 🖼️ 예시로 보기
+
+<p align="center"><img src="assets/previews/paper-processing-pipeline.png" width="773" alt="논문 그림 · Camera-Module-Gap-Detection-Project" /></p>
+
+**논문 그림** — 공개 HWPX 원고의 처리 흐름도: 정렬·전처리·이진화·ROI 기반 갭 측정 과정입니다.
+
+[근거 파일 보기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+
+
+
+<a name="input-processing-output"></a>
+
+## 🔄 입력·처리·출력
+
+| 단계 | 이 프로젝트에서 다루는 내용 |
+| :--- | :--- |
+| 입력 | 카메라 모듈 검사 영상 |
+| 처리 | 기준 위치 검출·ROI 정렬, 영역별 필터·임계값, 주사선 길이 측정 |
+| 출력 | 갭 위치·길이와 검사 지표 |
+
+
 
 ---
 
