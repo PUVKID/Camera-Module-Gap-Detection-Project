@@ -10,11 +10,11 @@
 
 **기술 분류:** 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
 
-![Paper](https://img.shields.io/badge/Research-Paper-2563EB?style=flat-square) ![Document](https://img.shields.io/badge/Document-HWPX-475569?style=flat-square)
+`논문·연구 자료` `Document`
 
 [원고 읽기](#quick-start) · [저장소 구성](#structure) · [자료·설정](#data)
 
-[예시 이미지](#preview)
+[핵심 구성](#input-processing-output)
 
 <details>
 <summary>📄 원고 제목</summary>
@@ -27,21 +27,11 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 <a name="overview"></a>
 
-## 🗺️ 한눈에 보는 구성
-
-<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
-보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
-
 ## ✨ 최종 원고에서 살펴볼 점
 
 정렬·전처리·이진화와 ROI 측정으로 카메라 모듈 갭을 비교하는 원고입니다.
 
 원고의 5픽셀 기준은 초기 배치 실험의 경험적 설정이며 모든 제조 환경에 검증된 기준은 아닙니다. HWPX 페이지 배치는 렌더 검증하지 않았습니다.
-
-
-
-
-
 
 - 관심영역과 측정선을 이용한 갭 측정에서 화질 지표와 실제 갭 오차의 역할을 구분합니다.
 - 5픽셀 기준은 초기 배치의 경험적 설정입니다. 필터 처리시간을 전체 생산라인 지연으로 해석하지 않으며 학습 기반 방식은 후속 과제로 구분합니다.
@@ -50,14 +40,16 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 <a name="preview"></a>
 
-## 🖼️ 예시로 보기
+<details>
+<summary>📎 논문 도표와 출처</summary>
 
-<p align="center"><img src="assets/previews/paper-processing-pipeline.png" width="773" alt="논문 그림 · Camera-Module-Gap-Detection-Project" /></p>
+[📊 원고 도표 보기](assets/previews/paper-processing-pipeline.png)
 
 **논문 그림** — 공개 HWPX 원고의 처리 흐름도: 정렬·전처리·이진화·ROI 기반 갭 측정 과정입니다.
 
 [근거 파일 보기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
+</details>
 
 <a name="input-processing-output"></a>
 
@@ -65,9 +57,9 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 | 단계 | 이 프로젝트에서 다루는 내용 |
 | :--- | :--- |
-| 입력 | 카메라 모듈 검사 영상 |
-| 처리 | 기준 위치 검출·ROI 정렬, 영역별 필터·임계값, 주사선 길이 측정 |
-| 출력 | 갭 위치·길이와 검사 지표 |
+| 📥 입력 | 카메라 모듈 검사 영상 |
+| ⚙️ 처리 | 기준 위치 검출·ROI 정렬, 영역별 필터·임계값, 주사선 길이 측정 |
+| 📤 출력 | 갭 위치·길이와 검사 지표 |
 
 
 ---
