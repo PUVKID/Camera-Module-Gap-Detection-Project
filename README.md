@@ -1,23 +1,14 @@
 <div align="center">
 
 <a name="카메라-모듈-갭-검출"></a>
-
-# 🔬 카메라 모듈 갭 검출
-
-**Camera-Module-Gap-Detection-Project**
-
-**기술 분류:** 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
-
 <a name="동적-roi-정렬과-이진화-기반-카메라-모듈-갭-검출"></a>
-
-### 🔎 동적 ROI 정렬과 이진화 기반 카메라 모듈 갭 검출
 <a name="gap-detection-for-compact-camera-modules-based-on-dynamic-roi-alignment-and-optimized-image-binarization"></a>
 
-### 🔎 Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Optimized Image Binarization
+# 📏 Camera Module Gap Project
 
-**YOLO 키포인트 · 영상 정렬 · 전처리 필터 · 1D 갭 측정**
+영상 정렬과 영역별 필터로 카메라 모듈의 틈 위치와 길이를 측정하는 연구입니다.
 
-소형 카메라 모듈의 위치·회전 편차를 정렬하고, 전처리와 이진화를 통해 갭 측정의 안정성을 비교하는 연구입니다. 필터별 화질, 갭 관련 지표와 처리 비용을 함께 다룹니다.<br>
+**기술 분류:** 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
 
 ![Paper](https://img.shields.io/badge/Research-Paper-2563EB?style=flat-square) ![Document](https://img.shields.io/badge/Document-HWPX-475569?style=flat-square)
 
@@ -25,7 +16,37 @@
 
 [예시 이미지](#preview)
 
+<details>
+<summary>📄 원고 제목</summary>
+
+Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Optimized Image Binarization
+
+</details>
+
 </div>
+
+<a name="overview"></a>
+
+## 🗺️ 한눈에 보는 구성
+
+<p align="center"><img src="assets/overview.png" width="960" alt="프로젝트의 입력·처리·출력을 정리한 설명도" /></p>
+보관한 프로젝트 자료의 흐름을 정리한 설명도입니다.
+
+## ✨ 최종 원고에서 살펴볼 점
+
+정렬·전처리·이진화와 ROI 측정으로 카메라 모듈 갭을 비교하는 원고입니다.
+
+원고의 5픽셀 기준은 초기 배치 실험의 경험적 설정이며 모든 제조 환경에 검증된 기준은 아닙니다. HWPX 페이지 배치는 렌더 검증하지 않았습니다.
+
+
+
+
+
+
+- 관심영역과 측정선을 이용한 갭 측정에서 화질 지표와 실제 갭 오차의 역할을 구분합니다.
+- 5픽셀 기준은 초기 배치의 경험적 설정입니다. 필터 처리시간을 전체 생산라인 지연으로 해석하지 않으며 학습 기반 방식은 후속 과제로 구분합니다.
+
+**자료별 안내:** [최종 원고](docs/versions/final-paper.md) · [전체 기록](docs/VERSIONS.md)
 
 <a name="preview"></a>
 
