@@ -1,0 +1,18 @@
+{
+  "stage": "이진화 연구노트·외부 참고논문",
+  "previous": null,
+  "files": {
+    "참고자료/Binarization_연구노트.pdf": {
+      "bytes": 15825642,
+      "sha256": "085e7f5224e555aa6e4a2006ed865c695be778f7726442a31882932d7d08fe83"
+    },
+    "참고자료/electronics-14-03455.pdf": {
+      "bytes": 3269089,
+      "sha256": "1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659"
+    },
+    "참고자료/ATTRIBUTION.md": {
+      "bytes": 822,
+      "sha256": "bf9bc7c4357a90fc6f98998dbbfe3d942bed0bb3bc11889b798fa1303d6a2e8b"
+    }
+  }
+}

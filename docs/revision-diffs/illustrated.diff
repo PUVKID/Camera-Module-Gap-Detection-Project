@@ -1,0 +1,205 @@
+# 최종 원고 · HWP/PDF 단계 -> 사진 포함 최종 · HWPX 단계
+# 공백·주석·개행을 무시하지 않습니다. PDF 추출 텍스트는 배치·글꼴 비교를 대신하지 않습니다. 바이너리는 크기·SHA-256으로 비교합니다. ipynb의 바이너리 이미지 출력만 크기·SHA·원문 링크로 표시하며 코드·Markdown·수치·설정·그 밖의 JSON 텍스트는 전체 비교합니다.
+# 이전 원고단계/최종/원고.pdf 725432 6b12ab3e7ecabc44996270461ee21585ecceab7d990bd2a7eb5e00f41c787ff2
+# 이전 원고단계/최종/원고.hwp 2797568 4d8b4e9628885b988449a088a2e6283d339ca2f0ecae3b983b4a2389ec70fe54
+# 현재 논문/최종_논문.hwpx 9341032 15a861e0c2e32f065966cf7524dd5933b86aab2fd62ec0781017aeb2df44e3c5
+# 현재 논문/최종_논문.pdf 800724 1dbb7d4d6d39fad3d271d0eb3d1c1384b17280ca00374fc2528bf6a76f5a698a
+# 현재 원고단계/사진 포함 최종/그림/image1.jpeg 189454 9430d62ae17c3f880fa7565037f0afeda2afcff6fdc29560a687091dbba5d1b0
+# 현재 원고단계/사진 포함 최종/그림/image10.png 135008 c5c93d6fa301b8702f14511b5cb824faeed84b8da36854d71da92b208ee4b62f
+# 현재 원고단계/사진 포함 최종/그림/image11.png 218137 ef768e7708269f9c6e1384a9f085cddefdb421ecac248cd8bc1fcb4480acd5eb
+# 현재 원고단계/사진 포함 최종/그림/image2.png 90183 2eb0e7d384c82ca00f872b57dd244786871dbb895299676f04a953993a1f5641
+# 현재 원고단계/사진 포함 최종/그림/image3.png 1173238 6d54a2d528a514382b1bf94d757c68085be154b41bd354b9b0fdb88587796ac3
+# 현재 원고단계/사진 포함 최종/그림/image4.png 48046 21a0b70cb0cb91dcfdff7a4213bf7044407fea2a12484ad5af701869242ba334
+# 현재 원고단계/사진 포함 최종/그림/image5.png 335971 0788420f9f1c58bbfa57f5740566be0e36311a3fd1dbd97993dfb89fc4fe0a40
+# 현재 원고단계/사진 포함 최종/그림/image6.png 152195 2baa50867211717a6073754140fb1cd8e4c12e8c4b7f7bd7d5433e90d16670b9
+# 현재 원고단계/사진 포함 최종/그림/image7.png 48593 86d62918b54da1b7a9227e6aac994ee3ea1eecbdc00cc9cca26fd9c399f80000
+# 현재 원고단계/사진 포함 최종/그림/image8.png 36662 24d9cd997504fcbfa4671ea3fd5158553a9fddc9578d2c2f7cc9d1ef81556696
+# 현재 원고단계/사진 포함 최종/그림/image9.png 207660 9c0ed08abd5c9678aa3f38d928ab37bf630a7c283c07d732b8178d1135a0c266
+# 현재 원고단계/사진 포함 최종/그림/result.png 3528774 29099f15e669ae0405104fb8a953545c910780a1a2b343324709601a13860b29
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image1.jpeg differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image10.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image11.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image2.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image3.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image4.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image5.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image6.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image7.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image8.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/image9.png differ
+Binary files /dev/null and 원고단계/사진 포함 최종/그림/result.png differ
+Binary files 원고단계/최종/원고.hwp and /dev/null differ
+--- 원고단계/최종/원고.pdf
++++ 논문/최종_논문.pdf
+@@ -1,7 +1,8 @@
+ === 1쪽 ===
+-*경기대학교 AI컴퓨터공학부, lukeyun@kyonggi.ac.kr, **경기대학교 컴퓨터과학과, ngkim@kyonggi.ac.kr(교신저자표시),
+-...
+-※ 지원기관표기(사사표기)
++*경기대학교 AI컴퓨터공학부, lukeyun@kyonggi.ac.kr, **경기대학교 컴퓨터과학과, ngkim@kyonggi.ac.kr(교신저자표시)
++※ 본 연구는 정부(과학기술정보통신부)의 재원으로 정보통신기획평가원(IITP)의 학·석사연계 ICT 핵심인재양성사업의 
++지원을 받아 수행된 연구임(IITP-2024-00436954). 또한 본 연구는 경기대학교 컴퓨터과학연구소(CCSRI)의 연구 지원을 받
++아 수행되었음.
+ 동적 ROI 정렬과 이진화 품질 최적화를 기반으로 한 소형 
+ 카메라 모듈 갭 검출 연구
+ 곽윤석*, 김남기**
+@@ -211,7 +212,7 @@
+ 본 연구는 이러한 공백을 메우고자 필터 비교, 동
+ 적 ROI 정렬, 정량 평가 지표를 통합한 파이프라인
+ 을 제안한다[14],[15].
+-Ⅲ. 본  론  
++Ⅲ. 본  론
+ 그림2. 이미지이진화및필터최적화기반갭검사연
+ 구흐름도
+ Fig. 2. Research Flowchart for Gap Inspection Based on
+@@ -280,6 +281,27 @@
+ 그림5. 제조용갭검출을위한필터미적용이진화결과
+ Fig 5. Binarization Result without Filter for Manufacturing
+ Gap Inspection
++원본 이미지를 포함하여 총 11개의 이미지를 비
++교하였으며, 적용된 필터는 순서대로 평균 필터(Me
++an Filter), 양방향 필터(Bilateral Filter), 비등방성 확
++산(Anisotropic Diffusion), Wiener 필터, 웨이블릿 필
++터(Wavelet Denoising), 가우시안 필터(Gaussian Filte
++r), 중간값 필터(Median Filter), 비국소 필터(Non-loca
++l Filter), 저역 통과 필터(Low-pass Filter), BM3D 필
++터이다. 각 이미지에서 필터 적용에 따른 노이즈 억
++제, 엣지 보존, 갭 검출 신뢰도의 변화를 관찰할 수 
++있으며, 원본 이미지는 노이즈 및 밝기 불균일로 인
++해 갭 검출이 불안정하다. 공간 도메인 필터(평균, 
++가우시안, 중간값, 양방향)는 노이즈 제거와 엣지 
++보존 간 균형을 보여주며[4],[5], 비등방성 확산은 
++엣지를 유지하면서 부드러운 노이즈 제거가 가능하
++다[6]. 주파수 도메인 필터(Wiener, Wavelet, Low-pas
++s)와 비국소적 접근(BM3D)은 노이즈 억제 성능이 
++우수하나, 일부 경우 갭 경계가 약간 평탄화될 수 
++있다[7],[8]. 이 그림은 다양한 필터 전략이 제조용 
++갭 검출에 미치는 영향을 직관적으로 비교하고, 최
++적 전처리 필터 선택을 위한 시각적 근거를 제공한
++다.
+ 
+ === 6쪽 ===
+ - 곽윤석 개인 논문 -
+@@ -327,17 +349,17 @@
+ 선정하였다. 이러한 평가 기준은 단순 평균 갭만으
+ 로는 포착할 수 없는 지역적 불균형 및 이상치를 
+ 보완하고, 실험적 신뢰성을 강화하는 데 효과적이었
+-다[15].
++다[15]
++
++=== 7쪽 ===
++- 곽윤석 개인 논문 -
++- 7 -
+ 그림8. 누락률및이상치율에따른필터처리시간히트
+ 맵분석
+ (단위: (초/이미지))
+ Fig 8. Heatmap Analysis of Filter Processing Time with
+ Respect to Missing and Outlier Rates
+ (Unit: (s/image)
+-
+-=== 7쪽 ===
+-- 곽윤석 개인 논문 -
+-- 7 -
+ 누락률(Missing Rate)과 이상치율(Outlier Rate)에 
+ 따른 5가지 이미지 필터 조합의 처리 시간 비교 히
+ 트맵. X축은 이미지 데이터의 누락률을, Y축은 이
+@@ -374,6 +396,10 @@
+ 에서 가장 우수한 성능을 보였으며, 특히 ROI 내부 
+ 균일성이 높아 갭 측정의 신뢰도를 확보할 수 있었
+ 다[6],[7].
++
++=== 8쪽 ===
++- 곽윤석 개인 논문 -
++- 8 -
+ 그림10. 필터조합에따른처리시간비교그래프
+ (단위: (초/이미지))
+ Fig 10. Processing time comparison by filter combination
+@@ -388,10 +414,6 @@
+ an + Sharpen 조합은 각각 0.0146 s/image, 0.0079 s/i
+ mage로 중간 수준의 처리 속도를 나타냈다[1],[2]. 
+ 이러한 결과는 필터링 방식에 따라 연산 복잡도와 
+-
+-=== 8쪽 ===
+-- 곽윤석 개인 논문 -
+-- 8 -
+ 처리 시간이 크게 달라질 수 있음을 보여준다. 특
+ 히, Gaussian 필터와 같은 단순 필터는 실시간 처리 
+ 환경에 적합한 반면, Fast Global Smoother와 같이 
+@@ -442,6 +464,10 @@
+ 나타냈으며, ROI 내부의 밝기 균일성 역시 높게 유
+ 지되어 실제 갭 검출 신뢰성을 향상시킬 수 있음을 
+ 확인하였다[3],[4],[5],[6]. 이러한 결과는 단순 화질 
++
++=== 9쪽 ===
++- 곽윤석 개인 논문 -
++- 9 -
+ 지표뿐 아니라 ROI 기반 정량 지표를 활용한 이진
+ 화 품질 평가가 제조 환경에서 실질적인 신뢰성을 
+ 판단하는 데 중요함을 보여준다[5],[6].
+@@ -458,10 +484,6 @@
+ 레이드오프를 직관적으로 확인할 수 있으며, Fast 
+ Global Smoother + Sharpen 조합이 상위 후보군 중 
+ 가장 균형 잡힌 성능을 보임을 알 수 있다[3],[4],[5],
+-
+-=== 9쪽 ===
+-- 곽윤석 개인 논문 -
+-- 9 -
+ [6]. 레이다 차트 결과, Fast Global Smoother + Sha
+ rpen 조합은 모든 지표에서 균형 잡힌 성능을 나타
+ 내었으며, Bilateral + Sharpen 및 Median + Sharpen 
+@@ -500,6 +522,10 @@
+ 를 통해 제조 현장에서 필터 최적화와 하이브리드 
+ 이진화 전략 설계를 위한 실질적 근거를 제공할 수 
+ 있다[3],[4],[5],[6].
++
++=== 10쪽 ===
++- 곽윤석 개인 논문 -
++- 10 -
+ V. 결  론
+ 본 연구에서는 제조용 갭 검사에서 이미지 기반 
+ 이진화의 신뢰성을 향상시키기 위해 동적 ROI 정
+@@ -530,10 +556,6 @@
+ Bilateral, Median, Gaussian 필터 조합도 특정 환경
+ 에서 우수한 성능을 보였으나, Wiener 필터는 과도
+ 한 평탄화로 갭 검출 실패 사례가 발생하였고, Anis
+-
+-=== 10쪽 ===
+-- 곽윤석 개인 논문 -
+-- 10 -
+ otropic 필터는 엣지 보존에는 유리하나 처리 시간
+ 이 길어 실무 적용에는 제한이 있었다[3],[4]. 이러
+ 한 결과는 단일 필터만으로는 노이즈 제거, 엣지 
+@@ -580,6 +602,10 @@
+ “Image denoising by sparse 3-D transform-domain coll
+ aborative filtering,”
+ IEEE Transactions on Image Processing, vol. 16, no. 
++
++=== 11쪽 ===
++- 곽윤석 개인 논문 -
++- 11 -
+ 8, pp. 2080–2095, Aug. 2007, doi: 10.1109/TIP.20
+ 07.901238.
+ [2] K. Zhang, W. Zuo, Y. Chen, D. Meng, and L. Zh
+@@ -612,10 +638,6 @@
+ “Scale-space and edge detection using anisotropic diffu
+ sion,”
+ IEEE Transactions on Pattern Analysis and Machine In
+-
+-=== 11쪽 ===
+-- 곽윤석 개인 논문 -
+-- 11 -
+ telligence, vol. 12, no. 7, pp. 629–639, Jul. 1990, 
+ doi: 10.1109/34.56205.
+ [7] C. Tomasi and R. Manduchi,
+@@ -664,6 +686,10 @@
+ ology, vol. 17, no. 10, pp. 683–690, 2001, doi: 1
+ 0.1007/s001700170106.
+ [15] A. Ghamisi and H. Najjaran,
++
++=== 12쪽 ===
++- 곽윤석 개인 논문 -
++- 12 -
+ “Gap and overlap detection in automated fiber placeme
+ nt,”
+ arXiv preprint, arXiv:2305.01439, 2023, doi: 10.48550/
+Binary files /dev/null and 논문/최종_논문.hwpx differ

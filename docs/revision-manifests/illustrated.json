@@ -1,0 +1,62 @@
+{
+  "stage": "사진 포함 최종 · HWPX 단계",
+  "previous": "최종 원고 · HWP/PDF 단계",
+  "files": {
+    "논문/최종_논문.hwpx": {
+      "bytes": 9341032,
+      "sha256": "15a861e0c2e32f065966cf7524dd5933b86aab2fd62ec0781017aeb2df44e3c5"
+    },
+    "논문/최종_논문.pdf": {
+      "bytes": 800724,
+      "sha256": "1dbb7d4d6d39fad3d271d0eb3d1c1384b17280ca00374fc2528bf6a76f5a698a"
+    },
+    "원고단계/사진 포함 최종/그림/image1.jpeg": {
+      "bytes": 189454,
+      "sha256": "9430d62ae17c3f880fa7565037f0afeda2afcff6fdc29560a687091dbba5d1b0"
+    },
+    "원고단계/사진 포함 최종/그림/image10.png": {
+      "bytes": 135008,
+      "sha256": "c5c93d6fa301b8702f14511b5cb824faeed84b8da36854d71da92b208ee4b62f"
+    },
+    "원고단계/사진 포함 최종/그림/image11.png": {
+      "bytes": 218137,
+      "sha256": "ef768e7708269f9c6e1384a9f085cddefdb421ecac248cd8bc1fcb4480acd5eb"
+    },
+    "원고단계/사진 포함 최종/그림/image2.png": {
+      "bytes": 90183,
+      "sha256": "2eb0e7d384c82ca00f872b57dd244786871dbb895299676f04a953993a1f5641"
+    },
+    "원고단계/사진 포함 최종/그림/image3.png": {
+      "bytes": 1173238,
+      "sha256": "6d54a2d528a514382b1bf94d757c68085be154b41bd354b9b0fdb88587796ac3"
+    },
+    "원고단계/사진 포함 최종/그림/image4.png": {
+      "bytes": 48046,
+      "sha256": "21a0b70cb0cb91dcfdff7a4213bf7044407fea2a12484ad5af701869242ba334"
+    },
+    "원고단계/사진 포함 최종/그림/image5.png": {
+      "bytes": 335971,
+      "sha256": "0788420f9f1c58bbfa57f5740566be0e36311a3fd1dbd97993dfb89fc4fe0a40"
+    },
+    "원고단계/사진 포함 최종/그림/image6.png": {
+      "bytes": 152195,
+      "sha256": "2baa50867211717a6073754140fb1cd8e4c12e8c4b7f7bd7d5433e90d16670b9"
+    },
+    "원고단계/사진 포함 최종/그림/image7.png": {
+      "bytes": 48593,
+      "sha256": "86d62918b54da1b7a9227e6aac994ee3ea1eecbdc00cc9cca26fd9c399f80000"
+    },
+    "원고단계/사진 포함 최종/그림/image8.png": {
+      "bytes": 36662,
+      "sha256": "24d9cd997504fcbfa4671ea3fd5158553a9fddc9578d2c2f7cc9d1ef81556696"
+    },
+    "원고단계/사진 포함 최종/그림/image9.png": {
+      "bytes": 207660,
+      "sha256": "9c0ed08abd5c9678aa3f38d928ab37bf630a7c283c07d732b8178d1135a0c266"
+    },
+    "원고단계/사진 포함 최종/그림/result.png": {
+      "bytes": 3528774,
+      "sha256": "29099f15e669ae0405104fb8a953545c910780a1a2b343324709601a13860b29"
+    }
+  }
+}

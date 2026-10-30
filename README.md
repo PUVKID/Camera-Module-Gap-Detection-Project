@@ -23,9 +23,26 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 </details>
 
-[📄 PDF로 읽기](논문/최종_논문.pdf) · [📝 HWPX 원본](논문/최종_논문.hwpx)
+[📄 PDF로 읽기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [📝 HWPX 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 </div>
+
+## 📄 내 논문 PDF
+
+[현재 원문 PDF·공식 링크 교체 위치](docs/PAPERS.md) · [모든 실제 차수·최종본·전체 비교](docs/REVISION_INDEX.md)
+
+- **사진 포함 최종**: [PDF 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [편집 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+
+공식 공개 URL은 아직 등록하지 않았습니다. 추후 [논문 전용 표](docs/PAPERS.md)의 교체 칸과 이 항목을 함께 갱신합니다.
+
+## 🗂️ 모든 실제 차수와 최종본
+
+| 단계 | 설명 | 파일 종류 | 전체 차이 |
+|---|---|---|---|
+| [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 동적 ROI 정렬·6개 샘플라인·필터·이진화·갭 측정 방법을 서술한 원고입니다. 임의의 1차 번호를 붙이지 않습니다. 초록의 약1,000장과 본문의546장, 처리시간·필터 서술의 내부 차이는 원고 그대로 읽어야 합니다.나중 단계의 값으로 소급 정정하지 않습니다.라벨은 원본 폴더명과 구별한 안내명입니다.라벨 자체가 새 연구 차수는 아닙니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/initial.diff) |
+| [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | HWP 본문에서는 초기의 사사 자리표시자를 IITP-2024-00436954와 경기대학교 컴퓨터과학연구소 지원 문구로 바꾼 차이가 있습니다. 다만 함께 저장된 두 원본 PDF의 추출 본문은 동일하고 초기 사사 자리표시자가 남습니다. 파일명이 최종이라는 이유로 HWP와 PDF가 완전히 같다고 판단하지 않습니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/final.diff) |
+| [사진 포함 최종 · HWPX 단계](docs/revisions/illustrated.md) | 기존 공개 HWPX와 네이티브 변환 PDF를 보존합니다. 원고 본문·표·삽입 연구 그림 전체를 읽는 자료이며, 별도 실행 코드와 제조 원데이터는 포함하지 않습니다. | hwpx·jpeg·pdf·png | [직전 단계 비교](docs/revision-diffs/illustrated.diff) |
+| [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | 프로젝트의 84쪽 이진화·필터·ROI 코드 노트와 원문에 CC BY4.0이 표시된 외부 참고논문을 원문으로 보존합니다. 외부 논문의 저자를 그대로 표시하고 본인의 실적으로 합치지 않습니다. | md·pdf | [직전 단계 비교](docs/revision-diffs/references.diff) |
 
 <a name="overview"></a>
 
@@ -100,7 +117,7 @@ E --> F[갭·누락·이상치·화질·시간 비교]
     └── 최종_논문.hwpx
 ```
 
-- [전체 최종 원고](논문/최종_논문.hwpx)
+- [전체 최종 원고](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 ## 🧩 갭 측정과 필터 비교
 

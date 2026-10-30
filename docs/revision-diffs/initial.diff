@@ -1,0 +1,678 @@
+# 비교 대상 없음 -> 초기 원고 · 번호 없는 원본
+# 공백·주석·개행을 무시하지 않습니다. PDF 추출 텍스트는 배치·글꼴 비교를 대신하지 않습니다. 바이너리는 크기·SHA-256으로 비교합니다. ipynb의 바이너리 이미지 출력만 크기·SHA·원문 링크로 표시하며 코드·Markdown·수치·설정·그 밖의 JSON 텍스트는 전체 비교합니다.
+# 현재 원고단계/초기/원고.pdf 695829 e856530a916e91762043b6cc640890aedc34cd5dde129453b8362312bff2d90a
+# 현재 원고단계/초기/원고.hwp 2617344 e8cd7aa91675f015add1358881b62d0626483fbf9fa0c12903a7c0ac3649e4d4
+Binary files /dev/null and 원고단계/초기/원고.hwp differ
+--- /dev/null
++++ 원고단계/초기/원고.pdf
+@@ -0,0 +1,670 @@
++=== 1쪽 ===
++*경기대학교 AI컴퓨터공학부, lukeyun@kyonggi.ac.kr, **경기대학교 컴퓨터과학과, ngkim@kyonggi.ac.kr(교신저자표시),
++...
++※ 지원기관표기(사사표기)
++동적 ROI 정렬과 이진화 품질 최적화를 기반으로 한 소형 
++카메라 모듈 갭 검출 연구
++곽윤석*, 김남기**
++Gap Detection for Compact Camera Modules Based on Dynamic
++ROI Alignment and Optimized Image Binarization
++Yunsuk Kwak*, and Namgi Kim**
++요  약
++본 연구는 제조 환경에서 이미지 기반 갭 검출의 신뢰성을 향상시키기 위해, 이진화 품질 개선에 초점을 둔 
++전처리 필터 및 이진화 전략을 체계적으로 비교·평가하고, 이를 동적 ROI 정렬과 1D 프로젝션 기반 갭 측정 
++알고리즘과 결합한 통합 파이프라인을 제안한다. 입력 이미지는 YOLO 기반 키포인트 추출을 통해 정렬되며,
++BM3D를 포함한 공간·주파수·비국소 필터 및 필터 조합을 적용하여 반사 노이즈와 국부 밝기 변화에 강인한 
++이진화를 수행한다. 제안된 방법은 ROI 내 6개 샘플 라인을 기반으로 갭 길이를 산출하고, 평균 갭, 표준편차,
++누락률, 이상치율, PSNR 및 SSIM 지표를 활용해 약 1000장의 제조용 이미지에서 정량적으로 평가되었다. 실
++험 결과, Fast Global Smoother + Sharpen 조합은 기존 단순 이진화 대비 평균 갭 편차를 약 28.6% 감소시키
++고, 누락률을 3.9%에서 1.2%로, 이상치율을 6.8%에서 2.5%로 감소시키며, 평균 PSNR 35.2 dB와 SSIM 0.94를 
++기록하였다. 또한 처리 시간은 0.1266 s/image로 실시간 공정 적용 가능성을 확인하였으며, 향후 학습 기반 
++denoiser 및 적응형 임계값 자동화를 통해 누락률을 1% 이하로 추가 감소시킬 수 있는 확장 가능성을 제시한
++다.
++Abstract
++This study proposes an integrated pipeline to improve the reliability of image-based gap inspection in 
++manufacturing environments by systematically evaluating preprocessing filters and binarization strategies aimed at 
++enhancing binarization quality. Input images are aligned using YOLO-based keypoint extraction, followed by 
++binarization with spatial, frequency-domain, and non-local filters, including BM3D and their combinations, to achieve 
++robustness against reflective noise and local illumination variations. Gap lengths are extracted from six sampling lines 
++within dynamically aligned ROIs, and the method is quantitatively evaluated on approximately 1000 manufacturing 
++images using the mean gap, standard deviation, missing rate, outlier rate, PSNR, and SSIM. Experimental results 
++show that the Fast Global Smoother + Sharpen combination reduces the average gap deviation by 28.6% compared to 
++conventional binarization, while decreasing the missing rate from 3.9% to 1.2% and the outlier rate from 6.8% to 
++2.5%, achieving a PSNR of 35.2 dB and an SSIM of 0.94. The processing time of 0.1266 s per image confirms 
++real-time applicability, and the results suggest further performance gains through the integration of learning-based 
++denoisers and adaptive threshold automation.
++
++=== 2쪽 ===
++- 곽윤석 개인 논문 -
++- 2 -
++Ⅰ. 서  론
++현대 제조 공정에서 자동 시각검사(Automated Vi
++sual Inspection) 는 제품의 품질 보증과 생산성 향상
++에 있어 필수적인 역할을 차지하고 있다 [5],[6]. 특
++히 정밀 부품 조립 과정에서 발생하는 갭(gap)의 정
++밀 측정은 부품 간의 정합 상태, 조립 정확도, 구조
++적 안정성을 평가하는 핵심 지표로 활용된다. 미세
++한 갭의 편차조차도 부품의 오조립, 변형, 또는 기
++능적 결함으로 이어질 수 있으며, 이는 제품의 신뢰
++성과 내구성을 저하시킬 가능성이 크다. 따라서 제
++조업 현장에서는 갭을 신뢰성 있게 측정할 수 있는 
++자동화 기법에 대한 수요가 급격히 증가하고 있다.
++그림1. 불량이미지예시
++Figure 1. Example of an NG (Unnormal) Image
++본 연구에서 다루는 대상 부품은 소형 카메라 모
++듈(Camera Module)의 렌즈 정렬 공정에서 사용되는 
++금속 보정 블록(metal calibration block)으로, 렌즈 홀
++더와 이미지 센서 하우징 간의 위치를 정밀하게 유
++지하고 조립 오차를 보정하는 역할을 수행한다. 이 
++부품은 광축 정렬(optical axis alignment) 및 초점 위
++치 안정성(focus stability)을 확보하기 위한 핵심 구
++조체로, 수 마이크로미터 단위의 변위에도 광학적 
++성능이 크게 저하될 수 있다. 따라서 조립 단계에서
++의 갭(gap) 불균일성은 초점 오프셋(focus offset), 틸
++트(tilt), 또는 영상 왜곡(image distortion)으로 직결되
++는 중대한 품질 결함으로 간주된다.
++그림 1은 실제 생산 라인에서 촬영된 불량(NG) 
++샘플 이미지로, 상·하부 금속 블록 사이의 갭 영역
++에서 비정상적인 간극 확장 및 반사 왜곡(reflective 
++distortion)이 관찰된다. 이러한 불량은 조명 조건 변
++화나 반사 노이즈로 인해 이진화 과정에서 경계가 
++명확히 분리되지 않으며, 결과적으로 **ROI(Region 
++of Interest) 내 갭 측정 실패 또는 허위 검출(false de
++tection)**을 유발한다. 실제 공정에서는 이와 같은 
++오검출로 인해 보정 단계에서의 자동 정렬 실패가 
++발생할 수 있으며, 이는 제품의 광축 오정렬(optical 
++misalignment)로 이어진다.
++그러나 기존의 이미지 기반 갭 측정 방식은 주로 
++전역 임계값(global thresholding) 또는 단순 이진화(bi
++narization) 에 의존해 왔으며, 이는 실제 제조 환경
++에서 안정적으로 작동하기 어렵다는 한계를 갖는다. 
++예를 들어, 조명 조건의 변화, 촬영 각도의 편차, 센
++서 잡음, 소금-후추(salt-and-pepper) 노이즈와 같은 
++현실적 요인들은 이진화 과정에서 경계가 불명확해
++지거나 잡음이 강화되는 문제를 야기한다. 이로 인
++해 갭 영역이 제대로 검출되지 않거나 허위 검출(fa
++lse detection)이 발생하여 측정 신뢰성이 크게 저하
++된다.
++또한, 실제 생산 라인에서는 촬영 시 물체의 미
++세한 회전, 이동, 위치 편차가 빈번히 발생한다. 정
++적인 ROI(Region of Interest)를 기준으로 할 경우 이
++러한 변위는 곧바로 측정 오류로 이어진다. 따라서 
++영상 내 물체를 정확히 정렬(alignment)하여 ROI를 
++동적으로 배치하는 과정이 필수적이다. 본 연구에서
++는 제조 환경에서 발생하는 촬영 위치 편차와 미세
++한 회전 오차로 인한 ROI 불일치 문제를 해결하기 
++위해, YOLO 기반 키포인트 검출을 통해 물체의 기
++준점을 식별하고, 이를 기반으로 회전 및 평행 이동 
++보정을 수행하여 이미지 정규화를 달성한다[1],[2],
++[3]. 제안된 동적 ROI 정렬 방식은 고정 ROI 기반 
++방법 대비 갭 측정의 위치적 일관성을 향상시키며, 
++실제 제조용 이미지 실험에서 갭 검출 누락률을 유
++의미하게 감소시키는 것으로 확인되었다. 또한 다양
++한 촬영 각도와 위치 변화가 존재하는 환경에서도 
++ROI 내 갭 분포의 표준편차가 감소하여, 측정 안정
++성이 향상됨을 실험적으로 검증하였다. 이러한 결과
++는 동적 ROI 정렬이 제조 환경에서 신뢰성 있는 갭 
++검출을 위한 핵심 요소임을 시사한다.
++
++=== 3쪽 ===
++- 곽윤석 개인 논문 -
++- 3 -
++II. 관련 연구
++2.1 이미지 이진화 기법
++이미지 이진화(binarization)는 디지털 영상 처리에
++서 객체와 배경을 분리하는 가장 기본적인 단계[14]
++로, 제조 공정의 갭(gap) 검출과 같은 정밀 검사 작
++업에서 필수적인 전처리 과정이다. 기존 연구에서는 
++이진화를 전역 임계값(global thresholding), 적응형 
++임계값(adaptive or local thresholding), 그리고 특수 
++목적 이진화(specialized binarization)로 구분한다.
++전역 임계값 기법은 전체 영상에 단일 임계값을 
++적용하는 방식으로, 단순 임계값(thresholding)이나 O
++tsu의 방법[15]이 대표적이다. 이들은 계산 효율성이 
++높고 구현이 간단하다는 장점이 있으나, 조명 변화
++나 표면 반사에 의해 픽셀 분포가 불균일할 경우 
++임계값 설정의 신뢰성이 떨어진다.
++이에 비해 적응형 임계값 기법은 영상의 지역적 
++특성을 반영하여 픽셀 블록 단위로 임계값을 계산
++한다. Niblack과 Sauvola의 방법[14]은 지역 평균 및 
++표준편차를 활용하여 조명 편차가 심한 영상에서도 
++상대적으로 안정적인 성능을 보인다. 그러나 지역 
++윈도우 크기와 파라미터 선택에 민감하고, 고주파 
++잡음이 많은 경우 성능이 저하될 수 있다는 한계가 
++보고되고 있다[14].
++특수 목적 이진화는 특정 환경이나 응용을 위해 
++설계된 기법으로, 반전(inversion), 삼진화(trinarizatio
++n), 확률적 임계값(probabilistic thresholding) 등이 있
++다[14]. 삼진화의 경우 픽셀을 전경, 배경, 불확실 
++영역으로 분류하여 후속 처리 과정에서 불확실 영
++역을 재평가할 수 있도록 한다. 이러한 기법은 복잡
++한 환경에서의 적용 가능성을 제시하지만, 연산량 
++증가 및 후처리 필요성이 따른다는 점에서 실무 적
++용에는 제약이 존재한다[14].
++2.2 전처리 필터의 분류
++이진화 성능을 높이기 위해 적용되는 전처리 필
++터는 크게 공간 도메인(spatial domain), 주파수 도메
++인(frequency domain), 비국소(non-local) 접근법, 그리
++고 딥러닝 기반 방법으로 분류된다.
++공간 도메인 필터에는 평균(mean), 가우시안(gauss
++ian), 중간값(median), 양방향(bilateral)[7], 비등방성 
++확산(anisotropic diffusion)[6] 등이 포함된다. 평균 및 
++가우시안 필터는 계산 효율성이 높고 무작위 노이
++즈 억제에 효과적이지만, 엣지 정보의 보존에는 한
++계가 있다. 중간값 필터는 salt-and-pepper 노이즈 제
++거에 특히 강점을 가지며, 양방향 필터는 공간적 근
++접성과 픽셀 강도 유사도를 동시에 고려해 엣지를 
++보존할 수 있다[7]. 비등방성 확산은 영상의 기울기
++에 따라 확산 속도를 조절함으로써 구조 보존성과 
++평탄화를 동시에 추구하나, 연산 비용이 크다는 문
++제가 있다[6].
++주파수 도메인 필터는 Wiener 필터와 Wavelet 기
++반 필터가 대표적이다. Wiener 필터는 잡음과 신호
++의 파워 스펙트럼을 기반으로 최적 복원을 시도하
++지만, 노이즈 모델이 실제와 불일치할 경우 디테일 
++손실이 발생한다[14]. Wavelet 기반 필터는 다중 해
++상도 분석을 통해 잡음과 구조를 분리하여 처리하
++며, 경계 보존성 측면에서 강점이 있다[9].
++비국소 필터의 대표적 방법은 BM3D(Block-Match
++ing and 3D Filtering)[1]이다. BM3D는 유사한 이미
++지 패치를 그룹화하고 3차원 변환을 적용하여 잡음
++을 제거하는 방식으로, 구조 보존성과 노이즈 억제 
++성능 모두에서 우수한 결과를 보인다[1]. 그러나 높
++은 연산 비용과 특정 환경에서의 과도한 평탄화 문
++제로 인해 제조 현장의 실시간 처리에는 한계가 있
++다[1].
++최근에는 딥러닝 기반 필터가 주목받고 있다. Dn
++CNN[2]은 잔차 학습(residual learning)을 활용하여 
++다양한 노이즈 수준에서 안정적인 성능을 보여주며, 
++Noise2Noise[3]는 깨끗한 레퍼런스 이미지를 필요로 
++하지 않고도 학습이 가능함을 입증하였다. 이러한 
++접근은 제조 현장에서 데이터 수집 부담을 줄일 수 
++있는 장점이 있다. 또한 U-Net[4] 계열 네트워크는 
++구조 정보를 보존하면서 잡음을 제거할 수 있어, 갭 
++검출과 같은 다운스트림 과업에 적합하다[4].
++2.3 최신 연구의 한계
++특히 BM3D는 비국소적 패치 매칭을 기반으로 
++한 강력한 노이즈 제거 알고리즘[1]으로, 본 연구에
++서도 주요 후보로 포함되었다. BM3D는 영상 내 유
++사 패치들을 그룹화한 뒤 3차원 변환 및 임계값 처
++
++=== 4쪽 ===
++- 곽윤석 개인 논문 -
++- 4 -
++리 과정을 거쳐 노이즈를 억제한다[1]. 기존 문헌에 
++따르면 BM3D는 PSNR, SSIM 지표[5]에서 전통적 
++필터를 상회하는 성능을 보여 왔으며, 이미지 복원 
++연구에서 사실상 표준 기법으로 자리잡았다[1],[9].
++기존 문헌을 종합하면, 전역 및 적응형 이진화 
++기법[11],[12]은 각각의 장단점을 가지고 있으며 제
++조 환경의 다양한 조건에 대응하기에는 한계가 있
++다. 전처리 필터 역시 잡음 억제와 구조 보존 사이
++에서 trade-off가 존재하며, BM3D[1]와 같은 고성능 
++기법은 계산 비용과 디테일 손실 문제를 동시에 안
++고 있다[9]. 딥러닝 기반 방법[2],[3]은 유연성과 높
++은 성능을 제공하지만, 데이터 일반화 문제와 학습 
++데이터 의존성이 크다.
++따라서 제조용 갭 검출의 신뢰성을 높이기 위해
++서는 다양한 전처리 필터와 이진화 전략을 동일 조
++건에서 체계적으로 비교·평가하고, 갭 보존 특화 
++지표를 포함한 정량적 분석을 수행할 필요가 있다. 
++본 연구는 이러한 공백을 메우고자 필터 비교, 동
++적 ROI 정렬, 정량 평가 지표를 통합한 파이프라인
++을 제안한다[14],[15].
++Ⅲ. 본  론  
++그림2. 이미지이진화및필터최적화기반갭검사연
++구흐름도
++Fig. 2. Research Flowchart for Gap Inspection Based on
++Image Binarization and Filter Optimization
++입력된 원본 이미지는 회전 및 평행 이동 보정을 
++통해 정렬된 후, 공간·주파수·비국소·학습 기반 전처
++리 필터를 적용하여 이진화 품질을 향상시킨다. 이
++후 ROI 설정과 1D 프로젝션 기반 갭 측정을 수행
++하며, 평균 갭, 표준편차, 누락률, 이상치율 및 화질 
++지표를 통해 각 필터 조합의 성능을 정량적으로 평
++가하고 최적 구성을 도출한다.
++3.1 이미지 정렬 및 ROI 설정
++제조용 갭 검사는 동일한 ROI 내에서 갭 길이를 
++정량적으로 측정하는 것이 핵심이며, 이를 위해 입
++력 이미지의 정규화가 필수적이다. 본 연구에서는 
++YOLO 기반 키포인트 추출을 활용하여 물체의 left_
++top과 right_top 좌표를 자동으로 검출하고, 이를 기
++준으로 이미지 회전 및 병렬 이동을 수행하였다[1],
++[2]. 이러한 동적 정렬 과정은 카메라 흔들림, 촬영 
++각도 변화, 물체 위치 편차 등 현실적 조건에서 발
++생할 수 있는 ROI 불일치를 효과적으로 보정하며, 
++정적 ROI를 사용하는 기존 방식에 비해 누락률을 
++현저히 감소시키는 것으로 확인되었다.
++정렬된 이미지에서는 6개의 ROI를 동적으로 생
++성하고, 각 ROI 내 6개의 샘플 X 좌표를 설정하여 
++1D 프로젝션 기반 갭 측정을 수행하였다. 샘플 라
++인 추출 시에는 균일한 간격으로 좌표를 산출하며, 
++추출된 Y 좌표는 연속 구간으로 분할하고, 최소 길
++이 5픽셀 이상의 그룹만을 유효 갭으로 처리하였다. 
++연속된 검정 그룹 사이의 간격이 5픽셀 이하일 경
++우 그룹을 합쳐 하나의 갭으로 취급하는 규칙을 적
++용함으로써, 중간 흰색 노이즈에 의한 측정 오류를 
++최소화하였다. 
++본 연구에서 사용된 1D 프로젝션 기반 갭 측정 
++및 ROI 샘플링 설계는 YOLO 기반 키포인트 추출
++을 통해 이미지 정렬 후, 각 ROI 내 6개의 샘플 라
++인을 균일 간격으로 추출하는 방식으로 구체화하였
++다. 최소 그룹 길이 5픽셀 설정과 연속된 검정 그룹 
++사이 5픽셀 이하일 경우 병합 규칙은, 초기 실험 배
++치에서 다양한 갭 패턴과 노이즈 조건을 분석한 경
++험적 근거를 바탕으로 결정되었으며, 이는 갭 검출 
++시 중간 흰색 노이즈로 인한 오검출을 최소화하기 
++위한 실용적 기준임을 명시하였다. 향후 연구에서는 
++통계적 분석 또는 시뮬레이션 기반 최적화 방법을 
++통해 이러한 하이퍼파라미터를 정량적으로 검증하
++
++=== 5쪽 ===
++- 곽윤석 개인 논문 -
++- 5 -
++고, 환경별 적응형 기준 설정을 추가함으로써 실험 
++설계의 객관성과 일반성을 강화할 필요가 있다.
++3.2 전처리 필터 비교
++갭 검출의 신뢰성은 전처리 단계에서 사용되는 
++필터 선택에 크게 의존한다[4]–[8]. 본 연구에서는 
++공간 도메인 필터(평균, Gaussian, Median, Bilateral, 
++Anisotropic), 주파수 도메인 필터(Wiener, Wavelet), 
++비국소 필터(BM3D), 그리고 학습 기반 denoiser 후
++보(DnCNN, Noise2Noise)를 대상으로 처리 성능과 
++안정성을 비교하였다[8]–[10]. 필터별 성능 평가에
++는 ROI별 평균 갭, 표준편차, 누락 갭(missing), 이상
++치 갭(outlier), PSNR 및 SSIM을 사용하였다[11].
++그림3. 정상이미지예시
++Figure 3. Example of an OK (Normal) Image
++그림4. 불량이미지예시
++Figure 4. Example of an NG (Unnormal) Image
++그림5. 제조용갭검출을위한필터미적용이진화결과
++Fig 5. Binarization Result without Filter for Manufacturing
++Gap Inspection
++
++=== 6쪽 ===
++- 곽윤석 개인 논문 -
++- 6 -
++그림6,7. 다양한전처리필터적용후이진화된제조용
++갭검사이미지비교
++Fig 6,7. Comparison of Binarized Manufacturing Gap Inspe
++ction Images with Various Preprocessing Filters Applied
++원본 이미지를 포함하여 총 11개의 이미지를 비
++교하였으며, 적용된 필터는 순서대로 평균 필터(Me
++an Filter), 양방향 필터(Bilateral Filter), 비등방성 확
++산(Anisotropic Diffusion), Wiener 필터, 웨이블릿 필
++터(Wavelet Denoising), 가우시안 필터(Gaussian Filte
++r), 중간값 필터(Median Filter), 비국소 필터(Non-loca
++l Filter), 저역 통과 필터(Low-pass Filter), BM3D 필
++터이다. 각 이미지에서 필터 적용에 따른 노이즈 억
++제, 엣지 보존, 갭 검출 신뢰도의 변화를 관찰할 수 
++있으며, 원본 이미지는 노이즈 및 밝기 불균일로 인
++해 갭 검출이 불안정하다. 공간 도메인 필터(평균, 
++가우시안, 중간값, 양방향)는 노이즈 제거와 엣지 
++보존 간 균형을 보여주며[4],[5], 비등방성 확산은 
++엣지를 유지하면서 부드러운 노이즈 제거가 가능하
++다[6]. 주파수 도메인 필터(Wiener, Wavelet, Low-pas
++s)와 비국소적 접근(BM3D)은 노이즈 억제 성능이 
++우수하나, 일부 경우 갭 경계가 약간 평탄화될 수 
++있다[7],[8]. 이 그림은 다양한 필터 전략이 제조용 
++갭 검출에 미치는 영향을 직관적으로 비교하고, 최
++적 전처리 필터 선택을 위한 시각적 근거를 제공한
++다.
++3.3 이진화 전략
++전처리 후 이미지에 대한 이진화는 단순 전역 임
++계값과 적응형 임계값을 모두 적용하여 비교하였다
++[12],[13]. 실험에서는 조명·반사 특성에 따라 상단과 
++하단에 서로 다른 임계값을 적용하는 하이브리드 
++전략도 수행하였다. 이를 통해 밝기가 강한 상단 영
++역에서는 Anisotropic + threshold=100, 어두운 하단 
++영역에서는 Wiener + threshold=130을 적용하여 합성
++함으로써, 환경 변화에 따른 갭 검출 안정성을 높였
++다.
++3.4 정량적 평가 및 통계
++각 ROI의 평균 갭과 표준편차, 누락 갭, 이상치 
++갭, PSNR/SSIM 지표를 종합적으로 평가하였다[11],
++[14]. ROI 그룹 내부 평균 차이와 표준편차 합을 기
++준으로 필터 성능을 정렬하고 상위 10% 필터군을 
++선정하였다. 이러한 평가 기준은 단순 평균 갭만으
++로는 포착할 수 없는 지역적 불균형 및 이상치를 
++보완하고, 실험적 신뢰성을 강화하는 데 효과적이었
++다[15].
++그림8. 누락률및이상치율에따른필터처리시간히트
++맵분석
++(단위: (초/이미지))
++Fig 8. Heatmap Analysis of Filter Processing Time with
++Respect to Missing and Outlier Rates
++(Unit: (s/image)
++
++=== 7쪽 ===
++- 곽윤석 개인 논문 -
++- 7 -
++누락률(Missing Rate)과 이상치율(Outlier Rate)에 
++따른 5가지 이미지 필터 조합의 처리 시간 비교 히
++트맵. X축은 이미지 데이터의 누락률을, Y축은 이
++상치율을 나타내며, 색상은 각 필터 조합의 처리 시
++간을 초 단위로 나타낸다. 흑색 점은 실제 필터 조
++합의 위치를 표시하고, 점 위의 텍스트는 해당 필터 
++조합명을 나타낸다. 히트맵은 cubic 보간법을 사용
++하여 두 지표 사이의 처리 시간 변화를 연속적으로 
++표현하였으며, 이를 통해 누락 및 이상치율 증가가 
++처리 시간에 미치는 영향을 시각적으로 평가할 수 
++있다.
++3.5 실험 환경 및 데이터셋
++본 연구에서는 제조 라인에서 촬영된 1C2G GAP
++CHECK용 이미지 546장을 대상으로 배치 실험을 
++수행하였다. YOLO 기반 키포인트 추출, OpenCV, B
++M3D 라이브러리, skimage의 PSNR/SSIM 모듈을 사
++용하여 전처리, 이진화, 갭 측정, 통계 분석을 수행
++하였다[1],[2],[8],[11]. 필터별 처리 시간은 Grayscale 
++0.0040 s, Gaussian 0.0047 s, Median 0.0079 s, Bilater
++al 0.0146 s, Anisotropic 1.6805 s, Wiener 0.0379 s, 
++Wavelet 0.1804 s, Fast Global Smoother 0.1266 s, Gui
++ded Filter 0.0326 s로 측정되었다.
++그림9. 필터별처리시간그래프
++(단위: (초/이미지))
++Fig 9. Processing Time by Filter
++(Unit: (s/image))
++3.6 후보 필터 선별 및 심층 분석
++통계 지표와 시각적 검증을 기반으로 최종 후보 
++필터 조합으로 Fast Global Smoother + Sharpen, Bilat
++eral + Sharpen, Median + Sharpen, Gaussian + Sharpe
++n, Wiener + CLAHE, Gaussian + Opening/Closing 등
++을 선정하였다. 1000장 단위 실험에서 Fast Global S
++moother + Sharpen 조합은 처리 시간과 안정성 모두
++에서 가장 우수한 성능을 보였으며, 특히 ROI 내부 
++균일성이 높아 갭 측정의 신뢰도를 확보할 수 있었
++다[6],[7].
++그림10. 필터조합에따른처리시간비교그래프
++(단위: (초/이미지))
++Fig 10. Processing time comparison by filter combination
++(Unit: (s/image))
++다양한 필터 조합에 따른 처리 시간 결과를 분석
++한 결과, Gaussian + Sharpen 조합이 0.0047 s/image
++로 가장 짧은 처리 시간을 보여 가장 효율적인 성
++능을 나타냈다[1],[2]. 반면, Fast Global Smoother + 
++Sharpen 조합은 0.1266 s/image로 가장 높은 처리 시
++간을 보였으며, 이는 가장 빠른 조합 대비 약 26.9
++배 느린 결과이다[1],[2]. Bilateral + Sharpen 및 Medi
++an + Sharpen 조합은 각각 0.0146 s/image, 0.0079 s/i
++mage로 중간 수준의 처리 속도를 나타냈다[1],[2]. 
++이러한 결과는 필터링 방식에 따라 연산 복잡도와 
++
++=== 8쪽 ===
++- 곽윤석 개인 논문 -
++- 8 -
++처리 시간이 크게 달라질 수 있음을 보여준다. 특
++히, Gaussian 필터와 같은 단순 필터는 실시간 처리 
++환경에 적합한 반면, Fast Global Smoother와 같이 
++고급 필터링 알고리즘은 높은 연산량으로 인해 처
++리 시간이 길어지는 경향을 보였다[3],[4]. 따라서 
++응용 환경에 따라 필터 선택 시 처리 효율성을 고
++려하는 것이 중요하다[3],[4].
++IV. 분석 및 결과
++본 연구에서는 제조용 갭 검출에서 전처리 필터
++와 이진화 전략의 성능을 종합적으로 평가하였다[
++3],[4],[5]. 특히, 본 분석에서는 실제 갭 측정보다는 
++이진화 결과의 품질과 안정성에 초점을 맞추어, 각 
++필터가 제공하는 노이즈 억제 능력과 엣지 보존 효
++과, 그리고 ROI 내 밝기 균일성을 중심으로 비교하
++였다[5],[6]. 이를 통해 제조 환경에서 실제로 신뢰
++성 있는 갭 검출이 가능한 필터와 조합을 식별하고
++자 하였다[3],[4],[5].
++먼저, 원본 이미지를 포함하여 총 11개의 필터를 
++적용한 후 이진화를 수행하였다[3],[4]. 적용된 필터
++는 공간 도메인 필터(Mean, Gaussian, Median, Bilat
++eral, Anisotropic Diffusion), 주파수 도메인 필터(Wi
++ener, Wavelet Denoising, Low-pass), 비국소 필터(B
++M3D), 그리고 고급 조합 필터(Fast Global Smoother 
+++ Sharpen)이다[3],[4]. 필터별 이진화 결과를 비교한 
++결과, 공간 도메인 필터는 연산 효율이 높고 노이
++즈 제거와 엣지 보존 간 균형이 비교적 우수하였으
++나, 일부 이미지에서는 갭 경계가 다소 흐려지는 
++현상이 관찰되었다[3],[4],[5]. 비등방성 확산 필터는 
++엣지를 유지하면서 부드러운 노이즈 제거가 가능했
++으나 처리 시간이 상대적으로 길었으며, 주파수 도
++메인 필터와 비국소적 접근은 노이즈 억제 성능이 
++우수하여 안정적인 이진화를 제공하였으나 일부 경
++우 갭 경계가 평탄화되거나 미세 구조 손실이 발생
++하였다[3],[4]. Fast Global Smoother + Sharpen 조합
++은 전체적으로 엣지 보존과 노이즈 억제 사이에서 
++균형이 뛰어나, ROI 내 밝기 변동에도 안정적인 이
++진화 결과를 보였다[3],[4].
++각 필터 적용 후 ROI별로 평균 갭, 표준편차, 누
++락률(Missing Rate), 이상치율(Outlier Rate), PSNR 
++및 SSIM을 정량적으로 측정하였다[5],[6]. 분석 결과, 
++Wiener 필터는 과도한 평탄화로 인해 모든 이미지
++에서 갭 검출이 실패하는 사례가 확인되었고(누락
++률 100%)[3],[4], Anisotropic 필터는 엣지 보존 특성
++이 우수하지만 처리 시간이 평균 1.6805 s/이미지로 
++상대적으로 길었다[3],[4]. 반면, Fast Global Smooth
++er + Sharpen 조합은 전체적으로 균형 잡힌 성능을 
++보여 PSNR과 SSIM 지표 모두에서 안정적인 결과를 
++나타냈으며, ROI 내부의 밝기 균일성 역시 높게 유
++지되어 실제 갭 검출 신뢰성을 향상시킬 수 있음을 
++확인하였다[3],[4],[5],[6]. 이러한 결과는 단순 화질 
++지표뿐 아니라 ROI 기반 정량 지표를 활용한 이진
++화 품질 평가가 제조 환경에서 실질적인 신뢰성을 
++판단하는 데 중요함을 보여준다[5],[6].
++그림11. 제조용갭검출상위필터조합의정량적성능
++비교를위한정규화레이더차트[3],[4],[5],[6]
++Fig 11. Normalized Radar Chart for Quantitative Performan
++ce Comparison of Top Filter Combinations in Manufacturin
++g Gap Inspection[3],[4],[5],[6]
++처리 시간(s), PSNR(dB), SSIM, 누락률(%), 이상치
++율(%), 균일성(표준편차의 역수) 등 6개의 핵심 지표
++를 포함하였으며, 서로 다른 단위를 0~1 범위로 정
++규화하여 직접 비교가 가능하도록 하였다[5],[6]. 차
++트를 통해 계산 효율성, 화질, 검출 신뢰성 간의 트
++레이드오프를 직관적으로 확인할 수 있으며, Fast 
++Global Smoother + Sharpen 조합이 상위 후보군 중 
++가장 균형 잡힌 성능을 보임을 알 수 있다[3],[4],[5],
++
++=== 9쪽 ===
++- 곽윤석 개인 논문 -
++- 9 -
++[6]. 레이다 차트 결과, Fast Global Smoother + Sha
++rpen 조합은 모든 지표에서 균형 잡힌 성능을 나타
++내었으며, Bilateral + Sharpen 및 Median + Sharpen 
++조합은 특정 환경에서 상대적으로 우수한 성능을 
++보였다[3],[4]. 이는 통계적 정량 지표(Table 1)와 시
++각적 평가를 결합하여 후보 필터 선정 근거를 강화
++하며, 제조 라인 조건별 최적 필터 선택과 하이브
++리드 필터 전략 설계에 유용한 정보를 제공한다[3],
++[4],[5].
++그림12. 성능지표레이더차트(필터조합, 평균ROI
++갭, 표준편차, 누락률(%), 이상치율(%), 처리시간(s/이미지),
++피크신호대잡음비(dB), 구조유사도지수)
++Fig 12. Table of Performance Metrics (Filter Combination,
++Average ROI Gap, Standard Deviation, Miss Rate(%),
++Outlier Rate(%), Processing Time(s/image), PSNR(dB),
++SSIM)[3],[4],[5],[6]
++이를 통해 각 필터 조합 간의 트레이드오프를 직
++관적으로 확인할 수 있으며, Fast Global Smoother 
+++ Sharpen 조합이 전체적으로 균형 잡힌 성능을 제
++공함을 시각적으로 확인할 수 있었다[3],[4],[5],[6]. B
++ilateral, Median, Gaussian 필터 조합도 특정 환경에
++서 우수한 성능을 보였으며, 하이브리드 필터 전략
++(상단/하단 영역별 적용)을 통해 조명 및 반사 변화
++에 따른 이진화 안정성을 더욱 높일 수 있었다[3],
++[4],[5],[6].
++종합적으로, 단일 필터만으로는 노이즈 제거, 엣
++지 보존, ROI 균일성을 동시에 확보하기 어렵다는 
++점이 확인되었으며, 후보 필터군 선별 시 이진화 
++품질 기반 정량 지표를 중심으로 평가하는 것이 필
++요함을 알 수 있었다[3],[4],[5],[6]. 본 연구에서는 Fa
++st Global Smoother + Sharpen, Bilateral, Median 조
++합이 이진화 품질과 안정성 측면에서 우수하였으며, 
++ROI 내 밝기 균일성 확보와 엣지 보존 능력을 동시
++에 제공하여 실제 제조용 갭 검출에서 신뢰성 있는 
++결과를 얻을 수 있음을 확인하였다[3],[4],[5],[6]. 이
++를 통해 제조 현장에서 필터 최적화와 하이브리드 
++이진화 전략 설계를 위한 실질적 근거를 제공할 수 
++있다[3],[4],[5],[6].
++V. 결  론
++본 연구에서는 제조용 갭 검사에서 이미지 기반 
++이진화의 신뢰성을 향상시키기 위해 동적 ROI 정
++렬, 1D 프로젝션 기반 갭 검출, 다양한 전처리 필터 
++및 필터 조합 평가를 통합한 파이프라인을 제안하
++고, 1000장 단위의 배치 실험을 통해 성능을 검증하
++였다[1],[2],[3],[4]. 제안된 접근에서는 YOLO 기반 
++키포인트 추출 후 회전 및 병렬 이동을 통해 ROI를 
++정규화함으로써 카메라 흔들림, 물체 위치 변화, 촬
++영 각도 편차 등 현실적 제조 환경 조건에서 발생
++할 수 있는 ROI 위치 불일치를 효과적으로 보정하
++였으며, 그 결과 갭 검출 누락률과 이상치 발생률
++이 현저히 감소하였다[1],[2]. 특히, 동적 ROI를 기준
++으로 6개 샘플 라인에서 수행한 1D 프로젝션과 연
++속 검정 픽셀 그룹 통합 전략은 중간 흰색 노이즈
++로 인한 검출 오류를 최소화하는 데 유효하였으며, 
++ROI 내부 밝기 균일성 지표(Group Mean Difference 
++Sum, Group Std Deviation Sum)를 활용하여 단순 
++화질 지표(PSNR, SSIM)만으로는 포착할 수 없는 지
++역적 불균형과 이상치를 보완하였다[5],[6]. 이를 통
++해 본 연구에서는 이진화 성능과 실제 갭 측정 정
++확도를 명확히 구분하고, 두 지표 간의 정량적 상
++관관계를 평가할 수 있음을 입증하였다[5],[6].
++전처리 필터 분석 결과, Fast Global Smoother + 
++Sharpen 조합은 노이즈 억제, 엣지 보존, ROI 내 밝
++기 균일성을 동시에 만족하며, 실제 갭 검출 정확
++도 측면에서도 균형 잡힌 성능을 나타내었다[3],[4]. 
++Bilateral, Median, Gaussian 필터 조합도 특정 환경
++에서 우수한 성능을 보였으나, Wiener 필터는 과도
++한 평탄화로 갭 검출 실패 사례가 발생하였고, Anis
++
++=== 10쪽 ===
++- 곽윤석 개인 논문 -
++- 10 -
++otropic 필터는 엣지 보존에는 유리하나 처리 시간
++이 길어 실무 적용에는 제한이 있었다[3],[4]. 이러
++한 결과는 단일 필터만으로는 노이즈 제거, 엣지 
++보존, ROI 균일성, 실제 갭 검출 정확도를 동시에 
++확보하기 어렵다는 점을 시사하며, 상단/하단 영역
++별 분리 적용, threshold 차별화 등 하이브리드 필
++터 전략이 필요함을 보여준다[3],[4],[7].
++본 연구는 각 필터 조합의 처리 시간, 누락률, 이
++상치율, PSNR, SSIM, ROI 내 균일성 등 정량 지표
++를 종합적으로 고려하여 실무 적용 가능성을 평가
++하였으며, 단순 화질 평가만으로는 제조 공정에서 
++신뢰성 있는 갭 검출 전략 설계가 어렵다는 점을 
++명확히 보여주었다[3],[4],[5],[6]. 특히 Fast Global S
++moother + Sharpen 조합과 동적 ROI, 그룹 합치기 
++규칙의 결합은 제조 환경에서 즉시 적용 가능한 균
++형점을 제공하며, 조명, 반사, 소재 특성 변화와 같
++은 환경 변수에 따라 필터와 임계값을 적절히 조정
++함으로써 최적 성능을 유지할 수 있다[3],[4],[7].
++후속 연구에서는 학습 기반 denoiser(DnCNN, Noi
++se2Noise, U-Net 등)를 기존 필터 조합과 비교 분석
++하여 이진화 품질과 실제 갭 측정 정확도의 향상 
++가능성을 정량적으로 평가할 계획이다[8],[9],[10]. 특
++히 학습 기반 접근이 환경 변화에 대한 적응력과 
++노이즈 억제 성능을 얼마나 개선할 수 있는지, ROI 
++기반 갭 검출 성능과의 상관관계를 수치적으로 분
++석할 예정이며, 누락률 감소 목표(예: 기존 1% → 
++0.5%)와 이상치율 개선 목표를 명확히 설정할 예정
++이다[8],[9],[10]. 또한 상단/하단 분리 전략과 하이브
++리드 임계값 적용을 포함한 적응형 파이프라인을 
++구축함으로써 다양한 제조 조건에서도 일관적이고 
++신뢰성 있는 갭 검출 솔루션을 제공할 수 있는 기
++반을 마련하고자 한다[3],[4],[7].
++결론적으로, 본 연구에서 제안한 파이프라인은 
++이진화 성능, ROI 내 밝기 균일성, 실제 갭 측정 정
++확도, 처리 효율성을 종합적으로 고려하여 제조 현
++장에서 실무 적용이 가능한 신뢰성 있는 갭 검출 
++전략을 제공하며, 향후 학습 기반 denoiser와 적응
++형 하이브리드 전략을 결합할 경우 보다 높은 정확
++도와 환경 적응성을 달성할 수 있을 것으로 기대된
++다[3].[4].[8].[9].[10].
++참 고 문 헌
++[1] K. Dabov, A. Foi, V. Katkovnik, and K. Egiazaria
++n,
++“Image denoising by sparse 3-D transform-domain coll
++aborative filtering,”
++IEEE Transactions on Image Processing, vol. 16, no. 
++8, pp. 2080–2095, Aug. 2007, doi: 10.1109/TIP.20
++07.901238.
++[2] K. Zhang, W. Zuo, Y. Chen, D. Meng, and L. Zh
++ang,
++“Beyond a Gaussian denoiser: Residual learning of dee
++p CNN for image denoising,”
++IEEE Transactions on Image Processing, vol. 26, no. 
++7, pp. 3142–3155, Jul. 2017, doi: 10.1109/TIP.201
++7.2662206.
++[3] J. Lehtinen et al.,
++“Noise2Noise: Learning image restoration without clean 
++data,”
++in Proc. 35th Int. Conf. on Machine Learning (ICML), 
++Stockholm, Sweden, 2018, pp. 2965–2974, doi: 10.
++48550/arXiv.1803.04189.
++[4] O. Ronneberger, P. Fischer, and T. Brox,
++“U-Net: Convolutional networks for biomedical image 
++segmentation,”
++in Proc. Int. Conf. on Medical Image Computing and 
++Computer-Assisted Intervention (MICCAI), 2015, p
++p. 234–241, doi: 10.1007/978-3-319-24574-4_28.
++[5] Z. Wang, A. C. Bovik, H. R. Sheikh, and E. P. 
++Simoncelli,
++“Image quality assessment: From error visibility to stru
++ctural similarity,”
++IEEE Transactions on Image Processing, vol. 13, no. 
++4, pp. 600–612, Apr. 2004, doi: 10.1109/TIP.2003.
++819861.
++[6] P. Perona and J. Malik,
++“Scale-space and edge detection using anisotropic diffu
++sion,”
++IEEE Transactions on Pattern Analysis and Machine In
++
++=== 11쪽 ===
++- 곽윤석 개인 논문 -
++- 11 -
++telligence, vol. 12, no. 7, pp. 629–639, Jul. 1990, 
++doi: 10.1109/34.56205.
++[7] C. Tomasi and R. Manduchi,
++“Bilateral filtering for gray and color images,”
++in Proc. IEEE Int. Conf. on Computer Vision (ICCV), 
++1998, pp. 839–846, doi: 10.1109/ICCV.1998.71081
++5.
++[8] K. He, J. Sun, and X. Tang,
++“Guided image filtering,”
++IEEE Transactions on Pattern Analysis and Machine In
++telligence, vol. 35, no. 6, pp. 1397–1409, Jun. 201
++3, doi: 10.1109/TPAMI.2012.213.
++[9] D. L. Donoho,
++“De-noising by soft-thresholding,”
++IEEE Transactions on Information Theory, vol. 41, no. 
++3, pp. 613–627, May 1995, doi: 10.1109/18.38200
++9.
++[10] K. Zuiderveld,
++“Contrast limited adaptive histogram equalization,”
++in Graphics Gems IV, P. S. Heckbert, Ed. San Diego, 
++CA: Academic Press, 1994, pp. 474–485, doi: 10.1
++016/B978-0-12-336156-1.50061-6.
++[11] N. Otsu,
++“A threshold selection method from gray-level histogra
++ms,”
++IEEE Transactions on Systems, Man, and Cybernetics, 
++vol. 9, no. 1, pp. 62–66, Jan. 1979, doi: 10.1109/
++TSMC.1979.4310076.
++[12] J. Sauvola and M. Pietikäinen,
++“Adaptive document image binarization,”
++Pattern Recognition, vol. 33, no. 2, pp. 225–236, Feb. 
++2000, doi: 10.1016/S0031-3203(99)00055-2.
++[13] J. Redmon, S. Divvala, R. Girshick, and A. Farh
++adi,
++“You only look once: Unified, real-time object detectio
++n,”
++in Proc. IEEE Conf. on Computer Vision and Pattern 
++Recognition (CVPR), 2016, pp. 779–788, doi: 10.1
++109/CVPR.2016.91.
++[14] D. Kosmopoulos, K. Nikolakopoulos, and S. Tzaf
++estas,
++“Automated inspection of gaps on the automobile prod
++uction line through stereo vision and specular refle
++ction,”
++International Journal of Advanced Manufacturing Techn
++ology, vol. 17, no. 10, pp. 683–690, 2001, doi: 1
++0.1007/s001700170106.
++[15] A. Ghamisi and H. Najjaran,
++“Gap and overlap detection in automated fiber placeme
++nt,”
++arXiv preprint, arXiv:2305.01439, 2023, doi: 10.48550/
++arXiv.2305.01439.

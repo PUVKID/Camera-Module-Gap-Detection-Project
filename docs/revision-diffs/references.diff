@@ -1,0 +1,3039 @@
+# 비교 대상 없음 -> 이진화 연구노트·외부 참고논문
+# 공백·주석·개행을 무시하지 않습니다. PDF 추출 텍스트는 배치·글꼴 비교를 대신하지 않습니다. 바이너리는 크기·SHA-256으로 비교합니다. ipynb의 바이너리 이미지 출력만 크기·SHA·원문 링크로 표시하며 코드·Markdown·수치·설정·그 밖의 JSON 텍스트는 전체 비교합니다.
+# 현재 참고자료/Binarization_연구노트.pdf 15825642 085e7f5224e555aa6e4a2006ed865c695be778f7726442a31882932d7d08fe83
+# 현재 참고자료/electronics-14-03455.pdf 3269089 1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659
+# 현재 참고자료/ATTRIBUTION.md 822 bf9bc7c4357a90fc6f98998dbbfe3d942bed0bb3bc11889b798fa1303d6a2e8b
+--- /dev/null
++++ 참고자료/ATTRIBUTION.md
+@@ -0,0 +1,4 @@
++# 📚 연구노트와 외부 참고논문
++
++- `Binarization_연구노트.pdf`: 원본 프로젝트에 함께 있던 84쪽 이진화·필터·ROI 코드 정리 자료입니다. 문서에 확인되지 않은 작성자를 새로 지정하지 않습니다.
++- `electronics-14-03455.pdf`: Sehun Lee, Taehoon Kim, Sookyun Kim, Junho Ahn, Namgi Kim, “Unsupervised Structural Defect Classification via Real-Time and Noise-Robust Method in Smartphone Small Modules”, Electronics 2025, 14, 3455, [공식 DOI](https://doi.org/10.3390/electronics14173455). 원문1쪽에 저작자 ©2025 및 [CC BY4.0](https://creativecommons.org/licenses/by/4.0/) 배포 표시가 있습니다. 원문과 저작권·라이선스 표기를 그대로 보존했으며 곽윤석님의 단독·공동저자 실적으로 소개하지 않습니다.
+--- /dev/null
++++ 참고자료/Binarization_연구노트.pdf
+@@ -0,0 +1,1713 @@
++=== 1쪽 ===
++Binarization
++2025-02-18
++이진화 방식
++1. 전역 임계값 기반 이진화
++(1) 단순 이진화 (Basic Thresholding)
++한 개의 임계값(threshold)을 기준으로 픽셀을 0(검은색) 또는 255(흰색)으로 변환
++(2) Otsu 이진화 (Otsu’s Binarization)
++이미지 히스토그램 분석을 통해 최적의 임계값을 자동으로 결정,
++전경과 배경이 분명한 이미지에 효과적
++2.  지역(적응형) 임계값 기반 이진화
++(3) 적응형 이진화 (Adaptive Thresholding)
++이미지의 국소적인 영역마다 다른 임계값을 적용,
++조명 변화가 있는 이미지에서 효과적
++3. 기타 특수한 이진화 기법
++(4) 반전 이진화 (Inverse Binarization)
++기본 이진화의 반대: 밝은 부분을 0, 어두운 부분을 255로 변환
++(5) 삼진화 (Trinary Thresholding)
++세 가지 레벨로 픽셀 값을 나누는 방식 (흑, 백, 회색 중간값)
++(6) 적응형 Otsu 이진화 (Adaptive Otsu)
++지역별로 Otsu 이진화를 적용하는 방식
++사용할 필터의 목록
++1. 공간 도메인 필터
++(1) 평균 필터 (Mean Filter)
++주변 픽셀의 평균값을 계산하여 중앙 픽셀을 새로운 값으로 설정하는 방식
++단순하지만 엣지가 흐려지는 단점이 있음
++(2) 가우시안 필터 (Gaussian Filter)
++가우시안 분포를 기반으로 가중치를 적용한 블러링 필터
++평균 필터보다 부드럽고 자연스러운 효과 제공
++Binarization
++1
++
++=== 2쪽 ===
++(3) 중간값 필터 (Median Filter)
++주변 픽셀의 중간값을 중앙 픽셀로 설정
++소금-후추 노이즈(Salt & Pepper Noise) 제거에 효과적
++(4) 양방향 필터 (Bilateral Filter)
++공간 가중치와 픽셀 값 차이에 기반한 가중치를 결합하여 블러 효과 최소화
++엣지를 보존하면서 노이즈 제거 가능
++(5) 비등방성 확산 필터 (Anisotropic Diffusion Filter, Perona-Malik Filter)
++이미지의 경계 부분을 보존하면서 내부 노이즈를 효과적으로 제거하는 방식
++PDE(편미분방정식) 기반의 기법
++(6) 비국소적 평균 필터 (Non-Local Means Filter, NLM)
++유사한 패치를 찾아 평균을 계산하여 노이즈 제거
++자연스러운 결과를 제공하지만 계산량이 많음
++2. 주파수 도메인 필터
++(7) 저주파 필터 (Low-Pass Filter)
++고주파(엣지 및 노이즈)를 제거하고 저주파(부드러운 영역)만 남김
++Fourier Transform을 이용하여 필터링 가능
++(8) 위너 필터 (Wiener Filter)
++신호와 노이즈의 파워 스펙트럼을 분석하여 최적의 필터링 수행
++블러 제거에도 효과적임
++(9) 파동 변환 필터 (Wavelet Transform Denoising)
++이미지 데이터를 다중 해상도로 분석하여 노이즈를 제거하는 방식
++Haar, Daubechies 같은 웨이블렛 기반 필터 사용
++3. 머신러닝 및 신경망 기반 필터
++(10) BM3D (Block-Matching and 3D Filtering)
++비선형 필터링 기법으로, 비슷한 패치를 그룹화하여 3D 변환 후 노이즈 제거
++현재까지도 강력한 노이즈 제거 알고리즘 중 하나
++(11) 딥러닝 기반 필터 (CNN Denoising, DnCNN)
++컨볼루션 신경망(CNN)을 사용하여 노이즈 제거
++데이터 학습을 통해 최적의 필터를 자동 생성
++(12) GAN 기반 필터 (Denoising Autoencoder, Noise2Noise, Noise2Void)
++노이즈가 포함된 이미지를 학습하여 클린 이미지를 복원하는 방식
++지도학습 없이도 강력한 성능을 발휘
++Binarization
++2
++
++=== 3쪽 ===
++진행 방향
++필터 하나, 두개(순서 바꿔서) 를 적용한 이미지에 단순 이진화를 적용시켜서 경계선의 차이를 확인해봄
++2025-02-19
++환경 : 각 필터 적용시키고 단순이진화(임계값 120으로 진행)
++이미지에 필터 없이 이진화 적용
++단일 필터 적용
++Binarization
++3
++
++=== 4쪽 ===
++Binarization
++4
++
++=== 5쪽 ===
++방식 변경:
++필터 적용하고 이진화된 사진 눈으로 보는 방식보다
++먼저 임의의 필터 하나 선정하고 각 위치 갭 측정하는 코드 만들어서 필터마다 갭 측정 후 그 갭의 움직임을 보는 방식
++먼저 픽셀 사이 갭을 측정하는 방식부터 생각!
++방식 1: 1D Projection (가로 또는 세로 방향으로 흰색 픽셀 간 거리 측정)
++ROI 내부의 흰색 픽셀을 가로(X) 방향 또는 세로(Y) 방향으로 투영(Projection)하여 분석.
++np.where() 를 사용해 흰색 픽셀 좌표를 찾고, 픽셀 간 거리를 계산.
++방식 1 ,
++5픽셀 미만은 무시하고 각 6개의 위치에서 검정색 픽셀들을 그룹화함.
++Binarization
++5
++
++=== 6쪽 ===
++그룹이 1개이면 그 검정색 그룹의 최상단점 최하단점 기준 갭 측정
++그룹이 2개 이상이면 최상단 검정 그룹에서의 최상단점 최하단점 기준 갭 측정
++굉장해, 엄청나! 중요한 가정 : 최상단 검정 그룹은 내가 측정하는 그 검정 부분이여야 한다!
++import cv2
++import numpy as np
++import matplotlib.pyplot as plt
++import bm3d
++# 이미지 로드
++image_path = "data/3560_Magnet Check/P001/IV00052/0000/00512_001_OK.jpeg"
++image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
++# BM3D 필터 적용 (노이즈 제거)
++gray = image.astype(np.float32) / 255.0  # BM3D는 float 입력 필요
++bm3d_filtered = bm3d.bm3d(gray, sigma_psd=0.1, stage_arg=bm3d.BM3DStages.HARD_THRES
++HOLDING)
++# 단순 이진화 적용 (Thresholding, 임계값 120)
++threshold_value = 120
++_, binary = cv2.threshold((bm3d_filtered * 255).astype(np.uint8), threshold_value, 255, cv2.THRE
++SH_BINARY)
++# ROI 설정 (고정)
++x, y, w, h = 570, 380, 80, 30  # 원하는 ROI 좌표 (x, y, width, height)
++roi = binary[y:y+h, x:x+w]  # ROI 내부의 이진화된 영역 추출
++# ROI 내부 6개의 위치에서 검정 픽셀 찾기
++num_samples = 6
++step = w // (num_samples + 1)  # 균일한 간격 계산
++sample_x_positions = [x + step * (i + 1) for i in range(num_samples)]  # 6개의 X 좌표 계산
++black_pixel_lengths = []
++for center_x in sample_x_positions:
++    black_pixels_y = np.where(binary[y:y+h, center_x] == 0)[0] + y  # 전체 이미지에서 Y 좌표 반영
++    
++    # 검정색 픽셀 그룹 찾기
++    min_black_length = 5  # 노이즈로 간주할 검정색 길이 기준 (5 픽셀 이하 무시)
++    filtered_black_pixels = []
++    
++    if len(black_pixels_y) > 1:
++        groups = np.split(black_pixels_y, np.where(np.diff(black_pixels_y) > 1)[0] + 1)
++        long_black_groups = [group for group in groups if len(group) > min_black_length]
++        
++        if len(long_black_groups) >= 1:
++            # 가장 위쪽 검정색 그룹을 선택
++            top_black_group = long_black_groups[0]
++Binarization
++6
++
++=== 7쪽 ===
++            start_y = min(top_black_group)  # 해당 그룹에서 가장 위쪽 픽셀
++            end_y = max(top_black_group)  # 해당 그룹에서 가장 아래쪽 픽셀
++            
++            black_pixel_length = end_y - start_y
++            black_pixel_lengths.append((center_x, start_y, end_y, black_pixel_length))
++            print(f"X={center_x}, 검정색 시작점: {start_y}, 끝점: {end_y}, 길이: {black_pixel_length} px")
++# ROI 및 측정된 검정 픽셀 선을 이진화된 이미지에 추가
++binary_colored = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)  # 이진화된 이미지에 색상을 추가할 
++수 있도록 변환
++cv2.rectangle(binary_colored, (x, y), (x+w, y+h), (0, 255, 0), 2)  # ROI 박스 그리기
++# 검출된 6개의 위치에 대해 선을 그리기
++for center_x, start_y, end_y, _ in black_pixel_lengths:
++    cv2.line(binary_colored, (center_x, start_y), (center_x, end_y), (0, 0, 255), 2)  # 검정 픽셀의 시작
++점과 끝점을 잇는 선 그리기
++# 결과 시각화
++fig, axes = plt.subplots(1, 3, figsize=(50, 20))
++axes[0].imshow(image, cmap='gray')
++axes[0].set_title("Original Image")
++axes[0].axis("off")
++axes[1].imshow(bm3d_filtered, cmap='gray')
++axes[1].set_title("BM3D Filter Applied")
++axes[1].axis("off")
++axes[2].imshow(binary_colored)
++axes[2].set_title("Binary with ROI & Measured Black Lines")
++axes[2].axis("off")
++plt.tight_layout()
++plt.show()
++Binarization
++7
++
++=== 8쪽 ===
++각 ROI마다 특성이 다르고 측정할 검정색 그룹의 위치가 달라질 수 있으므로 ROI마다 그 특성을 고려해서 어느 위치
++에 있는 검정색 그룹을 측정할지 적용하는 코드로 수정 해야 할 듯..?
++2025-02-20
++Binarization
++8
++
++=== 9쪽 ===
++6개의 roi(위치는 정적으로 생성)를 생성하고 
++1. 각 roi에서 연속된 픽셀을 찾아 그룹으로 묶는다 
++2. 그룹에서 5픽셀 이하는 노이즈로 보고 그룹에서 제외
++3. 그룹중에서 옵션(0:최상단 1:두번째)을 주어 최상단에 있는 그룹에서 최상단,최하단점의 갭을 측정
++03812_001_OK.jpeg
++중간 노이즈가 관측되어 측정이 안된 경우 존재
++02439_001_OK.jpeg
++Binarization
++9
++
++=== 10쪽 ===
++01518_001_OK.jpeg
++Binarization
++10
++
++=== 11쪽 ===
++02390_001_OK.jpeg
++현재 발견된 문제점
++1. 사진이 흔들림이 있어 정적 ROI 시 문제 발생
++2. 이진화한 결과 문제, 중간에 흰색 노이즈 그대로 나오거나 아예 이진화 임계값이 문제됨.
++Binarization
++11
++
++=== 12쪽 ===
++2025-02-24
++폴더 내 임계값(500장)
++이미지 회전 + 평행이동 후
++동적 roi생성(위치는 객체의 좌상단점 기준, 각 roi당 측정 할 선 6개)하여 각 roi에 검정색 갭 찍어서 저장하는 코드
++import cv2
++import torch
++import numpy as np
++from ultralytics import YOLO
++import os
++import bm3d
++def order_points(pts):
++    """
++    4개의 꼭짓점을 좌상, 우상, 우하, 좌하 순서로 정렬하는 함수 (PCA 없이 중심점을 기준으로 정렬)
++    """
++    # 1️⃣ 4개 점의 중심점(center) 계산
++    center = np.mean(pts, axis=0)
++    # 2️⃣ 좌우를 나눔 (x 좌표 기준)
++    left_pts = pts[pts[:, 0] < center[0]]  # 중심보다 왼쪽
++    right_pts = pts[pts[:, 0] >= center[0]]  # 중심보다 오른쪽
++    # 3️⃣ 좌측(L) 그룹 정렬
++    left_pts = sorted(left_pts, key=lambda p: p[1])  # y값 기준 정렬 (위 → 아래)
++    top_left, bottom_left = left_pts  # 위쪽이 좌상, 아래쪽이 좌하
++    # 4️⃣ 우측(R) 그룹 정렬
++    right_pts = sorted(right_pts, key=lambda p: p[1])  # y값 기준 정렬 (위 → 아래)
++    top_right, bottom_right = right_pts  # 위쪽이 우상, 아래쪽이 우하
++    # 5️⃣ 최종 정렬된 좌표 반환 (좌상, 우상, 우하, 좌하)
++    return np.array([top_left, top_right, bottom_right, bottom_left], dtype=np.float32)
++def find_boundary_points(mask, min_area=100, epsilon_factor=0.02):
++    """
++    마스크에서 4개의 코너 포인트를 찾고 좌상단(left_top)과 우상단(right_top)을 반환
++    """
++    contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
++    if not contours:
++        return None, None  # 컨투어가 없으면 None 반환
++    
++    largest_contour = max(contours, key=cv2.contourArea)
++Binarization
++12
++
++=== 13쪽 ===
++    
++    if cv2.contourArea(largest_contour) < min_area:
++        return None, None  # 너무 작은 컨투어는 무시
++    
++    epsilon = epsilon_factor * cv2.arcLength(largest_contour, True)
++    approx = cv2.approxPolyDP(largest_contour, epsilon, True)
++    if len(approx) > 4:
++        rect = cv2.minAreaRect(largest_contour)
++        box = cv2.boxPoints(rect)
++        approx = np.array(box, dtype=np.float32)
++    elif len(approx) < 4:
++        x, y, w, h = cv2.boundingRect(largest_contour)
++        approx = np.array([[x, y], [x + w, y], [x + w, y + h], [x, y + h]], dtype=np.float32)
++    if len(approx) != 4:
++        return None, None
++    
++    ordered_points = order_points(approx.reshape(-1, 2))
++    left_top = tuple(ordered_points[0])  # 좌상단
++    right_top = tuple(ordered_points[1])  # 우상단
++    return left_top, right_top
++def detect_top_keypoints_with_convex_hull(image, model):
++    """
++    YOLO 모델을 이용해 객체의 키포인트를 감지하고, 좌상단(left_top)과 우상단(right_top)을 반환
++    """
++    results = model.predict(image)
++    result = results[0]
++    if not result.masks:
++        return [], None, None  
++    all_points = []
++    for mask in result.masks.xy:
++        mask_points = np.array(mask, dtype=np.float32)
++        all_points.extend(mask_points)
++    all_points = np.array(all_points, dtype=np.float32)
++    if len(all_points) < 3:
++        return [], None, None  
++    mask = np.zeros(image.shape[:2], dtype=np.uint8)
++    cv2.fillPoly(mask, [all_points.astype(np.int32)], 255)
++Binarization
++13
++
++=== 14쪽 ===
++    left_top, right_top = find_boundary_points(mask)
++    return all_points.tolist(), left_top, right_top
++def rotate_and_translate_image(image, left_point, right_point, all_points, target_x=350, target_y=1
++70):
++    """ 
++    두 점을 기준으로 이미지를 회전하고, 모든 키포인트도 함께 변환 후 지정한 위치로 이동 
++    """
++    dx, dy = right_point[0] - left_point[0], right_point[1] - left_point[1]
++    angle = np.degrees(np.arctan2(dy, dx))
++    if np.abs(dy) < 1e-6:  
++        angle = 0.0  
++    h, w = image.shape[:2]
++    center_x = (left_point[0] + right_point[0]) / 2
++    center_y = (left_point[1] + right_point[1]) / 2
++    center = (int(center_x), int(center_y))
++    rotation_matrix = cv2.getRotationMatrix2D(center, angle, 1.0)
++    rotated_image = cv2.warpAffine(image, rotation_matrix, (w, h), flags=cv2.INTER_LINEAR, bord
++erMode=cv2.BORDER_REPLICATE)
++    rotated_all_points = [tuple(np.dot(rotation_matrix[:, :2], np.array([p[0], p[1]])) + rotation_matrix
++[:, 2]) for p in all_points]
++    rotated_left_top = np.dot(rotation_matrix[:, :2], np.array([left_point[0], left_point[1]])) + rotation
++_matrix[:, 2]
++    rotated_right_top = np.dot(rotation_matrix[:, :2], np.array([right_point[0], right_point[1]])) + rota
++tion_matrix[:, 2]
++    dx = int(target_x - rotated_left_top[0])
++    dy = int(target_y - rotated_left_top[1])
++    translation_matrix = np.float32([[1, 0, dx], [0, 1, dy]])
++    translated_image = cv2.warpAffine(rotated_image, translation_matrix, (w, h), flags=cv2.INTER_
++LINEAR, borderMode=cv2.BORDER_REPLICATE)
++    translated_all_points = [(p[0] + dx, p[1] + dy) for p in rotated_all_points]
++    translated_left_top = (rotated_left_top[0] + dx, rotated_left_top[1] + dy)
++    translated_right_top = (rotated_right_top[0] + dx, rotated_right_top[1] + dy)
++    return translated_image, translated_all_points, translated_left_top, translated_right_top
++def draw_keypoints(image, points, color, size=3):
++    """ 이미지에 점들을 그리는 함수 """
++    for x, y in points:
++        cv2.circle(image, (int(x), int(y)), size, color, -1)
++Binarization
++14
++
++=== 15쪽 ===
++def apply_bm3d_and_threshold(image, threshold_value=120):
++    """ BM3D 필터 적용 후 이진화 """
++    if image is None:
++        return None
++    if len(image.shape) == 3:  # 컬러 이미지를 Grayscale로 변환
++        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
++    gray = image.astype(np.float32) / 255.0
++    bm3d_filtered = bm3d.bm3d(gray, sigma_psd=0.1, stage_arg=bm3d.BM3DStages.HARD_THRE
++SHOLDING)
++    
++    bm3d_filtered = (bm3d_filtered * 255).astype(np.uint8)
++    _, binary = cv2.threshold(bm3d_filtered, threshold_value, 255, cv2.THRESH_BINARY)
++    return binary
++def analyze_black_pixels(binary, transformed_left_top):
++    """ 변환된 좌상단(transformed_left_top)을 기준으로 ROI에서 검정 픽셀 분석 """
++    base_x, base_y = map(int, transformed_left_top)  # 변환된 좌상단을 정수형으로 변환
++    # ROI 위치 설정 (transformed_left_top을 기준)
++    rois = [
++        {"x": base_x + 50, "y": base_y - 10, "w": 80, "h": 30, "group_index": 0},
++        {"x": base_x + 220, "y": base_y - 10, "w": 80, "h": 30, "group_index": 0},
++        {"x": base_x + 400, "y": base_y - 10, "w": 80, "h": 30, "group_index": 0},
++        {"x": base_x + 50, "y": base_y + 210, "w": 80, "h": 30, "group_index": 0},
++        {"x": base_x + 220, "y": base_y + 210, "w": 80, "h": 30, "group_index": 0},
++        {"x": base_x + 400, "y": base_y + 210, "w": 80, "h": 30, "group_index": 0},
++    ]
++    binary_colored = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)
++    black_pixel_results = []
++    for roi in rois:
++        x, y, w, h, group_index = map(int, [roi["x"], roi["y"], roi["w"], roi["h"], roi["group_index"]])
++        # ROI가 이미지 크기를 초과하지 않도록 보정
++        x = max(0, x)
++        y = max(0, y)
++        w = min(binary.shape[1] - x, w)
++        h = min(binary.shape[0] - y, h)
++        # ROI 내부에서 6개 샘플 X 좌표를 선택 (정수 변환)
++        num_samples = 6
++        step = max(1, w // (num_samples + 1))  # step이 0이 되는 것을 방지
++        sample_x_positions = np.round(np.linspace(x + step, x + w - step, num_samples)).astype(in
++t)
++        for center_x in sample_x_positions:
++Binarization
++15
++
++=== 16쪽 ===
++            black_pixels_y = np.where(binary[y:y+h, center_x] == 0)[0] + y
++            min_black_length = 5  # 너무 짧은 노이즈 필터링
++            if len(black_pixels_y) > 1:
++                groups = np.split(black_pixels_y, np.where(np.diff(black_pixels_y) > 1)[0] + 1)
++                long_black_groups = [group for group in groups if len(group) > min_black_length]
++                if len(long_black_groups) > group_index:
++                    selected_group = long_black_groups[group_index]
++                    start_y, end_y = int(min(selected_group)), int(max(selected_group))
++                    black_pixel_length = end_y - start_y
++                    black_pixel_results.append((x, center_x, start_y, end_y, black_pixel_length))
++    # ROI 및 검정 픽셀 길이 표시
++    for roi in rois:
++        x, y, w, h = map(int, [roi["x"], roi["y"], roi["w"], roi["h"]])
++        cv2.rectangle(binary_colored, (x, y), (x+w, y+h), (0, 255, 0), 2)  # ROI 표시
++    for x, center_x, start_y, end_y, _ in black_pixel_results:
++        cv2.line(binary_colored, (center_x, start_y), (center_x, end_y), (0, 0, 255), 2)  # 검정 픽셀 길이 
++표시
++    return binary_colored
++def process_and_save_images(image_dir, output_dir, model_path, max_images=500):
++    """ 
++    주어진 폴더 내 임계값 개수만큼의 이미지에 YOLO 객체 탐지 및 정렬 적용 후 저장.
++    """
++    model = YOLO(model_path)
++    os.makedirs(output_dir, exist_ok=True)
++    image_files = [f for f in os.listdir(image_dir) if f.endswith(('jpg', 'jpeg', 'png'))][:max_images]
++    
++    for image_file in image_files:
++        image_path = os.path.join(image_dir, image_file)
++        image = cv2.imread(image_path)
++        
++        if image is None:
++            print(f"❌ 이미지를 불러올 수 없음: {image_path}")
++            continue
++        
++        try:
++            # 🔵 YOLO를 이용해 객체의 키포인트 탐지
++            all_points, left_top, right_top = detect_top_keypoints_with_convex_hull(image, model)
++            if left_top is None or right_top is None:
++                print(f"⚠️ 코너 포인트를 찾을 수 없음: {image_file}")
++                continue
++Binarization
++16
++
++=== 17쪽 ===
++            # 🔵 이미지 정렬 및 변환
++            final_image, transformed_all_points, transformed_left_top, transformed_right_top = rotate_
++and_translate_image(
++                image, left_top, right_top, all_points
++            )
++            # 🟢 BM3D 필터 적용 후 이진화
++            binary = apply_bm3d_and_threshold(final_image)
++            if binary is None:
++                print(f"❌ 필터링 및 이진화 실패: {image_file}")
++                continue
++            # 🔴 ROI에서 검정 픽셀 분석 및 시각화
++            binary_colored = analyze_black_pixels(binary, transformed_left_top)
++            # 📌 결과 저장
++            output_path = os.path.join(output_dir, image_file)
++            cv2.imwrite(output_path, binary_colored)
++            print(f"✅ 처리 완료: {output_path}")
++        
++        except Exception as e:
++            print(f"❌ 오류 발생 [{image_file}]: {e}")
++    print("🔵 Batch processing complete.")
++if __name__ == "__main__":
++    image_dir = "data/3560_Magnet Check/P001/IV00052/0000"
++    output_dir = "./output"
++    model_path = "yolo/3560_MagnetCheck_v8s_white.pt"
++    max_images = 500
++    
++    process_and_save_images(image_dir, output_dir, model_path, max_images)
++04210_001_OK.jpeg
++Binarization
++17
++
++=== 18쪽 ===
++노이즈로  픽셀 크기 바꿀지 , 필터가 문제인건지
++03748_001_OK
++2025-02-25
++이진화한 결과 문제
++→ 필터를 변경해 보자
++근데 좋은 필터의 기준을 뭘로 잡을지?
++각 ROI 내의 갭들의 편차가 큰 것?
++편차가 크다는건? , 
++이상치 값이 있는지?
++어떻게 확인 할 건데?
++필터 적용 걸리는 시간
++SNR(신호 대 잡음 비율, Signal-to-Noise Ratio)
++이거 이진화 전에 적용하고 확인해 봐야함. 
++이진화 하면 0 아니면 255만 남아서 잡음의 표준편차가 의미가 없어짐
++→내가 지금 갭까지 구해놨는데 다시 이렇게 한다?,
++갭을 활용하는 방식으로 가는게…
++Binarization
++18
++
++=== 19쪽 ===
++SNR은 신호(유용한 데이터)와 잡음(원하지 않는 변동 요소)의 비율을 나타내는 값
++높을수록 신호가 명확하고 잡음이 적다는 의미고, 낮을수록 신호가 약하고 잡음이 많다는 뜻
++(1) 신호(Signal)와 잡음(Noise) 정의
++이미지에서 SNR을 계산하려면 신호와 잡음을 정의해야 해.
++신호 (Signal): 원하는 객체의 픽셀 값
++→ 예를 들어, ROI 내 검은색 픽셀(필요한 특징)을 신호로 볼 수 있어.
++잡음 (Noise): 불필요한 픽셀 값의 변동성
++→ 배경 영역(흰색, 회색)에서의 픽셀 값 변동을 잡음으로 간주할 수 있어.
++2025-02-26
++오늘 할 일 : 필터 적용해서 갭 측정하는 코드 만들고 , 필터 적용해보기
++필터를 씌웠을 때 , 각 ROI 내에서 이상치 있는지 확인하고 필터 당 이상치있는 ROI 개수 출력+ 결과 사진 이미지 필
++터별 저장, 이상치 있는 사진 로그 출력
++검정색 그룹 선택할 때, 가장 긴 그룹? 하니면 제일 첫번째 그룹?
++import cv2
++import numpy as np
++import bm3d
++import os
++def apply_filter(image, filter_type):
++    """ 필터 적용 """
++    if filter_type == 'blur':
++        return cv2.GaussianBlur(image, (15, 15), 0)
++    elif filter_type == 'sharpen':
++        kernel = np.array([[0, -1, 0],
++                           [-1, 5, -1],
++Binarization
++19
++
++=== 20쪽 ===
++                           [0, -1, 0]])
++        return cv2.filter2D(image, -1, kernel)
++    elif filter_type == 'grayscale':
++        return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
++    elif filter_type == 'bm3d':
++        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY).astype(np.float32) / 255.0
++        bm3d_filtered = bm3d.bm3d(gray, sigma_psd=0.1, stage_arg=bm3d.BM3DStages.HARD_TH
++RESHOLDING)
++        return (bm3d_filtered * 255).astype(np.uint8)
++    else:
++        print("지원되지 않는 필터 유형입니다.")
++        return None
++def apply_threshold(image, threshold_value=120):
++    """ 이진화 처리 """
++    if len(image.shape) == 3:
++        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
++    _, binary = cv2.threshold(image, threshold_value, 255, cv2.THRESH_BINARY)
++    return binary
++def analyze_black_pixels(binary):
++    """ ROI에서 연속된 검정 픽셀의 평균과 이상치 탐지 """
++    rois = [
++        {"x": 400, "y": 160, "w": 80, "h": 30},
++        {"x": 570, "y": 160, "w": 80, "h": 30},
++        {"x": 750, "y": 160, "w": 80, "h": 30},
++        {"x": 400, "y": 380, "w": 80, "h": 30},
++        {"x": 570, "y": 380, "w": 80, "h": 30},
++        {"x": 750, "y": 380, "w": 80, "h": 30},
++    ]
++    
++    binary_colored = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)
++    all_gaps = []
++    roi_results = []
++    threshold_factor = 1.5  # 평균에서 벗어날 경우 이상치 판별
++    for roi in rois:
++        x, y, w, h = roi["x"], roi["y"], roi["w"], roi["h"]
++        num_samples = 6
++        step = max(1, w // (num_samples + 1))
++        sample_x_positions = np.round(np.linspace(x + step, x + w - step, num_samples)).astype(in
++t)
++        roi_gaps = []
++        for center_x in sample_x_positions:
++            black_pixels_y = np.where(binary[y:y+h, center_x] == 0)[0] + y
++            if len(black_pixels_y) > 1:
++                groups = np.split(black_pixels_y, np.where(np.diff(black_pixels_y) > 1)[0] + 1)
++                long_black_groups = [group for group in groups if len(group) > 5]
++Binarization
++20
++
++=== 21쪽 ===
++                
++                if long_black_groups:
++                    longest_group = max(long_black_groups, key=len)
++                    start_y, end_y = min(longest_group), max(longest_group)
++                    black_pixel_length = end_y - start_y
++                    roi_gaps.append(black_pixel_length)
++                    
++                    # 검출된 갭에 선을 긋기
++                    cv2.line(binary_colored, (center_x, start_y), (center_x, end_y), (0, 0, 255), 2)
++        
++        all_gaps.extend(roi_gaps)
++        roi_results.append((roi, roi_gaps))
++        cv2.rectangle(binary_colored, (x, y), (x + w, y + h), (0, 255, 0), 2)  # ROI 그리기
++    
++    missing_gaps = sum(1 for roi, gaps in roi_results if not gaps)
++    outlier_gaps = sum(1 for gap in all_gaps if gap < np.mean(all_gaps) - threshold_factor * np.std
++(all_gaps) or gap > np.mean(all_gaps) + threshold_factor * np.std(all_gaps))
++    small_gaps = sum(1 for gap in all_gaps if gap <= 5)
++    
++    return binary_colored, missing_gaps, outlier_gaps, small_gaps
++def process_images_in_folder(folder_path, output_prefix, max_images=500):
++    """ 폴더 내 최대 500개의 이미지 처리 및 분석 통계 계산 """
++    base_folder = "filter_observation"
++    filter_types = ['blur', 'sharpen', 'grayscale', 'bm3d']
++    
++    summary = {filter_type: {'missing': 0, 'outlier': 0, 'small': 0} for filter_type in filter_types}
++    
++    for filter_type in filter_types:
++        os.makedirs(os.path.join(base_folder, filter_type), exist_ok=True)
++        for category in ["missing", "outlier", "small"]:
++            os.makedirs(os.path.join(base_folder, filter_type, category), exist_ok=True)
++    
++    image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg'))][:max_i
++mages]
++    
++    for image_file in image_files:
++        image_path = os.path.join(folder_path, image_file)
++        image = cv2.imread(image_path)
++        if image is None:
++            continue
++        
++        for filter_type in filter_types:
++            filtered_image = apply_filter(image, filter_type)
++            if filtered_image is not None:
++                binary_image = apply_threshold(filtered_image)
++                analyzed_image, missing, outlier, small = analyze_black_pixels(binary_image)
++                
++                base_path = os.path.join(base_folder, filter_type, f"{output_prefix}_{image_file}")
++Binarization
++21
++
++=== 22쪽 ===
++                cv2.imwrite(base_path, analyzed_image, [cv2.IMWRITE_JPEG_QUALITY, 95])
++                
++                if missing:
++                    summary[filter_type]['missing'] += 1
++                    cv2.imwrite(os.path.join(base_folder, filter_type, "missing", f"{output_prefix}_{image_
++file}"), analyzed_image, [cv2.IMWRITE_JPEG_QUALITY, 95])
++                if outlier:
++                    summary[filter_type]['outlier'] += 1
++                    cv2.imwrite(os.path.join(base_folder, filter_type, "outlier", f"{output_prefix}_{image_fi
++le}"), analyzed_image, [cv2.IMWRITE_JPEG_QUALITY, 95])
++                if small:
++                    summary[filter_type]['small'] += 1
++                    cv2.imwrite(os.path.join(base_folder, filter_type, "small", f"{output_prefix}_{image_fil
++e}"), analyzed_image, [cv2.IMWRITE_JPEG_QUALITY, 95])
++    
++    for filter_type, counts in summary.items():
++        print(f"필터: {filter_type} | 갭 없음: {counts['missing']}, 이상치 갭: {counts['outlier']}, 5픽셀 미만 
++갭: {counts['small']}")
++# 사용 예시
++process_images_in_folder('rotated_translated_images', 'output',20)
++2025-02-27
++threshold_factor = 3.5  # 표준편차 기준
++std_threshold = 2.0  # 표준편차가 너무 작으면 필터링 비활성화
++500장 기준
++필터: blur | 갭 없음: 93, 이상치 갭: 59
++필터: sharpen | 갭 없음: 136, 이상치 갭: 51
++필터: grayscale | 갭 없음: 0, 이상치 갭: 99
++필터: bm3d | 갭 없음: 2, 이상치 갭: 84
++필터: mean | 갭 없음: 12, 이상치 갭: 76
++필터: gaussian | 갭 없음: 1, 이상치 갭: 88
++필터: median | 갭 없음: 0, 이상치 갭: 108
++필터: bilateral | 갭 없음: 0, 이상치 갭: 127
++필터: anisotropic | 갭 없음: 0, 이상치 갭: 103
++필터: wiener | 갭 없음: 500, 이상치 갭: 0
++Binarization
++22
++
++=== 23쪽 ===
++2025-02-28
++각 필터마다 갭의 분포 확인 
++grayscale
++500장 , 필터 평균 전체 처리시간 0.0040sec, 4.0ms
++return cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)  # 바로 반환 (BGR 변환 필요 X)
++Binarization
++23
++
++=== 24쪽 ===
++blur
++500장 , 필터 평균 전체 처리시간 0.0047sec, 4.7ms
++processed_image = cv2.GaussianBlur(image, (15, 15), 0)
++Binarization
++24
++
++=== 25쪽 ===
++sharpen
++500장 , 필터 평균 전체 처리시간 0.0051sec, 5.1ms
++kernel = np.array([[0, -1, 0], [-1, 5, -1], [0, -1, 0]])
++processed_image = cv2.filter2D(image, -1, kernel)
++Binarization
++25
++
++=== 26쪽 ===
++bm3d
++Binarization
++26
++
++=== 27쪽 ===
++mean
++Filter: mean | Avg Processing Time: 0.0046 sec
++processed_image = cv2.blur(image, (5, 5))
++Binarization
++27
++
++=== 28쪽 ===
++gaussian
++Filter: gaussian | Avg Processing Time: 0.0042 sec
++processed_image = cv2.GaussianBlur(image, (5, 5), 1.0)
++Binarization
++28
++
++=== 29쪽 ===
++median
++Filter: median | Avg Processing Time: 0.0079 sec
++processed_image = cv2.medianBlur(image, 5)
++Binarization
++29
++
++=== 30쪽 ===
++bilateral
++Filter: bilateral | Avg Processing Time: 0.0146 sec
++processed_image = cv2.bilateralFilter(image, 9, 75, 75)
++Binarization
++30
++
++=== 31쪽 ===
++anisotropic
++Filter: anisotropic | Avg Processing Time: 1.6805 sec
++processed_image = (restoration.denoise_tv_chambolle(image, weight=0.1) * 255).astype(np.uint8)
++Binarization
++31
++
++=== 32쪽 ===
++nlm(200장)
++lowpass
++Filter: lowpass | Avg Processing Time: 0.0696 sec
++Binarization
++32
++
++=== 33쪽 ===
++Filter: total_variation_denoising | Avg Processing Time: 0.3650 secFilter: total_variation_denoising | 
++Avg Processing Time: 0.3650 sec
++wiener
++Filter: wiener | Avg Processing Time: 0.0379 sec
++Binarization
++33
++
++=== 34쪽 ===
++wavelet
++Filter: wavelet | Avg Processing Time: 0.1804 sec
++Binarization
++34
++
++=== 35쪽 ===
++Binarization
++35
++
++=== 36쪽 ===
++box_filter
++processed_image = cv2.boxFilter(image, -1, (5, 5))
++ilter: box_filter | Avg Processing Time: 0.0059 sec
++canny_edge
++processed_image = cv2.Canny(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), 100, 200)
++Filter: canny_edge | Avg Processing Time: 0.0059 sec
++Binarization
++36
++
++=== 37쪽 ===
++erosion_dilation
++kernel = np.ones((5, 5), np.uint8)
++eroded = cv2.erode(image, kernel, iterations=1)
++Binarization
++37
++
++=== 38쪽 ===
++processed_image = cv2.dilate(eroded, kernel, iterations=1)
++Filter: erosion_dilation | Avg Processing Time: 0.0061 sec
++laplacian
++processed_image = cv2.Laplacian(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), cv2.CV_64F)
++Filter: laplacian | Avg Processing Time: 0.0082 sec
++Binarization
++38
++
++=== 39쪽 ===
++opening_closing
++kernel = np.ones((5, 5), np.uint8)
++opened = cv2.morphologyEx(image, cv2.MORPH_OPEN, kernel)
++processed_image = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, kernel)
++Filter: opening_closing | Avg Processing Time: 0.0071 sec
++Binarization
++39
++
++=== 40쪽 ===
++clahe
++clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
++processed_image = clahe.apply(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY))
++Binarization
++40
++
++=== 41쪽 ===
++Filter: clahe | Avg Processing Time: 0.0051 sec
++Binarization
++41
++
++=== 42쪽 ===
++inpainting
++mask = np.zeros(image.shape[:2], np.uint8)
++mask[100:200, 100:200] = 255  # 예제: 임의의 영역 마스크 생성
++processed_image = cv2.inpaint(image, mask, 3, cv2.INPAINT_TELEA)
++Filter: inpainting | Avg Processing Time: 0.0114 sec
++Binarization
++42
++
++=== 43쪽 ===
++sobel
++grad_x = cv2.Sobel(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), cv2.CV_64F, 1, 0, ksize=3)
++grad_y = cv2.Sobel(cv2.cvtColor(image, cv2.COLOR_BGR2GRAY), cv2.CV_64F, 0, 1, ksize=3)
++processed_image = np.sqrt(grad_x ** 2 + grad_y ** 2)
++Filter: sobel | Avg Processing Time: 0.0170 sec
++Binarization
++43
++
++=== 44쪽 ===
++top_hat_black_hat
++kernel = np.ones((5, 5), np.uint8)Filter: total_variation_denoising | Avg Processing Time: 0.3650 
++secFilter: total_variation_denoising | Avg Processing Time: 0.3650 sec
++Binarization
++44
++
++=== 45쪽 ===
++top_hat = cv2.morphologyEx(image, cv2.MORPH_TOPHAT, kernel)
++black_hat = cv2.morphologyEx(image, cv2.MORPH_BLACKHAT, kernel)
++processed_image = cv2.addWeighted(top_hat, 0.5, black_hat, 0.5, 0)
++Filter: top_hat_black_hat | Avg Processing Time: 0.0077 sec
++Binarization
++45
++
++=== 46쪽 ===
++vignette
++rows, cols = image.shape[:2]
++kernel_x = cv2.getGaussianKernel(cols, 200)
++kernel_y = cv2.getGaussianKernel(rows, 200)
++kernel = kernel_y * kernel_x.T
++mask = 255 * kernel / np.linalg.norm(kernel)
++processed_image = (image * mask[:, :, np.newaxis]).astype(np.uint8)
++Filter: vignette | Avg Processing Time: 0.0197 sec
++Binarization
++46
++
++=== 47쪽 ===
++fast_global_smoother
++processed_image = cv2.edgePreservingFilter(image, flags=1, sigma_s=60, sigma_r=0.4)
++Filter: fast_global_smoother | Avg Processing Time: 0.1266 sec
++Binarization
++47
++
++=== 48쪽 ===
++guided_filter
++processed_image = cv2.ximgproc.guidedFilter(image, image, 8, 0.01)
++Filter: guided_filter | Avg Processing Time: 0.0326 sec
++Binarization
++48
++
++=== 49쪽 ===
++perona_malik
++for _ in range(10):
++laplacian = cv2.Laplacian(image, cv2.CV_64F)
++image = image + 0.25 * laplacian
++Binarization
++49
++
++=== 50쪽 ===
++processed_image = np.clip(image, 0, 255).astype(np.uint8)
++Filter: perona_malik | Avg Processing Time: 0.0953 sec
++Binarization
++50
++
++=== 51쪽 ===
++total_variation_denoising
++Filter: total_variation_denoising | Avg Processing Time: 0.3650 sec
++processed_image = (restoration.denoise_tv_bregman(image, weight=0.1) * 255).astype(np.uint8)
++Binarization
++51
++
++=== 52쪽 ===
++2025-03-05
++단일 필터 결론 : 
++🔍 필터 성능 비교 중...
++Filter: bilateral + sharpen | Avg Processing Time: 0.0164 sec
++Filter: bilateral + sobel_filter | Avg Processing Time: 0.0223 sec
++Filter: bilateral + canny_edge | Avg Processing Time: 0.0172 sec
++Filter: bilateral + laplacian_filter | Avg Processing Time: 0.0185 sec
++Filter: bilateral + opening_closing | Avg Processing Time: 0.0167 sec
++Filter: bilateral + clahe | Avg Processing Time: 0.0157 sec
++Filter: bilateral + top_hat_black_hat | Avg Processing Time: 0.0176 sec
++Filter: wavelet + sharpen | Avg Processing Time: 0.0323 sec
++Filter: wavelet + sobel_filter | Avg Processing Time: 0.0390 sec
++Filter: wavelet + canny_edge | Avg Processing Time: 0.0324 sec
++Filter: wavelet + laplacian_filter | Avg Processing Time: 0.0343 sec
++Filter: wavelet + opening_closing | Avg Processing Time: 0.0325 sec
++Filter: wavelet + clahe | Avg Processing Time: 0.0307 sec
++Filter: wavelet + top_hat_black_hat | Avg Processing Time: 0.0348 sec
++Filter: fast_global_smoother + sharpen | Avg Processing Time: 0.1250 sec
++Filter: fast_global_smoother + sobel_filter | Avg Processing Time: 0.1296 sec
++Filter: fast_global_smoother + canny_edge | Avg Processing Time: 0.1256 sec
++Filter: fast_global_smoother + laplacian_filter | Avg Processing Time: 0.1279 sec
++Filter: fast_global_smoother + opening_closing | Avg Processing Time: 0.1266 sec
++Filter: fast_global_smoother + clahe | Avg Processing Time: 0.1245 sec
++Filter: fast_global_smoother + top_hat_black_hat | Avg Processing Time: 0.1258 sec
++Filter: guided_filter + sharpen | Avg Processing Time: 0.0327 sec
++Filter: guided_filter + sobel_filter | Avg Processing Time: 0.0404 sec
++Filter: guided_filter + canny_edge | Avg Processing Time: 0.0324 sec
++Filter: guided_filter + laplacian_filter | Avg Processing Time: 0.0348 sec
++Filter: guided_filter + opening_closing | Avg Processing Time: 0.0344 sec
++Filter: guided_filter + clahe | Avg Processing Time: 0.0335 sec
++Filter: guided_filter + top_hat_black_hat | Avg Processing Time: 0.0357 sec
++Filter: blur + sharpen | Avg Processing Time: 0.0069 sec
++Filter: blur + sobel_filter | Avg Processing Time: 0.0129 sec
++Filter: blur + canny_edge | Avg Processing Time: 0.0062 sec
++Filter: blur + laplacian_filter | Avg Processing Time: 0.0087 sec
++Filter: blur + opening_closing | Avg Processing Time: 0.0069 sec
++Filter: blur + clahe | Avg Processing Time: 0.0055 sec
++Filter: blur + top_hat_black_hat | Avg Processing Time: 0.0099 sec
++Filter: gaussian + sharpen | Avg Processing Time: 0.0064 sec
++Filter: gaussian + sobel_filter | Avg Processing Time: 0.0124 sec
++Binarization
++52
++
++=== 53쪽 ===
++Filter: gaussian + canny_edge | Avg Processing Time: 0.0060 sec
++Filter: gaussian + laplacian_filter | Avg Processing Time: 0.0083 sec
++Filter: gaussian + opening_closing | Avg Processing Time: 0.0067 sec
++Filter: gaussian + clahe | Avg Processing Time: 0.0050 sec
++Filter: gaussian + top_hat_black_hat | Avg Processing Time: 0.0080 sec
++Filter: median + sharpen | Avg Processing Time: 0.0100 sec
++Filter: median + sobel_filter | Avg Processing Time: 0.0160 sec
++Filter: median + canny_edge | Avg Processing Time: 0.0113 sec
++Filter: median + laplacian_filter | Avg Processing Time: 0.0119 sec
++Filter: median + opening_closing | Avg Processing Time: 0.0104 sec
++Filter: median + clahe | Avg Processing Time: 0.0091 sec
++Filter: median + top_hat_black_hat | Avg Processing Time: 0.0114 sec
++Filter: box_filter + sharpen | Avg Processing Time: 0.0067 sec
++Filter: box_filter + sobel_filter | Avg Processing Time: 0.0126 sec
++Filter: box_filter + canny_edge | Avg Processing Time: 0.0065 sec
++Filter: box_filter + laplacian_filter | Avg Processing Time: 0.0086 sec
++Filter: box_filter + opening_closing | Avg Processing Time: 0.0068 sec
++Filter: box_filter + clahe | Avg Processing Time: 0.0055 sec
++Filter: box_filter + top_hat_black_hat | Avg Processing Time: 0.0081 sec
++Filter: anisotropic + sharpen | Avg Processing Time: 0.0327 sec
++Filter: anisotropic + sobel_filter | Avg Processing Time: 0.0400 sec
++Filter: anisotropic + canny_edge | Avg Processing Time: 0.0332 sec
++Filter: anisotropic + laplacian_filter | Avg Processing Time: 0.0355 sec
++Filter: anisotropic + opening_closing | Avg Processing Time: 0.0330 sec
++Filter: anisotropic + clahe | Avg Processing Time: 0.0315 sec
++Filter: anisotropic + top_hat_black_hat | Avg Processing Time: 0.0351 sec
++Filter: wiener + sharpen | Avg Processing Time: 0.1853 sec
++Filter: wiener + sobel_filter | Avg Processing Time: 0.1908 sec
++Filter: wiener + canny_edge | Avg Processing Time: 0.1859 sec
++Filter: wiener + laplacian_filter | Avg Processing Time: 0.1859 sec
++Filter: wiener + opening_closing | Avg Processing Time: 0.1835 sec
++Filter: wiener + clahe | Avg Processing Time: 0.1820 sec
++Filter: wiener + top_hat_black_hat | Avg Processing Time: 0.1845 sec
++2025-03-07
++전체 필터의 성능 비교(1000장)
++filter_performance_roi_results2.csv
++확인해볼 필터
++Filtered_and_Sorted_Filters__Updated_with_Mean_Similarity_.csv
++정렬 기준
++missing gap이 0인 애들 중에서
++ROI 1-3끼리, ROI 4-6끼리 비슷한 값이어야 하므로, 각 그룹 내부에서 최댓값과 최솟값의 차이를 계산했어.
++(1) ROI 1-3 평균 차이 (ROI 1-3 Mean Diff)
++Binarization
++53
++
++=== 54쪽 ===
++ROI 1-3 Mean Diff=max⁡(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)
++−min⁡(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)\text{ROI 1-3 Mean Diff} = \max(\text{ROI 1 
++Mean Gap}, \text{ROI 2 Mean Gap}, \text{ROI 3 Mean Gap}) - \min(\text{ROI 1 Mean Gap}, \text{ROI 2 
++Mean Gap}, \text{ROI 3 Mean Gap})
++ROI 1-3 Mean Diff=max(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)
++−min(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)
++ROI 1, 2, 3의 평균값 중에서 가장 큰 값과 가장 작은 값의 차이를 계산
++차이가 작을수록 ROI 1-3이 균일하다는 의미
++(2) ROI 4-6 평균 차이 (ROI 4-6 Mean Diff)
++ROI 4-6 Mean Diff=max⁡(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)
++−min⁡(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)\text{ROI 4-6 Mean Diff} = \max(\text{ROI 4 
++Mean Gap}, \text{ROI 5 Mean Gap}, \text{ROI 6 Mean Gap}) - \min(\text{ROI 4 Mean Gap}, \text{ROI 
++5 Mean Gap}, \text{ROI 6 Mean Gap})
++ROI 4-6 Mean Diff=max(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)
++−min(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)
++ROI 4, 5, 6의 평균값 중에서 가장 큰 값과 가장 작은 값의 차이를 계산
++차이가 작을수록 ROI 4-6이 균일하다는 의미
++(3) 두 그룹의 평균 차이 합 (Group Mean Difference Sum)
++Group Mean Difference Sum=ROI 1-3 Mean Diff+ROI 4-6 Mean Diff\text{Group Mean Difference 
++Sum} = \text{ROI 1-3 Mean Diff} + \text{ROI 4-6 Mean Diff}
++Group Mean Difference Sum=ROI 1-3 Mean Diff+ROI 4-6 Mean Diff
++이 값이 작을수록, ROI 1-3과 ROI 4-6 각각 내부에서 값들이 비슷하다는 의미
++3. ROI 1-3과 ROI 4-6의 표준편차 계산
++ROI 1-3과 ROI 4-6이 내부적으로 균일한 값들을 가지는지도 고려하기 위해, 각 그룹의 표준편차를 계산했어.
++(4) ROI 1-3 표준편차 (ROI 1-3 Std Dev)
++ROI 1-3 Std Dev=std(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)\text{ROI 1-3 Std Dev} = 
++\text{std}(\text{ROI 1 Mean Gap}, \text{ROI 2 Mean Gap}, \text{ROI 3 Mean Gap})
++ROI 1-3 Std Dev=std(ROI 1 Mean Gap,ROI 2 Mean Gap,ROI 3 Mean Gap)
++ROI 1, 2, 3의 표준편차를 계산
++값이 작을수록 ROI 1-3 내에서 변동성이 적다는 의미
++(5) ROI 4-6 표준편차 (ROI 4-6 Std Dev)
++ROI 4-6 Std Dev=std(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)\text{ROI 4-6 Std Dev} = 
++\text{std}(\text{ROI 4 Mean Gap}, \text{ROI 5 Mean Gap}, \text{ROI 6 Mean Gap})
++ROI 4-6 Std Dev=std(ROI 4 Mean Gap,ROI 5 Mean Gap,ROI 6 Mean Gap)
++ROI 4, 5, 6의 표준편차를 계산
++값이 작을수록 ROI 4-6 내에서 변동성이 적다는 의미
++Binarization
++54
++
++=== 55쪽 ===
++(6) 두 그룹의 표준편차 합 (Group Std Deviation Sum)
++Group Std Deviation Sum=ROI 1-3 Std Dev+ROI 4-6 Std Dev\text{Group Std Deviation Sum} = 
++\text{ROI 1-3 Std Dev} + \text{ROI 4-6 Std Dev}
++Group Std Deviation Sum=ROI 1-3 Std Dev+ROI 4-6 Std Dev
++값이 작을수록 ROI 1-3과 ROI 4-6 각각 내부에서 변동성이 적다는 의미
++추린 필터 종류 6개
++fast_global_smoother + sharpen
++bilateral + sharpen
++median + sharpen
++gaussian + sharpen
++wiener + clahe
++gaussian + opening_closing
++2025-03-11
++필터 하나 정해서
++하위 10프로 상위 10프로 확인하고 진짜 문제 있는 것들 확인
++fast_global_smoother + sharpen
++1000장 확인
++Binarization
++55
++
++=== 56쪽 ===
++기존 갭 탐지 방식
++연속된 검정갭들 중 (5픽셀 이하는 제외하고) 가장 긴 갭을 표시.
++문제점 : 중간에 흰색 노이즈가 있는 경우 잘못된 길이 측정. / 중간에 갭이 측정 안된경우 9장 (0.009)
++해결 : 연속된 검정갭들 중 길이가 5픽셀 이하로 떨어져 있으면 합치고 가장 긴 갭을 표시
++중간에 갭이 없는 경우 0장
++Binarization
++56
++
++=== 57쪽 ===
++median_gap 분포표
++Binarization
++57
++
++=== 58쪽 ===
++5픽셀 너무 길다.  조정 필요
++Binarization
++58
++
++=== 59쪽 ===
++이 사진 정상인데 하단 10 , 9 , 13 나옴
++좌측 하단 이진화 잘못된 경우
++2025-03-13
++필터 옵션을 변경해보거나 
++Binarization
++59
++
++=== 60쪽 ===
++2025-03-24
++마그넷 전부 안해도 됨
++1C2G GAPCHECK만
++일단 객체 고정 먼저 해야함. 안하니 갭체크 데이터 신뢰 X
++객체 고정 완료(rotate_and_parallel translation.ipynb 에서 최종코드 돌림)
++마그넷부분(?)의 좌상단점 (400,420)으로 고정
++2025-03-25
++이동된 객체 roi 위치 설정하고
++필터 비교해보기
++일단 먼저 하나 돌렸을 때 상단갭은 빛이 세서 흰색 갭으로 나오고
++하단은 검정 갭으로 측정 됨
++roi 위치
++rois = [
++        {"x": 340, "y": 390, "w": 80, "h": 30},
++        {"x": 880, "y": 390, "w": 80, "h": 30},
++        {"x": 400, "y": 560, "w": 80, "h": 30},
++        {"x": 580, "y": 560, "w": 80, "h": 30},
++        {"x": 760, "y": 560, "w": 80, "h": 30},
++    ]
++Binarization
++60
++
++=== 61쪽 ===
++필터 후보
++1_2
++1
++anisotropic
++bilateral
++fast_global_smoother
++gaussian
++guided_filter
++wavelet
++wiener
++2
++opening_closing
++clahe
++wiener_opening_closing_{'h'10_'hColor'10_'templateWindowSize'7_'searchWindowSize'21}_{'kernel'3}
++이게 제일 나아보이는데 
++Binarization
++61
++
++=== 62쪽 ===
++Binarization
++62
++
++=== 63쪽 ===
++Binarization
++63
++
++=== 64쪽 ===
++Binarization
++64
++
++=== 65쪽 ===
++Binarization
++65
++
++=== 66쪽 ===
++Binarization
++66
++
++=== 67쪽 ===
++기존 필터에 이진화 경계값 변경
++이진화 임계값 130, 100장
++이진화 임계값 130, 1000장
++옵션
++def apply_threshold(image, threshold_value=130)
++noise_filter = "wiener"
++    edge_filter = "opening_closing"
++    noise_params = {"h": 10, "hColor": 10, "templateWindowSize": 7, "searchWindowSize": 21}
++    edge_params = {"kernel": 3}
++Binarization
++67
++
++=== 68쪽 ===
++상단은 매우 별로임
++아예 필터부터 다시 찾고 임계값도 다시 확인해보기
++하단 필터
++def apply_threshold(image, threshold_value=100)
++noise_filter = "anisotropic"
++edge_filter = "opening_closing"
++noise_params = {"radius": 8, "eps": 0.01}
++edge_params = {"kernel": 3}
++결과 roi 1,2(1000장)
++Binarization
++68
++
++=== 69쪽 ===
++상단 하단 각 다른 필터 적용하고 이진화 경계값도 다르게해서 적용하는 방식 
++상단 anisotropic + threshold=100
++하단 wiener + threshold=130
++으로 적용 후 이미지 합친 후 갭체크 하는 코드
++import cv2
++import numpy as np
++import bm3d
++import os
++import time
++import csv
++import skimage.restoration as restoration
++from scipy.ndimage import gaussian_filter
++import scipy.signal
++import scipy.ndimage
++import matplotlib.pyplot as plt
++import pandas as pd
++import matplotlib.font_manager as fm
++from skimage.metrics import peak_signal_noise_ratio as psnr
++from skimage.metrics import structural_similarity as ssim
++Binarization
++69
++
++=== 70쪽 ===
++from itertools import product
++from skimage.restoration import denoise_wavelet
++# 필터별 파라미터 그리드 정의
++filter_parameter_grid = {
++    "bilateral": [
++        {"d": 9, "sigmaColor": 75, "sigmaSpace": 75},
++        {"d": 5, "sigmaColor": 50, "sigmaSpace": 50}
++    ],
++    "fast_global_smoother": [
++        {"sigma_s": 60, "sigma_r": 0.4},
++        {"sigma_s": 30, "sigma_r": 0.2}
++    ],
++    "guided_filter": [
++        {"radius": 8, "eps": 0.01},
++        {"radius": 4, "eps": 0.001}
++    ],
++    "gaussian": [
++        {"ksize": 5, "sigma": 1.0},
++        {"ksize": 3, "sigma": 0.5}
++    ],
++    "anisotropic": [
++        {"radius": 8, "eps": 0.01}
++    ],
++    "wiener": [
++        {"h": 10, "hColor": 10, "templateWindowSize": 7, "searchWindowSize": 21}
++    ],
++    "wavelet": [
++        {"method": "BayesShrink", "mode": "soft", "rescale_sigma": True},
++        {"method": "VisuShrink", "mode": "soft", "rescale_sigma": True}
++    ],
++    "opening_closing": [
++        {"kernel": 1},
++        {"kernel": 3}
++    ],
++    "clahe": [
++        {"clipLimit": 2.0, "tileGridSize": (8, 8)},
++        {"clipLimit": 3.0, "tileGridSize": (4, 4)}
++    ]
++}
++# 🔄 모든 이미지에서 ROI별 가장 긴 검정 픽셀 길이 저장할 전역 리스트
++global_roi_gaps = {i: [] for i in range(6)}  # ROI 인덱스별 데이터 저장
++global_roi_missing_gaps = {i: 0 for i in range(6)}  # ROI별 측정되지 않은 갭 개수 저장
++def visualize_gap_distribution(output_dir, selected_filter):
++    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
++Binarization
++70
++
++=== 71쪽 ===
++    axes = axes.flatten()
++    for i in range(6):
++        ax = axes[i]
++        if global_roi_gaps[i]:
++            data = global_roi_gaps[i]
++            mean_val = np.mean(data)
++            std_val = np.std(data)
++            ax.hist(data, bins=10, color='skyblue', edgecolor='black', alpha=0.7)
++            ax.axvline(mean_val, color='red', linestyle='--', label=f"Mean: {mean_val:.2f}")
++            ax.axvline(mean_val - std_val, color='green', linestyle='--', label=f"-1 STD")
++            ax.axvline(mean_val + std_val, color='green', linestyle='--', label=f"+1 STD")
++            ax.set_title(f"ROI {i+1}")
++            ax.set_xlabel("Gap Length (px)")
++            ax.set_ylabel("Frequency")
++            ax.legend()
++    plt.tight_layout()
++    plt.savefig(os.path.join(output_dir, f"gap_histogram_{selected_filter}.png"))
++    plt.close()
++    # Missing Gap bar chart
++    plt.figure(figsize=(10, 5))
++    rois = list(global_roi_missing_gaps.keys())
++    values = list(global_roi_missing_gaps.values())
++    bars = plt.bar(rois, values, color='salmon', alpha=0.8)
++    plt.xticks(rois, [f"ROI {i+1}" for i in rois])
++    plt.xlabel("ROI")
++    plt.ylabel("Missing Count")
++    plt.title(f"Missing Gaps per ROI - {selected_filter}")
++    for bar, val in zip(bars, values):
++        plt.text(bar.get_x() + bar.get_width()/2, bar.get_height(), str(val), ha='center', va='bottom')
++    plt.savefig(os.path.join(output_dir, f"missing_gaps_{selected_filter}.png"))
++    plt.close()
++def plot_black_pixel_distribution(global_roi_gaps, global_roi_missing_gaps, selected_filter):
++    """ 
++    ROI별 검정 픽셀 길이 분포 및 평균, 표준편차 시각화 
++    """
++    fig, axes = plt.subplots(2, 3, figsize=(15, 10))  # 2x3 배열로 그래프 배치
++    axes = axes.flatten()  # 2D 배열을 1D 리스트로 변환
++    for i in range(6):
++        ax = axes[i]
++        if len(global_roi_gaps[i]) > 0:
++            data = global_roi_gaps[i]
++Binarization
++71
++
++=== 72쪽 ===
++            mean_value = np.mean(data)
++            std_dev = np.std(data)
++            # 히스토그램 그리기
++            ax.hist(data, bins=10, alpha=0.7, color='blue', edgecolor='black')
++            # 평균 및 표준편차 선 추가
++            ax.axvline(mean_value, color='red', linestyle='dashed', linewidth=2, label=f"Mean: {mean
++_value:.2f}")
++            ax.axvline(mean_value - std_dev, color='green', linestyle='dashed', linewidth=2, label=f"-
++1 STD: {mean_value - std_dev:.2f}")
++            ax.axvline(mean_value + std_dev, color='green', linestyle='dashed', linewidth=2, label=
++f"+1 STD: {mean_value + std_dev:.2f}")
++            ax.set_xlabel("Black Pixel Length (pixels)")
++            ax.set_ylabel("Frequency")
++            ax.set_title(f"ROI {i+1} - Mean: {mean_value:.2f}, STD: {std_dev:.2f}")
++            ax.legend()
++            ax.grid(True)
++    plt.tight_layout()
++    plt.show()  # 즉시 출력
++    # ✅ **각 ROI별 Missing Gap 개수 막대 그래프 추가**
++    plt.figure(figsize=(10, 6))
++    rois = list(global_roi_missing_gaps.keys())  # ROI 인덱스 리스트
++    missing_counts = list(global_roi_missing_gaps.values())  # 각 ROI의 Missing Gap 개수
++    bars = plt.bar(rois, missing_counts, color='red', alpha=0.7)
++    plt.xlabel("ROI Index")
++    plt.ylabel("Missing Gap Count")  # 👉 개수로 표시
++    plt.title(f"Missing Gaps Count per ROI - {selected_filter}")
++    plt.xticks(rois, [f"ROI {i+1}" for i in rois])
++    plt.grid(axis='y')
++    # ✅ **막대 위에 Missing Gap 개수 표시**
++    for bar, count in zip(bars, missing_counts):
++        plt.text(bar.get_x() + bar.get_width()/2, bar.get_height(), str(count),
++                 ha='center', va='bottom', fontsize=12, color='black')
++    plt.show()  # 즉시 출력
++def apply_filter(image, noise_filter, edge_filter, params):
++    processed_image = image.astype(np.float32)
++    if noise_filter == "anisotropic":
++        radius = params.get("radius", 8)
++Binarization
++72
++
++=== 73쪽 ===
++        eps = params.get("eps", 0.01)
++        processed_image = cv2.ximgproc.guidedFilter(image, image, radius, eps)
++    elif noise_filter == "wiener":
++        h = params.get("h", 10)
++        h_color = params.get("hColor", 10)
++        template_window = params.get("templateWindowSize", 7)
++        search_window = params.get("searchWindowSize", 21)
++        processed_image = cv2.fastNlMeansDenoisingColored(image, None, h, h_color, template_w
++indow, search_window)
++    if edge_filter == "opening_closing":
++        kernel_size = params.get("kernel", 1)
++        kernel = np.ones((kernel_size, kernel_size), np.uint8)
++        opened = cv2.morphologyEx(processed_image, cv2.MORPH_OPEN, kernel)
++        processed_image = cv2.morphologyEx(opened, cv2.MORPH_CLOSE, kernel)
++    processed_image = np.clip(processed_image, 0, 255).astype(np.uint8)
++    if len(processed_image.shape) == 2:
++        processed_image = cv2.cvtColor(processed_image, cv2.COLOR_GRAY2BGR)
++    return processed_image
++def compare_filters_with_param_grid(folder_path, noise_filters, edge_filters, max_images=10):
++    for noise_filter in noise_filters:
++        for edge_filter in edge_filters:
++            noise_params_list = filter_parameter_grid.get(noise_filter, [{}])
++            edge_params_list = filter_parameter_grid.get(edge_filter, [{}])
++            for noise_params, edge_params in product(noise_params_list, edge_params_list):
++                param_label = f"{noise_filter}_{edge_filter}_" + \
++                              f"{str(noise_params)}_{str(edge_params)}".replace(" ", "").replace(":", "").repla
++ce(",", "_")
++                print(f"\n🔍 Now processing: {param_label}")
++                process_images_with_params(
++                    folder_path=folder_path,
++                    output_prefix=param_label,
++                    noise_filter=noise_filter,
++                    edge_filter=edge_filter,
++                    noise_params=noise_params,
++                    edge_params=edge_params,
++                    max_images=max_images
++                )
++def apply_threshold(image, threshold_value=100):
++    if len(image.shape) == 3:
++Binarization
++73
++
++=== 74쪽 ===
++        image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
++    _, binary = cv2.threshold(image, threshold_value, 255, cv2.THRESH_BINARY)
++    return binary
++def analyze_and_visualize_on_combined(image, img_a, img_b, binary_a, binary_b, split_y=500, nu
++m_samples=20):
++    global global_roi_gaps, global_roi_missing_gaps
++    global_roi_gaps = {i: [] for i in range(6)}
++    global_roi_missing_gaps = {i: 0 for i in range(6)}
++    h, w = image.shape[:2]
++    upper_half = img_a[:split_y, :]
++    lower_half = img_b[split_y:, :]
++    combined_img = np.vstack([upper_half, lower_half])
++    cv2.line(combined_img, (0, split_y), (w, split_y), (0, 0, 255), 2)
++    cv2.putText(combined_img, "Anisotropic (ROI 1,2)", (10, 40), cv2.FONT_HERSHEY_SIMPLEX, 1, 
++(255, 255, 0), 2)
++    cv2.putText(combined_img, "Wiener (ROI 3,4,5)", (10, h - 10), cv2.FONT_HERSHEY_SIMPLEX, 
++1, (255, 255, 0), 2)
++    rois = [
++        {"x": 340, "y": 390, "w": 80, "h": 30},
++        {"x": 895, "y": 380, "w": 80, "h": 30},
++        {"x": 400, "y": 560, "w": 80, "h": 30},
++        {"x": 580, "y": 560, "w": 80, "h": 30},
++        {"x": 760, "y": 560, "w": 80, "h": 30},
++    ]
++    found_gaps_per_roi = {}
++    for idx, roi in enumerate(rois):
++        x, y, w_, h_ = roi["x"], roi["y"], roi["w"], roi["h"]
++        binary = binary_a if idx in [0, 1] else binary_b
++        gap_lengths = []
++        sample_positions = np.linspace(x, x + w_ - 1, num_samples, dtype=int)
++        for cx in sample_positions:
++            roi_column = binary[y:y + h_, cx]
++            target_value = 255 if idx in [0, 1] else 0
++            target_pixels_y = np.where(roi_column == target_value)[0] + y
++            if len(target_pixels_y) > 1:
++                groups = np.split(target_pixels_y, np.where(np.diff(target_pixels_y) > 1)[0] + 1)
++                for group in groups:
++                    start, end = group[0], group[-1]
++                    length = end - start
++Binarization
++74
++
++=== 75쪽 ===
++                    if idx in [0, 1]:
++                        above = binary[start - 1, cx] if start > y else None
++                        below = binary[end + 1, cx] if end < y + h_ - 1 else None
++                        if above != 0 or below != 0:
++                            continue
++                    gap_lengths.append(length)
++                    cv2.line(combined_img, (cx, start), (cx, end), (0, 0, 255), 1)
++        found_gaps_per_roi[idx] = gap_lengths
++        if gap_lengths:
++            median_gap = int(np.median(gap_lengths))
++            global_roi_gaps[idx].append(median_gap)
++            cv2.rectangle(combined_img, (x, y), (x + w_, y + h_), (0, 255, 0), 2)
++            cv2.putText(combined_img, f"{median_gap}px", (x, y - 10), cv2.FONT_HERSHEY_SIMPLE
++X, 0.6, (0, 255, 255), 2)
++        else:
++            global_roi_missing_gaps[idx] += 1
++            cv2.rectangle(combined_img, (x, y), (x + w_, y + h_), (0, 0, 255), 2)
++    return combined_img
++def visualize_gap_distribution(output_dir, selected_filter):
++    fig, axes = plt.subplots(2, 3, figsize=(15, 10))
++    axes = axes.flatten()
++    for i in range(6):
++        ax = axes[i]
++        if global_roi_gaps[i]:
++            data = global_roi_gaps[i]
++            mean_val = np.mean(data)
++            std_val = np.std(data)
++            ax.hist(data, bins=10, color='skyblue', edgecolor='black', alpha=0.7)
++            ax.axvline(mean_val, color='red', linestyle='--', label=f"Mean: {mean_val:.2f}")
++            ax.axvline(mean_val - std_val, color='green', linestyle='--', label=f"-1 STD")
++            ax.axvline(mean_val + std_val, color='green', linestyle='--', label=f"+1 STD")
++            ax.set_title(f"ROI {i+1}")
++            ax.set_xlabel("Gap Length (px)")
++            ax.set_ylabel("Frequency")
++            ax.legend()
++    plt.tight_layout()
++    plt.savefig(os.path.join(output_dir, f"gap_histogram_{selected_filter}.png"))
++    plt.close()
++    # Missing Gap bar chart
++    plt.figure(figsize=(10, 5))
++Binarization
++75
++
++=== 76쪽 ===
++    rois = list(global_roi_missing_gaps.keys())
++    values = list(global_roi_missing_gaps.values())
++    bars = plt.bar(rois, values, color='salmon', alpha=0.8)
++    plt.xticks(rois, [f"ROI {i+1}" for i in rois])
++    plt.xlabel("ROI")
++    plt.ylabel("Missing Count")
++    plt.title(f"Missing Gaps per ROI - {selected_filter}")
++    for bar, val in zip(bars, values):
++        plt.text(bar.get_x() + bar.get_width()/2, bar.get_height(), str(val), ha='center', va='bottom')
++    plt.savefig(os.path.join(output_dir, f"missing_gaps_{selected_filter}.png"))
++    plt.close()
++def analyze_black_pixels(binary, image_copy, num_samples=20):
++    rois = [
++        {"x": 340, "y": 390, "w": 80, "h": 30},  # ROI 1
++        {"x": 895, "y": 380, "w": 80, "h": 30},  # ROI 2
++        {"x": 400, "y": 560, "w": 80, "h": 30},  # ROI 3
++        {"x": 580, "y": 560, "w": 80, "h": 30},  # ROI 4
++        {"x": 760, "y": 560, "w": 80, "h": 30},  # ROI 5
++    ]
++    global global_roi_gaps, global_roi_missing_gaps
++    binary_colored = cv2.cvtColor(binary, cv2.COLOR_GRAY2BGR)
++    found_gaps_per_roi = {}
++    for idx, roi in enumerate(rois):
++        x, y, w, h = roi["x"], roi["y"], roi["w"], roi["h"]
++        sample_positions = np.linspace(x, x + w - 1, num_samples, dtype=int)
++        gap_lengths = []
++        for cx in sample_positions:
++            roi_column = binary[y:y+h, cx]
++            target_value = 255 if idx in [0, 1] else 0
++            target_pixels_y = np.where(roi_column == target_value)[0] + y
++            if len(target_pixels_y) > 1:
++                groups = np.split(target_pixels_y, np.where(np.diff(target_pixels_y) > 1)[0] + 1)
++                for group in groups:
++                    start, end = group[0], group[-1]
++                    length = end - start
++                    # ROI 1,2: 검정-흰색-검정 패턴만 인정
++                    if idx in [0, 1]:
++                        above = binary[start - 1, cx] if start > y else None
++                        below = binary[end + 1, cx] if end < y + h - 1 else None
++                        if above != 0 or below != 0:
++                            continue  # 둘 다 검정이 아니면 skip
++Binarization
++76
++
++=== 77쪽 ===
++                    gap_lengths.append(length)
++                    cv2.line(binary_colored, (cx, start), (cx, end), (0, 0, 255), 1)
++        found_gaps_per_roi[idx] = gap_lengths
++        if gap_lengths:
++            median_gap = int(np.median(gap_lengths))
++            global_roi_gaps[idx].append(median_gap)
++            cv2.rectangle(binary_colored, (x, y), (x + w, y + h), (0, 255, 0), 2)
++            cv2.putText(binary_colored, f"{median_gap}px", (x, y - 10),
++                        cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
++        else:
++            global_roi_missing_gaps[idx] += 1
++            cv2.rectangle(binary_colored, (x, y), (x + w, y + h), (0, 0, 255), 2)
++    return binary_colored, found_gaps_per_roi
++def evaluate_filter_performance(original_image, filtered_image, filter_name):
++    """ 필터 성능을 평가하여 메트릭 반환 """
++    # 🔹 ROI 검정 픽셀 길이 분석 결과 활용
++    mean_gap_values = [np.mean(global_roi_gaps[i]) if global_roi_gaps[i] else 0 for i in range(6)]
++    std_gap_values = [np.std(global_roi_gaps[i]) if global_roi_gaps[i] else 0 for i in range(6)]
++    missing_gaps = sum(global_roi_missing_gaps.values())
++    
++    # 🔹 이상치 갭 개수 계산 (평균 ± 3.5 * 표준편차 기준)
++    outlier_gaps = sum([
++        sum(1 for gap in global_roi_gaps[i] if gap < np.mean(global_roi_gaps[i]) - 3.5 * np.std(global
++_roi_gaps[i]) or
++            gap > np.mean(global_roi_gaps[i]) + 3.5 * np.std(global_roi_gaps[i]))
++        if len(global_roi_gaps[i]) > 0 else 0
++        for i in range(6)
++    ])
++    # 🔹 PSNR 및 SSIM 계산
++    psnr_value = psnr(original_image, filtered_image)
++     # **해결 방법: channel_axis=-1 및 win_size 자동 조정**
++    try:
++        ssim_value = ssim(original_image, filtered_image, channel_axis=-1, data_range=filtered_ima
++ge.max() - filtered_image.min())
++    except ValueError:
++        ssim_value = 0  # SSIM 계산이 불가능할 경우 0으로 설정
++    # 🔹 결과 저장
++    result = {
++        "Filter": filter_name,
++Binarization
++77
++
++=== 78쪽 ===
++        "Mean Gap": np.mean(mean_gap_values),
++        "Std Gap": np.mean(std_gap_values),
++        "Missing Gaps": missing_gaps,
++        "Outlier Gaps": outlier_gaps,
++        "PSNR": psnr_value,
++        "SSIM": ssim_value
++    }
++    return result
++def compare_filters_performance(folder_path, noise_filters, edge_filters, max_images=10):
++    """ 
++    여러 필터 조합을 적용하여 성능 비교 후 CSV 저장 
++    - ROI별 평균 갭 및 표준편차 값을 개별 컬럼으로 저장
++    """
++    performance_results = []
++    
++    for noise_filter in noise_filters:
++        for edge_filter in edge_filters:
++            avg_time, mean_gap_values, std_gap_values, missing_gaps = process_images(
++                folder_path, f"{noise_filter}_{edge_filter}", noise_filter, edge_filter, max_images
++            )
++            # 결과 저장
++            result_entry = {
++                "Filter": f"{noise_filter} + {edge_filter}",
++                "Processing Time (s)": avg_time,
++                "Missing Gaps": missing_gaps
++            }
++            
++            # ROI별 평균 갭 및 표준편차 추가
++            for i in range(6):
++                result_entry[f"ROI {i+1} Mean Gap"] = mean_gap_values[i]
++                result_entry[f"ROI {i+1} Std Gap"] = std_gap_values[i]
++            performance_results.append(result_entry)
++    # 📄 CSV 파일로 저장
++    csv_filename = "1C2G_GAPCHECK_results2.csv"
++    with open(csv_filename, mode="w", newline="") as file:
++        fieldnames = ["Filter", "Processing Time (s)", "Missing Gaps"] + \
++                     [f"ROI {i+1} Mean Gap" for i in range(6)] + \
++                     [f"ROI {i+1} Std Gap" for i in range(6)]
++        
++        writer = csv.DictWriter(file, fieldnames=fieldnames)
++        writer.writeheader()
++        writer.writerows(performance_results)
++Binarization
++78
++
++=== 79쪽 ===
++    print(f"📁 ROI별 평균 및 표준편차가 포함된 성능 비교 결과가 '{csv_filename}' 로 저장되었습니다.")
++def process_images_with_params(folder_path, output_prefix, noise_filter, edge_filter, noise_para
++ms, edge_params, max_images=10):
++    global global_roi_gaps, global_roi_missing_gaps
++    global_roi_gaps = {i: [] for i in range(6)}
++    global_roi_missing_gaps = {i: 0 for i in range(6)}
++    out_dir = os.path.join("results", output_prefix)
++    os.makedirs(out_dir, exist_ok=True)
++    image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
++    if max_images:
++        image_files = image_files[:max_images]
++    csv_path = os.path.join(out_dir, "metrics.csv")
++    with open(csv_path, mode="w", newline="") as csv_file:
++        writer = csv.writer(csv_file)
++        writer.writerow(["Image", "PSNR", "SSIM"] + [f"ROI{i+1}_Gap" for i in range(6)])
++        for image_file in image_files:
++            image_path = os.path.join(folder_path, image_file)
++            image = cv2.imread(image_path)
++            if image is None:
++                continue
++            processed = apply_filter(image, noise_filter, edge_filter, params={**noise_params, **edge
++_params})
++            binary = apply_threshold(processed)
++            analyzed_img, found_gaps_per_roi = analyze_black_pixels(binary, binary)
++            psnr_val = psnr(image, processed)
++            try:
++                ssim_val = ssim(image, processed, channel_axis=-1, data_range=processed.max() - pr
++ocessed.min())
++            except:
++                ssim_val = 0
++            gaps = [np.mean(global_roi_gaps[i]) if global_roi_gaps[i] else 0 for i in range(6)]
++            writer.writerow([image_file, psnr_val, ssim_val] + gaps)
++            out_path = os.path.join(out_dir, image_file)
++            cv2.imwrite(out_path, analyzed_img)
++    visualize_gap_distribution(out_dir, output_prefix)
++def process_images_combined_roi_filters(folder_path, output_prefix, max_images=1000):
++    global global_roi_gaps, global_roi_missing_gaps
++    global_roi_gaps = {i: [] for i in range(6)}
++Binarization
++79
++
++=== 80쪽 ===
++    global_roi_missing_gaps = {i: 0 for i in range(6)}
++    out_dir = os.path.join("results", output_prefix)
++    os.makedirs(out_dir, exist_ok=True)
++    image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
++    image_files = image_files[:max_images]
++    csv_path = os.path.join(out_dir, "roi_gap_metrics.csv")
++    with open(csv_path, mode="w", newline="") as csv_file:
++        writer = csv.writer(csv_file)
++        writer.writerow(["Image"] + [f"ROI{i+1}_Gap" for i in range(6)])
++        for image_file in image_files:
++            image_path = os.path.join(folder_path, image_file)
++            image = cv2.imread(image_path)
++            if image is None:
++                continue
++            img_a = apply_filter(image, "anisotropic", "opening_closing", {"radius": 8, "eps": 0.01, "ker
++nel": 3})
++            img_b = apply_filter(image, "wiener", "opening_closing", {"h": 10, "hColor": 10, "template
++WindowSize": 7, "searchWindowSize": 21, "kernel": 3})
++            binary_a = apply_threshold(img_a, 100)
++            binary_b = apply_threshold(img_b, 130)
++            combined_img = analyze_and_visualize_on_combined(image, img_a, img_b, binary_a, bina
++ry_b)
++            cv2.imwrite(os.path.join(out_dir, image_file), combined_img)
++            row = [image_file]
++            for i in range(6):
++                if global_roi_gaps[i]:
++                    row.append(np.mean(global_roi_gaps[i][-1:]))
++                else:
++                    row.append(0)
++            writer.writerow(row)
++    visualize_gap_distribution(out_dir, output_prefix)
++    print(f"✅ 완료: 분석 이미지와 ROI 통계 시각화 저장됨 → {out_dir}")
++def process_images(folder_path, output_prefix, noise_filter, edge_filter, max_images=None, num
++_samples=20):
++    global global_roi_gaps, global_roi_missing_gaps
++    global_roi_gaps = {i: [] for i in range(6)}
++    global_roi_missing_gaps = {i: 0 for i in range(6)}
++Binarization
++80
++
++=== 81쪽 ===
++    filter_dir = f"1C2G_filtered_images/{noise_filter}_{edge_filter}"
++    missing_gaps_dir = f"{filter_dir}/Missing_Gaps"
++    outlier_gaps_dir = f"{filter_dir}/Outlier_Gaps"
++    os.makedirs(filter_dir, exist_ok=True)
++    os.makedirs(missing_gaps_dir, exist_ok=True)
++    os.makedirs(outlier_gaps_dir, exist_ok=True)
++    image_files = [f for f in os.listdir(folder_path) if f.lower().endswith(('png', 'jpg', 'jpeg'))]
++    if max_images:
++        image_files = image_files[:max_images]
++    if not image_files:
++        print(f"🚨 No images found in {folder_path}. Returning default values.")
++        return 0, [0] * 6, [0] * 6, 0
++    total_time = 0
++    processed_count = 0  
++    for image_file in image_files:
++        image_path = os.path.join(folder_path, image_file)
++        image = cv2.imread(image_path)
++        if image is None:
++            print(f"⚠ Warning: Unable to read {image_file}, skipping...")
++            continue
++        start_time = time.time()
++        try:
++            filtered_image = apply_filter(image, noise_filter, edge_filter)
++            if filtered_image is None:
++                print(f"⚠ Warning: {noise_filter} + {edge_filter} returned None for {image_file}. Saving 
++original.")
++                filtered_image = image.copy()
++        except Exception as e:
++            print(f"❌ Error applying filter ({noise_filter} + {edge_filter}) on {image_file}: {e}")
++            filtered_image = image.copy()
++        binary_image = apply_threshold(filtered_image)
++        analyzed_image, found_gaps_per_roi = analyze_black_pixels(binary_image, num_samples=n
++um_samples)
++        for idx, roi in enumerate([
++           {"x": 340, "y": 390, "w": 80, "h": 30},
++            {"x": 895, "y": 380, "w": 80, "h": 30},
++            {"x": 400, "y": 560, "w": 80, "h": 30},
++            {"x": 580, "y": 560, "w": 80, "h": 30},
++Binarization
++81
++
++=== 82쪽 ===
++            {"x": 760, "y": 560, "w": 80, "h": 30},
++        ]):
++            x, y, w, h = roi["x"], roi["y"], roi["w"], roi["h"]
++            mean_gap = np.mean(global_roi_gaps[idx]) if global_roi_gaps[idx] else 0
++            std_gap = np.std(global_roi_gaps[idx]) if global_roi_gaps[idx] else 0
++            lower_bound, upper_bound = mean_gap - 3.5 * std_gap, mean_gap + 3.5 * std_gap
++            found_gaps = found_gaps_per_roi[idx]
++            color = (0, 255, 0)  
++            if global_roi_missing_gaps[idx] > 0:
++                color = (0, 0, 255)  
++            elif any(gap < lower_bound or gap > upper_bound for gap in found_gaps):
++                color = (0, 165, 255)  
++            cv2.rectangle(analyzed_image, (x, y), (x + w, y + h), color, 2)
++        output_path = os.path.join(filter_dir, f"{output_prefix}_{image_file}")
++        cv2.imwrite(output_path, analyzed_image)
++        if sum(global_roi_missing_gaps.values()) > 0:
++            cv2.imwrite(os.path.join(missing_gaps_dir, f"{output_prefix}_{image_file}"), analyzed_ima
++ge)
++        processed_count += 1
++        total_time += time.time() - start_time
++    avg_time = total_time / max(1, processed_count)
++    print(f"✅ Processed {processed_count}/{len(image_files)} images for {noise_filter} + {edge_fi
++lter}")
++    mean_gap_values = [np.mean(global_roi_gaps[i]) if global_roi_gaps[i] else 0 for i in range(6)]
++    std_gap_values = [np.std(global_roi_gaps[i]) if global_roi_gaps[i] else 0 for i in range(6)]
++    missing_gaps = sum(global_roi_missing_gaps.values())
++    return avg_time, mean_gap_values, std_gap_values, missing_gaps
++    
++def main():
++    folder_path = '1C2G_UNIT2/rotated_translated_images'
++    output_prefix = "combined_filtered_with_ROI"
++    process_images_combined_roi_filters(folder_path, output_prefix, max_images=10)
++main()
++roi 높이 30이니 
++Binarization
++82
++
++=== 83쪽 ===
++roi 내에 검정-흰색-검정 패턴 안들어와 갭이 측정 안되는 경우 존재
++→ roi 높이 50으로 변경
++최종 roi 위치 정보
++Binarization
++83
++
++=== 84쪽 ===
++rois = [
++        {"x": 340, "y": 375, "w": 80, "h": 50},
++        {"x": 895, "y": 380, "w": 80, "h": 50},
++        {"x": 400, "y": 560, "w": 80, "h": 40},
++        {"x": 580, "y": 560, "w": 80, "h": 40},
++        {"x": 760, "y": 560, "w": 80, "h": 40},
++    ]
++Binarization
++84
+--- /dev/null
++++ 참고자료/electronics-14-03455.pdf
+@@ -0,0 +1,1308 @@
++=== 1쪽 ===
++Academic Editor: Beiwen Li
++Received: 1 August 2025
++Revised: 22 August 2025
++Accepted: 26 August 2025
++Published: 29 August 2025
++Citation: Lee, S.; Kim, T.; Kim, S.;
++Ahn, J.; Kim, N. Unsupervised
++Structural Defect Classification via
++Real-Time and Noise-Robust Method
++in Smartphone Small Modules.
++Electronics 2025, 14, 3455. https://
++doi.org/10.3390/electronics14173455
++Copyright: © 2025 by the authors.
++Licensee MDPI, Basel, Switzerland.
++This article is an open access article
++distributed under the terms and
++conditions of the Creative Commons
++Attribution (CC BY) license
++(https://creativecommons.org/
++licenses/by/4.0/).
++Article
++Unsupervised Structural Defect Classification via Real-Time and
++Noise-Robust Method in Smartphone Small Modules
++Sehun Lee 1
++, Taehoon Kim 1
++, Sookyun Kim 2
++, Junho Ahn 1,* and Namgi Kim 1,*
++1
++Department of Computer Science, Kyonggi University, Suwon 16227, Republic of Korea;
++redkye223@kyonggi.ac.kr (S.L.); 201910538@kyonggi.ac.kr (T.K.)
++2
++Department of Computer Engineering, Jeju National University, Jeju 63243, Republic of Korea;
++kimsk@jejunu.ac.kr
++*
++Correspondence: jha@kyonggi.ac.kr (J.A.); ngkim@kyonggi.ac.kr (N.K.)
++Abstract
++Demand for OIS (Optical Image Stabilization) actuator modules, developed for shake
++correction technologies in industries such as smartphones, drones, IoT, and AR/VR, is
++increasing. To enable real-time and precise inspection of these modules, an AI algorithm
++that maximizes defect detection accuracy is required. This study proposes an unsupervised
++learning-based algorithm that is robust to noise and capable of real-time processing for
++accurate defect classification of OIS actuators in a smart factory environment. The proposed
++algorithm performs noise-reduction preprocessing, considering the sensitivity of small
++components and lighting imbalances, and defines three dynamic Regions of Interest (ROIs)
++to address positional deviations. A customized AutoEncoder (AE) is trained for each
++ROI, and defect classification is conducted based on reconstruction errors, followed by
++a final comprehensive decision. Experimental results show that the algorithm achieves
++an accuracy of 0.9944 and an F1 score of 0.9971 using only a camera without the need for
++expensive sensors. Furthermore, it demonstrates an average processing time of 2.79 ms per
++module, ensuring real-time capability. This study contributes to precise quality inspection
++in smart factories by proposing a robust and scalable unsupervised inspection algorithm.
++Keywords: unsupervised learning; noise reduction; OIS actuator; AutoEncoder; smart
++factory; real-time
++1. Introduction
++Most modern smartphones can automatically detect and compensate for user-induced
++shaking, enabling users to easily capture high-resolution images. The technology devel-
++oped for this automatic detection and compensation is the Optical Image Stabilization (OIS)
++actuator. The OIS actuator is a key component that corrects minute movements of the cam-
++era lens to reduce image blur caused by motion. It is an essential part of high-performance
++multi-camera systems in flagship smartphones from major manufacturers such as Apple
++(iPhone) [1], Samsung (Galaxy) [2], Google (Pixel) [3], and Xiaomi (Mi) [4]. Recently, the
++demand for stabilization technology has been rapidly expanding beyond smartphones
++to various industrial sectors, including IoT-based imaging systems, drones, and AR/VR
++devices. With the growing demand in these sectors, three recent market research reports
++project that the OIS module market will continue its upward trend, showing a compound
++annual growth rate (CAGR) of approximately 10% [5–7].
++With increasing demand, manufacturing processes are being automated and advanced
++based on smart factory systems; however, the defect classification stage still often depends
++Electronics 2025, 14, 3455
++https://doi.org/10.3390/electronics14173455
++
++=== 2쪽 ===
++Electronics 2025, 14, 3455
++2 of 21
++on manual inspection. In the process of transitioning the defect inspection stage to smart
++factory-based automation and advancement, the following challenges arise. First, the
++system must effectively detect all types of rare defects that occur sporadically during
++production. Second, the OIS module is a highly sensitive and compact component that
++reacts to minor vibrations and lighting variations, making it difficult to remove noise and
++accurately classify defects without the use of expensive sensors. Third, real-time processing
++and limited computational resources on manufacturing lines restrict the deployment of
++large-scale AI models, necessitating the design of lightweight algorithms. Finally, in actual
++manufacturing environments, environmental variability (such as deviations in component
++positioning, changes in lighting conditions, and light reflections) leads to inconsistencies
++in the data. These issues lead to increased labeling costs, degraded model generaliza-
++tion performance, as well as challenges in the scalability and maintenance of AI systems.
++Therefore, to overcome these challenges and ensure consistent defect inspection, a robust
++and lightweight AI-based defect classification automation technology that can adapt to
++environmental variations is required.
++This paper aims to develop a robust and real-time defect classification algorithm
++for OIS actuator modules in smart factory environments, as illustrated in Figure 1. To
++achieve this, it proposes an unsupervised learning-based defect classification approach
++that combines image preprocessing with an AutoEncoder (AE) [8] for accurate defect
++detection. Vision-based inspection in real manufacturing settings remains challenging
++due to process noise, lighting imbalance, and positional variation of components. To
++address the environmental sensitivity of small components, a step-by-step preprocessing
++procedure is first applied to eliminate noise. Then, to improve classification accuracy,
++processing speed, and robustness to positional uncertainty, three dynamic Regions of In-
++terest (ROI) are defined. Each preprocessed ROI image is processed by a customized AE,
++and reconstruction errors are used to classify defects. The initial preprocessing step is
++specifically designed to handle noise, lighting inconsistencies, and component placement
++variation. To address the issue of positional uncertainty and to reduce computational
++load for improved processing speed, an algorithm is introduced to dynamically assign
++three detection ROIs. Additional preprocessing is performed for each detection ROI
++based on its characteristics to finalize brightness correction and noise removal. The final
++preprocessed images are used as input for three customized AEs. Each AE, based on
++unsupervised learning [9], is trained only on normal data without labels and performs
++defect classification for the three ROIs based on reconstruction errors between normal
++and defective samples. The individual classification results are then aggregated to de-
++termine the final defect status, completing the inspection of the OIS actuator module.
++The proposed algorithm demonstrates strong noise robustness using only a standard
++camera and achieves real-time performance through a lightweight design. Moreover, its
++unsupervised learning foundation ensures adaptability to varying factory conditions,
++enhancing scalability and deployment potential. Experimental results show an accuracy
++of 98.03% for normal data, 100% for defective data, and an average processing time of
++2.97 ms per module. In particular, the algorithm achieves an F1 score of 0.9971, success-
++fully detecting all defective cases while maintaining high performance in classifying
++normal data. This research presents a reliable AI-based automated inspection approach
++capable of replacing manual visual inspection and contributes to the implementation of
++intelligent quality control in smart factories.
++
++=== 3쪽 ===
++Electronics 2025, 14, 3455
++3 of 21
++ 
++Figure 1. Smart factory for OIS (Optical Image Stabilization) actuators.
++The structure of the paper is as follows. Section 2 reviews previous studies on su-
++pervised and unsupervised defect detection methods in smart factory and manufacturing
++processes, as well as noise reduction preprocessing techniques. Section 3 presents the
++overall structure of the proposed algorithm. It separately describes the camera-based
++noise reduction preprocessing, the unsupervised defect classification process, and the data
++collection procedure. Section 4 outlines the experimental methods and results related to
++the preprocessing techniques and defect classification. Finally, Section 5 discusses the
++conclusions of the study, potential applications, and future research directions.
++2. Related Work
++Defect detection in industrial manufacturing processes is critical for ensuring product
++quality and reliability. Among the essential components used in various machines, screws
++are particularly important, making defect detection for these parts crucial. Accordingly,
++a number of studies have focused on developing convolutional neural networks (CNN)
++models to classify screws with and without various types of defects [10]. Beyond simple
++components like screws, there are also studies targeting defect detection in specialized
++parts such as rotating machinery. One such study proposed a novel CNN architecture
++that incorporates Bayesian optimization and channel fusion techniques, achieving high
++defect detection performance for rotors [11]. Other research has focused on enhancing
++production efficiency by proactively identifying defects during the manufacturing process.
++To achieve early defect identification, a real-time processing architecture was designed [12].
++In addition to real-time capability, another study introduced an incremental learning
++approach to improve automation in defect detection, surpassing the performance of existing
++models. This approach begins with unsupervised learning in the early stages, transitions to
++semi-supervised learning, and eventually adopts mixed-supervision once sufficient data
++is available [13]. Moreover, defect detection has also been extended beyond component
++manufacturing to printed circuit boards (PCBs), where contextual information is leveraged
++for improved detection [14]. As research increasingly incorporates contextual data, some
++recent studies address the limitations of traditional large language models (LLMs) in visual
++defect recognition by adapting them for defect detection tasks [15].
++Acquiring data for specialized components and equipment in various manufacturing
++processes remains a significant challenge. There have been studies focused on defect de-
++tection for specialized components or semiconductors, rather than general parts such as
++screws or bolts [16–20]. One study focuses on defect detection in gear wheels by selectively
++classifying normal and defective gear wheels using an AE, followed by clustering with the
++DBSCAN algorithm [21] to accurately identify defective regions. Beyond visible defect de-
++
++=== 4쪽 ===
++Electronics 2025, 14, 3455
++4 of 21
++tection in simple PCBs, other studies address hidden or non-visible defects, using infrared
++sensors and deviation matrix clustering to classify anomalies. Another line of research tar-
++gets the shearer, a key piece of equipment in coal mining production. Due to the complexity
++of such equipment, this study overcomes the limitation of relying solely on localized defect
++detection to assess overall functionality. In automotive manufacturing, research on anomaly
++detection in sheet metal glue lines aims to improve production and resource efficiency.
++For unsupervised anomaly detection, AEs are commonly employed, and patch-based AEs
++have been proposed to enhance detection performance [22,23]. These models reconstruct
++images in patch units or integrate the Vision Transformer (ViT) architecture [24] with AEs.
++Building upon this trend, a study proposed a simple yet efficient ViT-based architecture
++called ViTAD to address the multi-class unsupervised anomaly detection (MUAD) prob-
++lem [25]. ViTAD demonstrates high training efficiency on datasets such as MVTec AD
++without relying on complex reconstruction processes. To overcome the limitations of AEs
++(which struggle with capturing global information) and CNNs, which may suffer from
++generalization errors, recent research has focused on leveraging ViT structures for unsu-
++pervised anomaly detection [26]. For example, a ViT-based model combining a memory
++module and a coordinate attention (CA) mechanism has shown strong performance on the
++MVTec AD and BeanTech AD datasets, enabling more precise global context understanding
++and reducing generalization errors. Another approach introduces a ViT-based model that
++learns normal patterns as vector-quantized (VQ) prototypes, effectively addressing the
++reconstruction ambiguity between normal and anomalous data in multi-class settings [27].
++Furthermore, the Inductive Transformer (ITran) has been proposed to enhance anomaly
++detection accuracy in industrial applications [28]. ITran utilizes a multi-layer pyramid
++architecture and skip connections to extract multi-scale features and determine anomalies.
++By incorporating convolutional operations and inductive bias into the ViT backbone, ITran
++demonstrates efficient performance even on small-scale datasets. Some studies also focus
++on simultaneous defect localization, not just detection [29–31]. Techniques such as texture-
++based synthetic defect augmentation and hierarchical encoder-decoder structures are used
++to improve localization. Others propose decoder architectures for AEs that can identify
++defect locations without parameter learning. Additional research includes improvements
++to the traditional SSIM [32] reconstruction loss through AW-SSIM and the use of artificially
++generated defect data to boost anomaly detection performance [33]. A recent study has
++demonstrated effective anomaly detection without using embedding techniques, in contrast
++to the current trend showing that embedding methods can achieve high accuracy. This
++study improves memory efficiency and inference speed by leveraging paired low-light and
++high-light images to achieve high anomaly detection performance [34]. Finally, there is a
++study that overcomes the limitation of conventional defect detection models, which perform
++inference based on a fixed structure once trained. This study proposes a real-time dynamic
++model that continuously integrates the structure of normal data during manufacturing
++processes, in contrast to traditional static defect detection models [35].
++Table 1 presents a performance comparison of major anomaly detection algorithms
++in the manufacturing domain. Most of these algorithms report their results using the
++MVTec AD dataset [36], where a higher (area under roc) AUROC value (closer to 1) in-
++dicates better anomaly detection performance. In manufacturing processes, the accuracy
++of anomaly detection depends not only on improvements in model architecture but also
++significantly on the noise preprocessing process. One study analyzed the causes of image
++quality degradation in PCB manufacturing environments and experimented with defect
++detection methods tailored to each scenario [37]. To address noise in the image recon-
++struction process, some research has enhanced anomaly detection performance using a
++noise-to-norm approach [38,39]. There is also a study that investigates the frequency bias
++
++=== 5쪽 ===
++Electronics 2025, 14, 3455
++5 of 21
++between the reconstruction of normal and defective data. Based on this frequency bias, the
++study proposes a novel learning method that utilizes the high-frequency components of the
++data [40]. To eliminate noise, patch-level preprocessing methods have been proposed, using
++noise classifiers to remove noise in each image patch [41]. Additionally, a study introduced
++the fused directional distance (FDD) loss function, which considers distance and angular
++differences between training data to effectively suppress noise [42]. Lastly, a generative
++diffusion model was utilized to improve both defect localization and reconstruction perfor-
++mance. This study injects random noise into the data through a generative model and is
++designed to enable fine-grained pixel-level learning [43].
++Table 1. Summary of key algorithm performance for anomaly detection in manufacturing.
++Algorithm
++Dataset
++Performance Metrics
++Best Performance
++UniNet [44]
++MVTec AD
++Image-level AUROC
++99.90
++ACR-DSVDD [45]
++MVTec AD
++Pixel-level AUC
++92.5 ± 0.2
++SLAD [46]
++MVTec
++AUC-ROC
++0.812 ± 0.009
++RD4AD [47]
++MVTec
++AUROC
++98.5
++Triad-ov [15]
++MVTec AD
++MFG Proc
++94.1
++AnoViT [23]
++MVTec AD
++AUROC
++0.78
++Patch AE [22]
++MVTec
++AUROC
++99.48
++SoftPatch-lof [41]
++MVTec AD (Noise = 0.1)
++AUROC
++0.979
++FAIR [40]
++MVTec AD
++Image-level AUROC
++98.6
++DiffusionAD [38]
++MVTec
++Image-level AUROC
++99.7
++3. Algorithm
++3.1. Background Knowledge for OIS Actuator
++This study develops a real-time unsupervised learning-based defect classification
++algorithm with excellent performance for detecting defects in OIS actuators, a technology
++used to correct camera shake in smartphones. The OIS actuator is an essential module
++in high-performance camera systems and is composed of four miniature components.
++Figure 2a shows an image listing the detailed components that make up the corresponding
++part, consisting of the OIS cover, lens holder, ball guide, and autofocus (AF) carrier. A photo
++of the fully assembled module is presented in Figure 2b. The OIS actuator is a compact
++component, measuring approximately 0.67 inches in length and 0.1 inches in height. This
++study focuses on defect classification related to the structural gap observed on one of the
++four sides of the actuator, specifically the side known as the “hook2” surface. Figure 3a
++illustrates a simplified schematic of the hook2 surface, where the gray, yellow, brown, and
++blue regions represent the OIS cover, lens holder, ball guide, and AF carrier, respectively.
++In this study, three specific gaps on the hook2 surface are defined as defect classification
++targets: (1) the structural gap between the OIS cover and the lens holder, (2) the gap
++between the lens holder and the ball guide, and (3) the gap between the ball guide and the
++AF carrier. Figure 3b presents an actual image of the hook2 surface, visually highlighting
++the differences between normal and defective gaps, particularly in gap (3) between the
++ball guide and the AF carrier. Compared to a normal module, a defective module shows a
++widened gap between the ball guide and AF carrier, and a narrowed gap between the lens
++holder and ball guide, which serve as key indicators of structural anomalies.
++
++=== 6쪽 ===
++Electronics 2025, 14, 3455
++6 of 21
++ 
++Figure 2. Comparison image of OIS actuator components and dimensions: (a) Details for each
++components; (b) Size reference of OIS actuator.
++ 
++Figure 3. Diagram and collected comparison images of normal and defective hook2 surface of
++OIS actuator: (a) Structural layout of the OIS actuator; (b) Comparison of gap conditions in the
++OIS actuator.
++Analysis of the OIS actuator reveals that the three gaps exhibit distinct visual char-
++acteristics depending on their position, and each gap has a different allowable tolerance
++based on design specifications. According to the module design drawings provided by
++a partner company, the tolerance ranges for each gap are as follows: (1) the gap between
++the OIS cover and the lens holder is 0.10 mm (+0.05/−0.07), (2) the gap between the lens
++holder and the ball guide is 0.08 mm (±0.05), and (3) the gap between the ball guide and
++the AF carrier is 0.09 mm (+0.05/−0.06). As intended in the design, the actual module
++image shown in Figure 3b confirms that gap (1) between the OIS cover and lens holder
++appears relatively narrow, while gaps (2) and (3) are comparatively wider. However, due
++to structural characteristics and lighting conditions, each gap exhibits visual differences,
++making it difficult to effectively detect boundaries using a uniform preprocessing or de-
++tection method. Specifically, gap (1) is very narrow and uniform, making it sensitive to
++lighting variations and noise, thus requiring precise brightness correction. Gap (2), while
++structurally and visually uniform, is partially occluded by the jig used to fix the module,
++which blurs its boundary and affects detection accuracy. Finally, the gap (3) between the ball
++guide and the AF carrier is adjacent to the lower edge of the jig, resulting in light reflections
++and structurally irregular brightness. Therefore, it is essential to design differentiated
++preprocessing strategies and detection algorithms that consider the specific characteristics
++of each gap. By applying tailored preprocessing techniques (such as noise suppression and
++brightness normalization) optimized for each gap, the overall accuracy and reliability of
++the defect classification system can be significantly improved.
++
++=== 7쪽 ===
++Electronics 2025, 14, 3455
++7 of 21
++3.2. Proposed Algorithm
++This study proposes a real-time unsupervised defect classification algorithm that
++combines a customized image preprocessing algorithm and an AE, designed to meet key
++constraints such as noise robustness, real-time performance, and scalability. The overall
++workflow of the proposed algorithm is illustrated in Figures 4 and 5. First, the input image
++is binarized to detect the lens holder, and three ROIs corresponding to the target gaps are
++defined. For each ROI, noise reduction preprocessing (such as filtering and brightness
++normalization) is applied to generate the final preprocessed images, which are used as
++inputs to the AE. If lens holder detection fails, the image is immediately classified as
++defective. If detection succeeds, the three preprocessed ROI images are individually fed
++into their respective AEs, and a final defect classification is made based on thresholded
++reconstruction errors. Accordingly, the first stage (image preprocessing) and the second
++stage (unsupervised defect detection) together enable improvements in processing speed
++and classification accuracy, as well as enhanced model scalability.
++ 
++Figure 4. Proposed algorithm for the developed defect classification.
++ 
++Figure 5. Flowchart of the proposed algorithm.
++3.3. High-Noise Reduction Technique for Small Components
++In a smart factory environment, image preprocessing is essential for eliminating
++various irregular factors that reduce the accuracy of defect classification in OIS actuator
++images. The target gaps for classification are defined as the spaces between internal
++components, which appear on the image as boundaries between white-colored components
++and dark-colored gaps. However, due to various noise sources and lighting imbalances,
++it is difficult to accurately detect these gaps. Images collected in real-world settings often
++contain noise such as smudges, dust, and adhesive residue, all of which significantly
++hinder accurate gap boundary detection. Furthermore, the inspection system is enclosed
++in a glass case, making it prone to light reflections and uneven illumination, which can
++result in images that are either overly dark or bright. Additionally, OIS actuators are
++sometimes not properly seated in the jig, causing variations in the module’s position
++
++=== 8쪽 ===
++Electronics 2025, 14, 3455
++8 of 21
++within the image. If ROIs are statically defined, the target components may fall outside the
++designated areas. These subtle positional deviations are particularly problematic given the
++small size of the module, making defect classification highly sensitive. To address these
++challenges, this study applies the following preprocessing steps to ensure consistent data
++quality: thresholding to enhance the gap visibility, noise removal using median blur and
++guided filter, brightness adjustment to correct lighting imbalance, and ROI realignment
++(cropping and resizing) to mitigate positional instability. Figure 6 illustrates examples of
++noise, lighting imbalance, and positional variability found in real images, highlighting the
++necessity of the proposed preprocessing algorithm.
++ 
++Figure 6. Necessity of preprocessing for collected data: (a) Comparison of smudge-induced differ-
++ences; (b) Comparison of illumination-induced lighting differences; (c) Comparison of OIS actuator
++positional misalignment.
++In the defect classification of OIS actuators, issues such as noise, lighting imbalance,
++and component position deviations significantly reduce the accuracy of gap-based classifica-
++tion. Therefore, a dedicated preprocessing algorithm is essential to address these challenges.
++This section explains the necessity of preprocessing for each issue type, accompanied by
++illustrative examples. Figure 6a demonstrates how noise distorts the gap boundary. The
++figure compares the differences in detecting the gap between the ball guide and the AF
++carrier depending on the presence or absence of noise. In the top image, the enlarged area
++beneath the ball guide clearly shows a clean, dark gap, while in the bottom image, the
++same area is partially obscured by a white smudge, distorting the gap appearance. Even
++such minor noise can be critical, as the gap appears only about 2 to 9 pixels wide in the
++original image (1280 × 960). Figure 6b compares brightness levels caused by installation
++environment differences. The top and bottom images were captured using two identically
++manufactured defect inspection devices, but due to differences in their installation envi-
++ronments, the brightness of the collected images varies. Therefore, brightness adjustment
++preprocessing is necessary to address lighting imbalance. Figure 6c compares well-seated
++and misaligned OIS actuators. Most of the time, the device is properly seated in the jig
++during operation, as shown in the top image; however, there are occasional cases where
++it is not properly seated, as illustrated in the bottom image. Even in cases where the OIS
++actuator is not severely misaligned, as shown in the image below, slight misalignment that
++is difficult to detect with the naked eye can significantly affect the placement of the ROI
++for the gap, which is only about 2 to 9 pixels wide within the component. To address this,
++dynamic ROI adjustment is necessary. Figure 6 visually demonstrates the effects of noise,
++
++=== 9쪽 ===
++Electronics 2025, 14, 3455
++9 of 21
++lighting imbalance, and positional instability in actual images, supporting the necessity of
++the proposed step-by-step image preprocessing algorithm.
++This study designs a step-by-step preprocessing algorithm to simultaneously achieve
++noise removal, rapid and accurate defect classification, and high defect detection perfor-
++mance in OIS actuator images. Targeting small and noise-sensitive OIS actuator data, the
++proposed method consistently extracts three ROIs regardless of the OIS actuator’s position
++within the image by using the lens holder as a reference point. For each of the three gap
++regions, precise preprocessing is applied. The detailed procedure is as follows.
++•
++Global Binarization: The input image (1280 × 960) is binarized to emphasize the lens
++holder region.
++•
++Lens Holder Detection: Starting from the estimated initial coordinates of the lens
++holder (defined through experiments as (637, 350)), pixels are expanded upward,
++downward, leftward, and rightward. The first occurrence of consecutive black pixels
++in each direction is considered the boundary of the lens holder, enabling automatic
++detection of its region. The expected width and height of the lens holder are ap-
++proximately 356 and 89 pixels, respectively, which are used as reference tolerances
++to validate the detected region. This detected region is then used for subsequent
++preprocessing steps.
++•
++Initial Cropping and Scaling: To exclude unnecessary surrounding areas from the
++input image, the image is cropped based on the center of the detected lens holder
++region. A 4× magnification is then applied to obtain an enlarged image.
++•
++Gap-Specific ROI Assignment: From the enlarged image, three ROIs corresponding
++to the three target gaps are defined and extracted. The final dimensions of each
++preprocessed ROI are as follows:
++(1)
++ROI for OIS cover–lens holder: 1410 × 90
++(2)
++ROI for lens holder–ball guide: 1410 × 130
++(3)
++ROI for ball guide–AF carrier: 1410 × 140
++•
++Noise Removal: To effectively reduce noise while preserving edge structures, a combi-
++nation of a median filter and a guided filter (both determined through experimental
++validation) is applied to the image. Specifically, a median filter with a kernel size
++of 5 is used to suppress salt-and-pepper noise, followed by a guided filter with a
++radius of 8 and a regularization parameter (ε) of 500 to further smooth the image while
++maintaining structural details.
++•
++ROI Brightness Adjustment: To account for the unique visual characteristics of each
++ROI, brightness correction is performed individually per region. Specifically, only the
++pixels whose intensity values fall within a predefined brightness range (low_thresh
++to high_thresh) are selectively enhanced by a fixed increase_value. This targeted
++adjustment improves contrast and feature visibility while avoiding overexposure of
++already bright regions.
++•
++ROI Binarization: Each ROI is binarized to compress the data and produce the final
++preprocessed images.
++3.4. Real-Time Precision Defect Classification Based on Unsupervised Learning
++The final images produced through the proposed preprocessing algorithm effectively
++address key constraints in the manufacturing process, such as noise, lighting imbalance,
++and positional deviation. To perform precise defect classification under such environmental
++variability, it is necessary to minimize labeling costs. In addition, an unsupervised learning-
++based AE is suitable, as it can sensitively respond to structural anomalies in the gap regions.
++To quantitatively validate this, Figure 7 presents the Receiver Operating Characteristic
++(ROC) curves and the Area Under the Curve (AUC) values obtained through exploratory
++
++=== 10쪽 ===
++Electronics 2025, 14, 3455
++10 of 21
++analysis using AEs on the three final preprocessed images. In the ROC curves, the vertical
++axis represents the True Positive Rate (TPR), and the horizontal axis represents the False
++Positive Rate (FPR). TPR indicates the proportion of actual defective samples correctly
++identified as defective, while FPR denotes the proportion of normal samples incorrectly
++classified as defective. As shown in Figure 7, the ROC curves are skewed toward the
++upper-left corner, above the baseline of a random classifier (y = x), indicating that high TPR
++and low FPR were achieved simultaneously. In fact, all AEs achieved AUC values above
++0.9, demonstrating that even reconstruction errors alone from the proposed preprocessed
++images can reliably distinguish between normal and defective samples. These results exper-
++imentally validate that the unsupervised AE-based approach is well-suited for detecting
++structural anomalies in gap regions within this manufacturing process.
++Figure 7. ROC (Receiver Operating Characteristic) curves and AUC (Area Under the Curve) scores
++for defect detection using AE based on preprocessed image types.
++In this study, a defect classification algorithm centered on an unsupervised learning-
++based AE was designed to satisfy both real-time performance and model scalability require-
++ments in a smart factory environment. AEs are well-suited for this task due to their ability
++to operate without labeled data, low computational cost, and adaptability to environmen-
++tal changes. These characteristics make AEs ideal for real-time inference on large-scale
++datasets while maintaining high scalability. For practical defect classification processes,
++the classification and result transmission must be completed within 0.5 s per image, as
++required by the partner company. Considering image transfer time, inference time, and
++result transmission, the entire process must be completed within approximately 0.2 to 3 s
++per image. Therefore, the fast inference capability of AE-based architectures makes them
++advantageous for deployment in real-world applications. The proposed algorithm follows
++a structured procedure. First, a step-by-step preprocessing algorithm is applied to generate
++images optimized for AE input. The AE then reconstructs these input images, and defect
++classification is performed based on the reconstruction error between the input and the
++output images. Only normal data are used for training the AE, while a mixed dataset
++containing both normal and defective samples is used during the testing phase. Defect
++classification is performed by setting an optimal threshold based on the AUC, allowing for
++flexible decision-making without relying on a fixed criterion. This architecture contributes
++effectively to the development of advanced quality inspection systems in smart factories,
++offering high-speed inference, label-free training, and strong adaptability to environmental
++variability. The detailed procedure for AE-based reconstruction-driven defect classification
++is presented as follows.
++•
++Each AE input image obtained from the step-by-step preprocessing procedure is fed
++into three customized AEs, each tailored to a specific gap region. The architectures
++of these AEs were optimized based on extensive experimentation: the AE for the
++OIS cover–lens holder gap uses a 256 × 256 input size with two layers and a latent
++dimension of 128; the AE for the lens holder–ball guide gap employs a 128 × 128 input
++
++=== 11쪽 ===
++Electronics 2025, 14, 3455
++11 of 21
++with four layers and a latent space of 32; and the AE for the ball guide–AF carrier gap
++adopts a 128 × 128 input with four layers and a latent dimension of 64. These model
++configurations were selected to balance reconstruction accuracy and computational
++efficiency for each specific ROI.
++•
++The reconstruction error between the reconstructed image and the original AE input
++image is calculated.
++•
++Defect classification is performed based on a threshold value defined in advance
++through AUC-based experiments.
++•
++Finally, an AND operation is applied to the three classification results from the AE
++models. The final output is classified as normal only if all three results are normal;
++otherwise, the final result is classified as defective.
++4. Experiments and Results
++Chapter 4 describes the experimental environment and comparative evaluations con-
++ducted to assess the performance of the developed image preprocessing algorithm and
++the unsupervised learning-based defect classification algorithm. The experiments were
++carried out on a high-performance computing system equipped with an Intel i9-13900K
++processor (24 cores @ 3.00GHz, 32 threads), 32 GB of DDR5 RAM, and an NVIDIA GeForce
++RTX 4090 GPU with 24 GB of GDDR6X memory. The software environment was based on
++Windows 11, utilizing CUDA 12.4 for GPU acceleration. The experiments were conducted
++using Python 3.10 and PyTorch 2.4.0, implemented within both vs. Code and JupyterLab
++environments. As described earlier in Chapter 4, approximately 10,000 images were col-
++lected using an automated defect classification device provided by a partner company.
++For AE training, the following consistent hyperparameters were applied: batch size of 16,
++learning rate of 1 × 10−4, and 50 training epochs. The baseline models used for compar-
++ison (UniNet [44], ACR-DSVDD [45], SLAD [46], and RD4AD [47]) were implemented
++using their official source code with default hyperparameter settings. To evaluate the
++efficiency of the proposed algorithm in defect classification, five key quantitative metrics
++were used: accuracy, precision, recall, F1 score, and average processing time. The sequence
++of experiments is as follows: First, the data collection process using the automated defect
++classification device is described. Second, a comparative study of the step-by-step prepro-
++cessing methods is presented. Third, experiments on unsupervised learning-based defect
++detection are conducted. Finally, the defect classification performance of the proposed
++algorithm is evaluated.
++4.1. Data Collection
++For the training and testing of the defect classification algorithm in this study, approxi-
++mately 10,000 images of the hook2 surface of OIS actuators were collected from an actual
++smart factory environment. Among the available formats (RAW, PNG, and JPEG) the JPEG
++format was selected to achieve a balance between storage efficiency and image quality. The
++normal and defective data were directly collected using an automated defect classification
++device developed by a partner company, which was designed to replace the traditional
++human-centered inspection process.
++Figure 8a illustrates the conventional inspection method, in which a worker visually
++inspects each module through a microscope. Figure 8b shows a close-up photograph of
++a camera equipped with an integrated flash capturing an OIS actuator mounted in the
++jig. Figure 8c presents the automated defect classification device, which consists of 12 jigs,
++five fixed cameras, two laser sensors, input/output trays, and a separate reject tray. The
++device operates as follows: a robotic arm picks one of the 20 OIS actuator modules placed
++in a 5 × 4 tray, captures an image with the first camera, and then places the module into
++
++=== 12쪽 ===
++Electronics 2025, 14, 3455
++12 of 21
++the first jig. The jigs are mounted on a rotating platform and pass through 12 stages,
++including adhesive dispensing, filter attachment, imaging, orientation adjustment, and gap
++inspection. At the eighth jig position, images of both the hook1 and hook2 surfaces are
++captured simultaneously and are directly used for gap-based defect classification. At the
++ninth jig, a laser sensor checks the orientation of the module, and at the tenth jig, modules
++are sorted based on the final defect classification result: a module classified as normal is
++rotated back to the starting point and placed onto the input/output tray, whereas a defective
++one is transferred to the reject tray at the tenth jig. The entire cycle takes approximately one
++minute. Figure 9 presents the full schematic of the automated defect classification device.
++This precise and fully automated setup enables the consistent collection of high-quality
++data, supporting the development of a reliable and practical defect classification algorithm
++under real manufacturing conditions.
++ 
++Figure 8. Comparison of manual and automated defect classification systems for OIS actuators
++in a smart factory environment: (a) Cleanroom inspection; (b) Camera–jig close-up; (c) Inspec-
++tion overview.
++ 
++Figure 9. Overview of the rotary jig-based process for automated defect classification of OIS actuators.
++4.2. Results of High-Noise Reduction for Small Components
++This study proposes a method to enhance defect classification accuracy and reduce
++unnecessary computational load by dynamically assigning ROIs for gap analysis based on
++
++=== 13쪽 ===
++Electronics 2025, 14, 3455
++13 of 21
++the lens holder. Instead of using complex deep learning or machine learning techniques,
++the method employs a pixel color-based edge detection approach via binarization, thereby
++achieving both computational efficiency and accuracy. This approach features a simple
++processing structure while enabling fast and reliable detection of the lens holder. To
++maximize lens holder detection performance, experiments were conducted using various
++binarization thresholds as summarized in Table 2. Specifically, thresholds ranging from
++51, 102, 153, 204 to 255 were evaluated. The detection performance was assessed using
++standard metrics derived from the confusion matrix: precision, recall, accuracy, and F1
++score. The results showed that the threshold range of 102–255 produced the highest number
++of true positives (TP), with precision = 1.000, recall = 0.9995, accuracy = 0.9995, and F1
++score = 0.9997, indicating the best overall performance. In contrast, when the threshold
++was set between 204–255, detection failures led to zero true positives, causing precision
++and F1 score to be undefined. These results highlight the critical importance of selecting
++an appropriate binarization threshold for accurate lens holder detection. In conclusion, by
++determining the optimal binarization threshold range, the lens holder can be accurately
++detected and used as a reference to dynamically assign ROIs, thereby improving both the
++computational efficiency and classification accuracy of the entire algorithm.
++Table 2. Comparison of lens holder detection performance according to binarization threshold range.
++Precision
++Recall
++Accuracy
++F1 Score
++51–255
++1
++0.7753
++0.7757
++0.8734
++102–255
++1
++0.9995
++0.9995
++0.9997
++153–255
++1
++0.8558
++0.8562
++0.9223
++204–255
++N/A
++0
++0.0024
++N/A
++In this study, a preprocessing algorithm combining a median filter and a guided filter
++was adopted to maximize the accuracy of AE-based defect classification model. This combi-
++nation demonstrated the most effective noise reduction performance among various tested
++techniques while maintaining real-time processing capability. Specifically, after defining
++ROIs and applying 4× magnification to the cropped gap areas, the combined filtering
++approach effectively removed both magnification-induced noise and noise originating
++from the imaging environment. Complex deep learning-based denoising methods were
++excluded due to real-time processing constraints, and the focus was placed on lightweight,
++filter-based algorithms. A total of 30 preprocessing methods were compared, including
++thresholding, basic filtering, morphological operations, interpolation techniques, aver-
++age filters, weighted average filters, and rank-order. These methods were tested both
++individually and in various combinations. The combined filtering methods selected for
++evaluation were those that outperformed single methods without compromising real-time
++performance. Figure 10 presents a comparison of the results obtained by applying all
++30 algorithms to the same cropped image. The evaluation was conducted visually by both
++component experts and computer vision specialists, confirming that the median + guided
++filter combination yielded the best results. While this comparison was based on images
++cropped to include the entire component, in actual deployment, the chosen preprocessing
++combination is applied individually to each of the three gap ROIs before being used as
++input for the AE model. In conclusion, the adoption of this optimal preprocessing algorithm
++(balancing real-time performance and denoising precision) provides a strong foundation
++for maximizing the effectiveness of the unsupervised AE-based model.
++
++=== 14쪽 ===
++Electronics 2025, 14, 3455
++14 of 21
++ 
++Figure 10. Comparison results of 30 image preprocessing techniques applied to ROI-based OIS actuator.
++4.3. Experimental Results of Unsupervised Learning-Based Defect Classification
++For each of the three gap positions, an optimized AE model architecture was designed,
++and their individual predictions were integrated using an AND operation to complete the
++final defect classification algorithm. The final evaluation results showed an accuracy of 98.03%
++(5566/5678) for normal samples and 100% (50/50) for defective samples, resulting in an overall
++accuracy of 98.04% (5616/5728), demonstrating strong performance. To determine the optimal
++AE model structure for defect classification using the preprocessed images (processed through
++noise reduction and dynamic ROI assignment) a series of experiments were conducted. The
++number of AE layers was varied (2, 3, and 4 layers), the latent space dimensions were set to
++32, 64, and 128, and the input image sizes were tested at 64 × 64, 128 × 128, and 256 × 256.
++Approximately 5000 images were split into training and test datasets with an 8:2 ratio. Model
++performance was evaluated using accuracy on normal images, accuracy on defective images,
++and overall accuracy. The test dataset included 1137 normal and 33 defective images. Table 3
++presents the defect classification performance of the AE model for the OIS cover–lens holder
++gap, including layer depth, latent space size, input image dimensions, AUC-derived threshold
++values, and average inference time per image. Among all configurations, the structure with
++an input size of 128 × 128, four layers, and a latent space of 64 yielded the highest overall
++accuracy of 98.46%. However, one of the key requirements from the partner company is to
++prioritize the accuracy of defective sample detection. Therefore, a model configuration with
++an input image size of 256 × 256, two layers, and a latent space dimension of 128 was adopted.
++Although another configuration with 256 × 256 input, two layers, and a latent space of 64
++detected all but one defective image, its lower normal accuracy made it unsuitable. The overall
++results in Table 3 show that larger input sizes, deeper layers, or larger latent spaces do not
++necessarily guarantee better performance. Table 3 reports the Wilson 95% confidence intervals
++for the normal accuracy of each configuration (e.g., 1120/1137 = 98.50%, 95% CI [97.62, 99.06]).
++Because the normal class has a sufficiently large sample size (n = 1137), the interval width
++is very narrow, indicating stable estimates and allowing interpretation of differences at the
++first decimal place. The Wilson interval is computed using the sample size n, the critical
++value z corresponding to the desired confidence level, and the number of successes x. The
++formulas for the interval are provided in Equations (1) and (2). Therefore, similar experiments
++were conducted for the other two gaps (lens holder–ball guide and ball guide–AF carrier)
++to identify their respective optimal AE architectures. For the lens holder–ball guide gap,
++the selected model achieved 98.42% accuracy for normal samples (1123/1141), 83.33% for
++
++=== 15쪽 ===
++Electronics 2025, 14, 3455
++15 of 21
++defective samples (5/6), and 98.34% overall accuracy. The selected configuration was: input
++size 128 × 128, four layers, and latent space of 32. For the ball guide–AF carrier gap, the model
++achieved 99.91% accuracy for normal samples (1141/1142), 75.00% for defective samples (3/4),
++and 99.83% overall accuracy. In conclusion, optimal AE-based defect classification models
++were designed for all three gaps (OIS cover–lens holder, lens holder–ball guide, and ball
++guide–AF carrier) and their predictions were integrated using an AND operation for the final
++classification. This approach quantitatively demonstrates its robustness against environmental
++noise and positional uncertainty, achieving high reliability in defect detection under real
++manufacturing conditions. In Table 3, the AE configuration that achieved the highest defective
++detection performance with 32 out of 33 correct detections exhibited significantly lower
++accuracy in normal detection, making it unsuitable as an optimal AE structure. The next-best
++configurations, each achieving 31 out of 33 correct defective detections, amounted to 21 in total.
++Their performance comparisons, grouped by image size, are visualized in Figure 11 as a scatter
++plot. The x-axis represents normal detection accuracy, the y-axis denotes average (overall)
++performance, and the marker size reflects inference time, where smaller markers indicate faster
++inference. Among all configurations, the model with an image size of 256 × 256, two encoder
++layers, and a latent dimension of 128 clearly demonstrates the best overall performance.
++denom = 1 + z2
++n ,
++ˆpc = ˆp + z2
++2n
++denom , h =
++z
++q
++ˆp(1−ˆp)
++n
+++ z2
++4n2
++denom
++,
++(1)
++CI1−α = [ ˆpc −h, ˆpc + h],
++ˆp = x
++n,
++z = 1.96 (95% confidence level)
++(2)
++Table 3. Performance and inference speed comparison of AE architectures for defect classification of
++the OIS cover–lens holder gap.
++Img Size
++Layer
++Latent
++Threshold
++Normal
++Defective
++Overall
++Wilson 95% CI
++Time
++64 × 64
++2
++32
++0.00848
++97.19%
++93.94%
++97.09%
++[96.07, 97.98]
++0.256 ms
++64
++0.00787
++96.22%
++93.94%
++96.15%
++[94.96, 97.17]
++0.306 ms
++128
++0.00709
++95.25%
++93.94%
++95.21%
++[93.87, 96.33]
++0.358 ms
++3
++32
++0.00981
++94.72%
++93.94%
++94.70%
++[93.28, 95.87]
++0.187 ms
++64
++0.00859
++92.70%
++93.94%
++92.74%
++[91.05, 94.06]
++0.268 ms
++128
++0.00851
++93.32%
++93.94%
++93.33%
++[91.72, 94.62]
++0.388 ms
++4
++32
++0.01203
++97.63%
++87.88%
++97.35%
++[96.58, 98.35]
++0.220 ms
++64
++0.01116
++97.36%
++87.88%
++97.09%
++[96.27, 98.13]
++0.211 ms
++128
++0.01202
++97.54%
++90.91%
++97.35%
++[96.48, 98.28]
++0.192 ms
++128 × 128
++2
++32
++0.01528
++96.92%
++93.94%
++96.84%
++[95.76, 97.76]
++3.062 ms
++64
++0.01141
++97.10%
++93.94%
++97.01%
++[95.97, 97.91]
++2.925 ms
++128
++0.01170
++97.19%
++93.94%
++97.09%
++[96.07, 97.98]
++2.650 ms
++3
++32
++0.01149
++97.36%
++93.94%
++97.26%
++[96.27, 98.13]
++1.812 ms
++64
++0.01078
++97.01%
++93.94%
++96.92%
++[95.86, 97.84]
++1.724 ms
++128
++0.00932
++95.95%
++93.94%
++95.90%
++[94.66, 96.94]
++1.692 ms
++4
++32
++0.01059
++95.25%
++93.94%
++95.21%
++[93.87, 96.33]
++1.904 ms
++64
++0.01242
++98.77%
++87.88%
++98.46%
++[97.97, 99.24]
++1.486 ms
++128
++0.00936
++94.64%
++93.94%
++94.62%
++[93.18, 95.79]
++2.006 ms
++
++=== 16쪽 ===
++Electronics 2025, 14, 3455
++16 of 21
++Table 3. Cont.
++Img Size
++Layer
++Latent
++Threshold
++Normal
++Defective
++Overall
++Wilson 95% CI
++Time
++256 × 256
++2
++32
++0.01476
++96.31%
++93.94%
++96.24%
++[95.06, 97.24]
++2.576 ms
++64
++0.01565
++93.23%
++96.67%
++93.33%
++[91.63, 94.54]
++2.442 ms
++128
++0.01430
++98.50%
++93.94%
++98.38%
++[97.64, 99.04]
++2.092 ms
++3
++32
++0.01167
++95.87%
++93.94%V
++95.81%
++[94.56, 96.87]
++2.450 ms
++64
++0.01026
++96.04%
++93.94%
++95.98%
++[94.76, 97.02]
++3.213 ms
++128
++0.01149
++97.54%
++93.94%
++97.44%
++[96.48, 98.28]
++3.147 ms
++4
++32
++0.01159
++97.63%
++93.94%
++97.52%
++[96.58, 98.35]
++2.541 ms
++64
++0.01233
++98.33%
++90.91%
++98.12%
++[97.42, 98.91]
++2.242 ms
++128
++0.00872
++94.11%
++93.94%
++94.10%
++[92.59, 95.32]
++2.105 ms
++Figure 11. Scatter plot of normal/overall accuracy for configurations with 31 correct detections of
++defective samples (grouped by image size, marker size = time (ms)).
++To validate the performance superiority of the proposed unsupervised learning-based
++defect classification algorithm, a comparative experiment was conducted against a machine
++learning-based gap classification algorithm that utilized the same preprocessing proce-
++dure. The test dataset used for this comparison consisted of 5728 images (5678 normal and
++50 defective samples). The proposed algorithm achieved an overall accuracy of 98.04%,
++representing a +3.47% improvement over the 94.57% accuracy of the machine learning-
++based method. Notably, the proposed algorithm achieved 100% accuracy on defective
++samples, which is a significant +14% improvement compared to 86% for the machine learn-
++ing approach. For normal samples, the proposed method also outperformed the baseline,
++achieving 98.03% accuracy compared to 94.65%, a +3.38% improvement. The baseline
++machine learning method followed the same step-by-step preprocessing process (including
++noise reduction and ROI assignment) but instead of using an AE, it classified defects based
++on length estimation derived from the gap boundary positions. Specifically, the algorithm
++detects black-to-white pixel transitions to estimate the start and end coordinates of the gap
++at the pixel level. Based on these coordinates, the average length of the gap is calculated and
++converted into millimeters. Defect classification is then performed by determining whether
++the measured length falls within the acceptable range for a normal sample. The results
++from all three gaps were combined using an AND operation to determine the final defect
++classification. The comparison demonstrates that the unsupervised AE-based approach
++is more sensitive to structural anomalies than the simple length-based machine learning
++method and shows greater robustness to noise and positional variation. This experiment
++quantitatively confirms the effectiveness of the proposed unsupervised learning-based
++
++=== 17쪽 ===
++Electronics 2025, 14, 3455
++17 of 21
++classification system, even in unstructured environmental conditions, and supports its
++practical applicability in real-world manufacturing settings.
++This study compares the proposed unsupervised learning-based defect classification
++algorithm with existing deep learning-based unsupervised anomaly detection and defect
++classification algorithms used in industrial manufacturing processes. Table 4 summarizes
++the performance of each algorithm in terms of accuracy, precision, recall (sensitivity), F1
++score, and average inference time. All baseline algorithms used in the comparison are
++based on unsupervised deep learning models and trained solely on normal data, without
++requiring labeled samples. Among the six anomaly detection algorithms evaluated, the
++proposed algorithm achieved the highest performance across all key metrics: accuracy
++(0.9944), precision (0.9943), recall (1.0000), and F1 score (0.9971). While ACR-DSVDD [45]
++and SLAD [46] (both unsupervised deep learning-based methods that utilize distributional
++shifts and scale-guided representation learning, respectively) also demonstrated relatively
++strong accuracy at 0.9918 and 0.9923, respectively, they still fell short of the proposed
++method. UniNet [44], a versatile student–teacher-based framework applicable to both
++supervised and unsupervised settings, and RD4AD [47], which leverages a reverse knowl-
++edge distillation approach to amplify representational discrepancies on anomalous inputs,
++were also included in the evaluation. Additionally, classical reconstruction-based models
++such as AE [8] and Variational Autoencoder (VAE) [48] (both trained on normal data and
++detecting anomalies through reconstruction error) were assessed for comparison. To further
++investigate each algorithm’s ability to identify actual defective samples during the inspec-
++tion process, accuracy was calculated separately for defective cases. Among the six baseline
++algorithms, UniNet achieved 24% (12/50), ACR-DSVDD [45] 6% (3/50), SLAD 46% (23/50),
++RD4AD 76% (38/50), AE 64% (32/50), and VAE 50% (25/50), with none exceeding the 90%
++threshold. Furthermore, all baseline methods reported recall values below 0.9. In contrast,
++the proposed algorithm achieved 100% accuracy (50/50) for defective samples and a perfect
++recall score of 1.0000, demonstrating its outstanding defect detection capability, particularly
++due to its effective noise reduction preprocessing. These results confirm that the proposed
++method is highly specialized for defect detection. Moreover, its F1 score was the highest
++among all compared methods, indicating superior overall performance in distinguishing
++between normal and defective cases.
++Table 4. Performance comparison of unsupervised learning-based algorithms for anomaly detection
++and defect classification.
++Algorithm
++Accuracy
++Precision
++Recall
++F1 Score
++Time
++UniNet [44]
++0.8361
++0.0131
++0.2400
++0.0249
++20.16 ms
++ACR-DSVDD [45]
++0.9918
++1.0000
++0.0600
++0.1132
++0.08 ms
++SLAD [46]
++0.9923
++0.5750
++0.4600
++0.5111
++30.31 ms
++RD4AD [47]
++0.8846
++0.0553
++0.7600
++0.1031
++9.21 ms
++AE [8]
++0.9682
++0.1633
++0.6400
++0.2602
++2.08 ms
++VAE [48]
++0.7729
++0.0192
++0.5000
++0.0370
++2.58 ms
++Our Algorithm
++0.9944
++0.9943
++1.0000
++0.9971
++2.79 ms
++5. Conclusions and Future Work
++This study proposed an automated defect classification algorithm that combines a
++specialized image preprocessing algorithm and an unsupervised learning-based classifi-
++cation model tailored for small components such as OIS actuators. Since defect detection
++during the inspection process plays a critical role in ensuring manufacturing yield and
++reliability, the developed algorithm is designed to achieve strong overall performance
++
++=== 18쪽 ===
++Electronics 2025, 14, 3455
++18 of 21
++while exhibiting high sensitivity to defective cases. Experimental results demonstrated
++classification accuracies of 98.03% for normal samples and 100% for defective samples, with
++an F1 score of 0.9971, successfully detecting all defective instances. In addition, the aver-
++age processing time per module satisfied real-time requirements. By integrating effective
++noise reduction techniques with unsupervised defect classification, the proposed method
++addresses key constraints in smart factory environments, including noise, environmental
++variability, and real-time processing demands. As a result, manual inspection of OIS ac-
++tuators can be replaced with a faster, more precise, and fully automated quality control
++process. Future research will aim to enhance the generalizability of the proposed algorithm
++by extending gap-based defect classification beyond the currently analyzed hook2 surface
++to the other three sides of the OIS actuator. In addition, to reflect a key requirement from
++the partner company that the algorithm be applicable to other compact OIS modules,
++the proposed method was designed using an unsupervised learning framework. This
++approach enables adaptability without the need for labeled data. This study focuses on
++structural anomaly detection of gap morphology in the target component. Building on
++this foundation, we plan to extend the algorithm to structural gap-morphology anomaly
++detection across a broader range of compact OIS modules, thereby further strengthening
++its generalizability and practical applicability. Furthermore, we will continue to conduct
++studies that consolidate its generalizability and empirically validate its applicability in real
++manufacturing environments.
++Author Contributions: Conceptualization, S.L., T.K., S.K., J.A. and N.K.; methodology, S.L. and T.K.;
++software, S.L. and T.K.; validation, S.L. and T.K.; formal analysis, S.L. and T.K.; investigation, S.L.
++and T.K.; resources, S.K. and N.K.; data curation, S.L. and T.K.; writing—original draft preparation,
++S.L. and T.K.; writing—review and editing, S.L., T.K., S.K. and J.A.; visualization, S.L. and T.K.;
++supervision, J.A. and N.K.; project administration, S.L.; funding acquisition, J.A. and N.K. All authors
++have read and agreed to the published version of the manuscript.
++Funding: This research was supported by Basic Science Research Program through the National
++Research Foundation of Korea (NRF) funded by the Ministry of Education (RS-2020-NR049579). This
++work was supported by the IITP (Institute of Information & Communications Technology Planning
++& Evaluation)-ICAN (ICT Challenge and Advanced Network of HRD) grant funded by the Korean
++government (Ministry of Science and ICT) (IITP-2025- RS-2024-00436954).
++Data Availability Statement: The datasets presented in this study are available in this article.
++Requests to access the datasets should be directed to the authors of the study.
++Acknowledgments: The authors sincerely thank one another for their collaboration throughout this
++research. In particular, they extend their heartfelt appreciation to their advisors for their invaluable
++insights, continuous support, and guidance, all of which played a crucial role in the successful
++completion of this study.
++Conflicts of Interest: The authors declare no conflicts of interest.
++Abbreviations
++The following abbreviations are used in this manuscript:
++OIS
++Optical Image Stabilization
++AF
++AutoFocus
++ROI
++Region of Interest
++ROC
++Receiver Operating Characteristic
++AUC
++Area Under the Curve
++TPR
++True Positive Rate
++FPR
++False Positive Rate
++AE
++AutoEncoder
++
++=== 19쪽 ===
++Electronics 2025, 14, 3455
++19 of 21
++References
++1.
++Apple iPhone Website. Available online: https://www.apple.com/iphone/ (accessed on 25 July 2025).
++2.
++Samsung Galaxy Phone Website. Available online: https://www.samsung.com/sec/smartphones/all-smartphones/ (accessed
++on 25 July 2025).
++3.
++Google Pixel Phone Website. Available online: https://store.google.com/us/?hl=en-US&regionRedirect=true (accessed on
++25 July 2025).
++4.
++Xiaomi Mi Phone Website. Available online: https://www.mi.com/global/mobile/ (accessed on 25 July 2025).
++5.
++OIS Market Insight. Available online: https://www.verifiedmarketreports.com/product/optical-image-stabilizer-ois-market-
++size-and-forecast/ (accessed on 25 July 2025).
++6.
++OIS Market Outlook. Available online: https://dataintelo.com/report/global-optical-image-stabilizer-ois-market (accessed on
++25 July 2025).
++7.
++Camera Optical Image Stabilizer Market Opportunities 2025. Available online: https://www.linkedin.com/pulse/camera-
++optical-image-stabilizer-market-xzbif (accessed on 25 July 2025).
++8.
++Kramer, M.A. Nonlinear principal component analysis using autoassociative neural networks. AIChE J. 1991, 37, 233–243.
++[CrossRef]
++9.
++Sohl-Dickstein, J.; Weiss, E.; Maheswaranathan, N.; Ganguli, S. Deep Unsupervised Learning using Nonequilibrium Thermody-
++namics. PMLR 2015, 37, 2256–2265.
++10.
++Breitenbach, J.; Eckert, I.; Mahal, V.; Baumgartl, H.; Buettner, R. Automated Defect Detection of Screws in the Manufacturing
++Industry Using Convolutional Neural Networks. In Proceedings of the 55th Hawaii International Conference on System Sciences,
++HICSS 2022, Virtual Event/Maui, HI, USA, 4–7 January 2022.
++11.
++Zou, L.; Zhuang, K.J.; Zhou, A.; Hu, J. Bayesian optimization and channel-fusion-based convolutional autoencoder network for
++fault diagnosis of rotating machinery. Eng. Struct. 2023, 280, 115708. [CrossRef]
++12.
++Weiss, E.; Caplan, S.; Horn, K.; Sharabi, M. Real-Time Defect Detection in Electronic Components during Assembly through Deep
++Learning. Electronics 2024, 13, 1551. [CrossRef]
++13.
++Kozamernik, N.; Braˇcun, D. A novel FuseDecode Autoencoder for industrial visual inspection: Incremental anomaly detection
++improvement with gradual transition from unsupervised to mixed-supervision learning with reduced human effort. Comput. Ind.
++2025, 164, 104198. [CrossRef]
++14.
++Lim, J.Y.; Lim, J.Y.; Baskaran, V.M.; Wang, X. A deep context learning based PCB defect detection model with anomalous trend
++alarming system. Results Eng. 2023, 17, 100968. [CrossRef]
++15.
++Li, Y.; Yuan, S.; Wang, H.; Li, Q.; Liu, M.; Xu, C.; Shi, G.; Zuo, W. Triad: Empowering LMM-based Anomaly Detection with Vision
++Expert-guided Visual Tokenizer and Manufacturing Process. arXiv 2025, arXiv:2503.13184. [CrossRef]
++16.
++Klarák, K.; Andok, R.; Malík, P.; Kuric, I.; Ritomský, M.; Ritomský, I.; Tsai, H.Y. From Anomaly Detection to Defect Classification.
++Sensors 2024, 24, 429. [CrossRef]
++17.
++Wang, Z.; Yuan, H.; Lv, J.; Liu, C.; Xu, H.; Li, J. Anomaly Detection and Fault Classification of Printed Circuit Boards Based on
++Multimodal Features of the Infrared Thermal Imaging. IEEE Trans. Instrum. Meas. 2024, 73, 1–13. [CrossRef]
++18.
++Song, Y.; Wang, W.; Wu, Y.; Fan, Y.; Zhao, X. Unsupervised anomaly detection in shearers via autoencoder networks and
++multi-scale correlation matrix reconstruction. Int. J. Coal Sci. Technol. 2024, 11, 79. [CrossRef]
++19.
++Chen, S.; Bandaru, S.; Marti, S.; Bekar, E.T.; Skoogh, A. Comparison of unsupervised image anomaly detection models for sheet
++metal glue lines. Eng. Appl. Artif. Intell. 2025, 153, 110740. [CrossRef]
++20.
++Song, S.; Baek, J.G. New Anomaly Detection in Semiconductor Manufacturing Process using Oversampling Method. ICAART
++2020, 2, 926–932. [CrossRef]
++21.
++Ester, M.; Kriegel, H.P.; Sander, J.; Xu, X. Density based spatial clustering of applications with noise. KDD AAAI Press 1996, 240,
++226–231.
++22.
++Cui, Y.; Liu, Z.; Lian, S. Patch-Wise Auto-Encoder for Visual Anomaly Detection. In Proceedings of the IEEE International
++Conference on Image Processing (ICIP), Kuala Lumpur, Malaysia, 8–11 October 2023; pp. 870–874. [CrossRef]
++23.
++Lee, Y.; Kang, P. AnoViT: Unsupervised Anomaly Detection and Localization with Vision Transformer-Based Encoder-Decoder.
++IEEE Access 2022, 10, 46717–46724. [CrossRef]
++24.
++Dosovitskiy, A.; Beyer, L.; Kolensnikov, A.; Weissenborn, D.; Zhai, X.; Unterthiner, T.; Dehghani, M.; Minderer, M.; Heigold,
++G.; Gelly, S.; et al. An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale. arXiv 2020, arXiv:2010.11929.
++[CrossRef]
++25.
++Zhang, J.; Chen, X.; Wang, Y.; Wang, C.; Liu, Y.; Li, X.; Yang, M.-H.; Tao, D. Exploring Plain ViT Reconstruction for Multi-class
++Unsupervised Anomaly Detection. Comput. Vis. Image Underst. 2025, 253, 104308. [CrossRef]
++26.
++Yang, Q.; Guo, R. An Unsupervised Method for Industrial Image Anomaly Detection with Vision Transformer-Based Autoencoder.
++Sensors 2024, 24, 2440. [CrossRef]
++
++=== 20쪽 ===
++Electronics 2025, 14, 3455
++20 of 21
++27.
++Lu, R.; Wu, Y.J.; Tian, L.; Wang, D.; Chen, B.; Liu, X. Hierarchical vector quantized transformer for multi-class unsupervised
++anomaly detection. Adv. Neural Inf. Process. Syst. 2023, 36, 8487–8500.
++28.
++Cai, X.; Xiao, R.; Zeng, Z.; Gong, P.; Ni, Y. ITran: A novel transformer-based approach for industrial anomaly detection and
++localization. Eng. Appl. Artif. Intell. 2023, 125, 106677. [CrossRef]
++29.
++Mehta, D.; Klarmann, N. Autoencoder-Based Visual Anomaly Localization for Manufacturing Quality Control. Mach. Learn.
++Knowl. Extr. 2023, 6, 1–17. [CrossRef]
++30.
++Chen, H.; Chen, P.; Mao, H.; Jiang, M. A Hierarchically Feature Reconstructed Autoencoder for Unsupervised Anomaly Detection.
++arXiv 2024, arXiv:2405.09148. [CrossRef]
++31.
++Shen, H.; Wei, B.; Ma, Y. Unsupervised anomaly detection for manufacturing product images by significant feature space distance
++measurement. Mech. Syst. Signal Process. 2024, 212, 111328. [CrossRef]
++32.
++Wang, Z.; Bovik, A.C.; Sheikh, H.R.; Simonceli, E.P. Image quality assessment: From error visibility to structural similarity. IEEE
++Trans. Image Process. 2004, 13, 600–612. [CrossRef]
++33.
++Getachew Shiferaw, T.; Yao, L. Autoencoder-Based Unsupervised Surface Defect Detection Using Two-Stage Training. J. Imaging
++2024, 10, 111. [CrossRef] [PubMed]
++34.
++Hong, D.C.; Tan, P.X.; Nguyen, A.N.; Pham, M.K.; Duong, T.H.A.; Huynh, T.-M.; Bui, S.-A.; Nguyen, D.-M.; Ha, Q.-H.; Trinh,
++V.-A.; et al. Unsupervised industrial anomaly detection using paired well-lit and low-light images. J. Comput. Des. Eng. 2025, 12,
++41–61. [CrossRef]
++35.
++McIntosh, D.; Albu, A.B. Unsupervised, Online and On-The-Fly Anomaly Detection for Non-stationary Image Distributions. In
++Proceedings of the European Conference on Computer Vision (ECCV), Milan, Italy, 29 September–4 October 2024; pp. 428–445.
++[CrossRef]
++36.
++Bergmann, P.; Fauser, M.; Sattlegger, D.; Steger, C. MVTec AD—A Comprehensive Real-World Dataset for Unsupervised Anomaly
++Detection. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), Long Beach, CA,
++USA, 15–20 June 2019; pp. 9584–9592. [CrossRef]
++37.
++Park, J.H.; Kim, Y.S.; Seo, H.; Cho, Y.J. Analysis of Training Deep Learning Models for PCB Defect Detection. Sensors 2023, 23,
++2766. [CrossRef]
++38.
++Zhang, H.; Wang, Z.; Zeng, D.; Wu, Z.; Jiang, Y.G. DiffusionAD: Norm-Guided One-Step Denoising Diffusion for Anomaly
++Detection. IEEE Trans. Pattern Anal. Mach. Intell. 2025, 47, 7140–7152. [CrossRef] [PubMed]
++39.
++Deng, S.; Sun, Z.; Zhuang, R.; Gong, J. Noise-to-Norm Reconstruction for Industrial Anomaly Detection and Localization. Appl.
++Sci. 2023, 13, 12436. [CrossRef]
++40.
++Liu, T.; Li, B.; Du, X.; Jiang, B.; Geng, L.; Wang, F.; Zhao, Z. FAIR: Frequency-aware Image Restoration for Industrial Visual
++Anomaly Detection. arXiv 2023, arXiv:2309.07068. [CrossRef]
++41.
++Jiang, X.; Liu, J.; Wang, J.; Nie, Q.; Wu, K.; Liu, Y.; Wang, C.; Zheng, F. SoftPatch: Unsupervised Anomaly Detection with Noisy
++Data. In Proceedings of the 36th Conference on Neural Information Processing Systems (NeurIPS 2022), New Orleans, LA, USA,
++28 November–9 December 2022; Volume 1123, pp. 15433–15445. [CrossRef]
++42.
++Yan, S.; Shao, H.; Xiao, Y.; Liu, B.; Wan, J. Hybrid robust convolutional autoencoder for unsupervised anomaly detection of
++machine tools under noises. Robot Comput.-Integr. manuf. 2023, 79, 102441. [CrossRef]
++43.
++Lu, F.; Yao, X.; Fu, C.W.; Jia, J. Removing Anomalies as Noises for Industrial Defect Localization. In Proceedings of the
++2023 IEEE/CVF International Conference on Computer Vision (ICCV), Paris, France, 1–6 October 2023; pp. 16120–16129.
++[CrossRef]
++44.
++Wei, S.; Jiang, J.; Xu, X. UniNet: A Contrastive Learning-Guided Unified Framework with Feature Selection for Anomaly
++Detection. In Proceedings of the Computer Vision and Pattern Recognition Conference (CVPR), Nashville, TN, USA,
++11–15 June 2025; pp. 9994–10003. Available online: https://openaccess.thecvf.com/content/CVPR2025/html/Wei_UniNet_
++A_Contrastive_Learning-guided_Unified_Framework_with_Feature_Selection_for_CVPR_2025_paper.html (accessed on
++25 July 2025).
++45.
++Li, A.; Qiu, C.; Kloft, M.; Smyth, P.; Rudolph, M.; Mandt, S. Zero-Shot Anomaly Detection via Batch Normalization. Adv. Neural
++Inf. Process. Syst. 2023, 36, 40963–40993. [CrossRef]
++46.
++Xu, H.; Wang, Y.; Wei, J.; Jian, S.; Li, Y.; Liu, N. Fascinating supervisory signals and where to find them: Deep anomaly detection
++with scale learning. In Proceedings of the 40th International Conference on Machine Learning (ICML), Honolulu, HI, USA,
++23–29 July 2023; Volume 1611, pp. 38655–38673. Available online: https://dl.acm.org/doi/10.5555/3618408.3620019 (accessed on
++25 July 2025).
++
++=== 21쪽 ===
++Electronics 2025, 14, 3455
++21 of 21
++47.
++Deng, H.; Li, X. Anomaly Detection via Reverse Distillation from One-Class Embedding. In Proceedings of the 2022 IEEE/CVF
++Conference on Computer Vision and Pattern Recognition (CVPR), New Orleans, LA, USA, 18–24 June 2022; pp. 9727–9736.
++[CrossRef]
++48.
++Kingma, D.P.; Welling, M. Auto-Encoding Variational Bayes. arXiv 2013, arXiv:1312.6114. [CrossRef]
++Disclaimer/Publisher’s Note: The statements, opinions and data contained in all publications are solely those of the individual
++author(s) and contributor(s) and not of MDPI and/or the editor(s). MDPI and/or the editor(s) disclaim responsibility for any injury to
++people or property resulting from any ideas, methods, instructions or products referred to in the content.

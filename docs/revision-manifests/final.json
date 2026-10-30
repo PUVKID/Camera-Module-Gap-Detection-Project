@@ -1,0 +1,14 @@
+{
+  "stage": "최종 원고 · HWP/PDF 단계",
+  "previous": "초기 원고 · 번호 없는 원본",
+  "files": {
+    "원고단계/최종/원고.pdf": {
+      "bytes": 725432,
+      "sha256": "6b12ab3e7ecabc44996270461ee21585ecceab7d990bd2a7eb5e00f41c787ff2"
+    },
+    "원고단계/최종/원고.hwp": {
+      "bytes": 2797568,
+      "sha256": "4d8b4e9628885b988449a088a2e6283d339ca2f0ecae3b983b4a2389ec70fe54"
+    }
+  }
+}
