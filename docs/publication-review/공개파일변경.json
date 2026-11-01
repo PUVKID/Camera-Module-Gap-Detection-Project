@@ -1,0 +1,311 @@
+{
+  "scope": "이번 공개 자료 정리의 실제 파일 변경. 개인정보 원문 값은 재기록하지 않습니다. 이 색인 자체의 재귀 해시는 포함하지 않습니다.",
+  "changes": [
+    {
+      "path": "README.md",
+      "change": "modified",
+      "before": {
+        "bytes": 9335,
+        "sha256": "36c9c69c8323609c78523e247d74bb9a4e25417c9b957d93fb90a2a000c231db"
+      },
+      "after": {
+        "bytes": 10385,
+        "sha256": "55877f3416a24cf37481f16d7beecae8df1f69a18bd4ef1fffe7fef1f99b557f"
+      }
+    },
+    {
+      "path": "docs/PAPERS.md",
+      "change": "modified",
+      "before": {
+        "bytes": 1016,
+        "sha256": "9c2f5b804a124e51502331282694c50daa9a0f66d3c8cd02693f52c48c77aeca"
+      },
+      "after": {
+        "bytes": 1300,
+        "sha256": "24138c04a39aaa4b0bb1c64cd8f3e1d2c12ea7b1461d28e8ae3fc20c51e8041a"
+      }
+    },
+    {
+      "path": "docs/PRIVACY_CHANGELOG_2026-10-30.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 740,
+        "sha256": "59e797c9554ad5216b53f8a63ff06bfca2b4ff26c213fdc7bfe1ef514dd82092"
+      }
+    },
+    {
+      "path": "docs/PUBLIC_CHANGELOG_2026-10-30.md",
+      "change": "modified",
+      "before": {
+        "bytes": 4138,
+        "sha256": "86e670152dd4ae134431a3f0e6a230577580982b3e5ce8d8d4ad1aa6b1cb6943"
+      },
+      "after": {
+        "bytes": 4229,
+        "sha256": "ff0beab8891ffa4d77449e95c5286377b3c6b61a7a8b916980ed5e82fe6ca6bc"
+      }
+    },
+    {
+      "path": "docs/REVISION_INDEX.md",
+      "change": "modified",
+      "before": {
+        "bytes": 2637,
+        "sha256": "eb26e288c5df2511b66dc81c0fc10e8077a886ce1912901f45634dc9adc0e314"
+      },
+      "after": {
+        "bytes": 2994,
+        "sha256": "a7dc9ed6d9b5a2d2c4e9fdb2ca8da6b9e25030a7c6a9ccedec41e716d1ecd76f"
+      }
+    },
+    {
+      "path": "docs/changes/2026-10-30-공개자료정리.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 403,
+        "sha256": "b3ccd8be5bc51d4630f76cb85a8467be72d649568033b9700b21e3deb6fcb9de"
+      }
+    },
+    {
+      "path": "docs/changes/2026-10-30-자료와차수정리.md",
+      "change": "modified",
+      "before": {
+        "bytes": 6155,
+        "sha256": "6ee172c76e4f0cd1d4590417ab7ccf9241ca516625e7b3f23986a9740f30710a"
+      },
+      "after": {
+        "bytes": 6161,
+        "sha256": "b7912ef289e094044fb73d0d20380c8e87b6c754b5437d60c12c9d2f235ab744"
+      }
+    },
+    {
+      "path": "docs/privacy-changes.diff",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 30702,
+        "sha256": "2c7beecac625be44b41d87d9e1920e59513ad76bec44b5aeb51a2cdb4fc927a6"
+      }
+    },
+    {
+      "path": "docs/publication-review/item-1.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 690,
+        "sha256": "f4e1de598a6a526720727186154124abfc9f7ac88038d9bd8c30c3ed4d5a4f47"
+      }
+    },
+    {
+      "path": "docs/revision-diffs/illustrated.diff",
+      "change": "modified",
+      "before": {
+        "bytes": 10708,
+        "sha256": "1b0cce5736971e2b00671f0962306654318038b0ccae7497ec8e1370cce5883e"
+      },
+      "after": {
+        "bytes": 10632,
+        "sha256": "91e9f21a37c7c33eb2425d6a8c88f358ca00313f525fe047ba851cc1f1bc5d10"
+      }
+    },
+    {
+      "path": "docs/revision-diffs/initial.diff",
+      "change": "modified",
+      "before": {
+        "bytes": 38848,
+        "sha256": "2e0f0206d370ac2626e35ea56a67673cabaa024e00dadad7d1d2d6d3fcc71840"
+      },
+      "after": {
+        "bytes": 38810,
+        "sha256": "b5c674d39d46319bb8cc014aa4b5238e947145df674038a6bb13774448700d2c"
+      }
+    },
+    {
+      "path": "docs/revision-manifests/final.json",
+      "change": "modified",
+      "before": {
+        "bytes": 428,
+        "sha256": "24246c55eb044777377652763dcb67c935dd1366e6cd86d07a09490e4e2cb7c6"
+      },
+      "after": {
+        "bytes": 942,
+        "sha256": "7c8c6e178d4ce1682548aba1755e05f03f5c1b228631f785858c17db1f1677f8"
+      }
+    },
+    {
+      "path": "docs/revision-manifests/illustrated.json",
+      "change": "modified",
+      "before": {
+        "bytes": 2504,
+        "sha256": "1ce8bdbee0c239820c5c6cf3fbb8e190bfbb924c9ae78c0bcd5352c5e5f30fa6"
+      },
+      "after": {
+        "bytes": 5372,
+        "sha256": "4933c93d605f5e769a865db9ce1a5ff95c3a523e1efdd4fe748c8295de756bf9"
+      }
+    },
+    {
+      "path": "docs/revision-manifests/initial.json",
+      "change": "modified",
+      "before": {
+        "bytes": 399,
+        "sha256": "24845c0829325169c6e0697fb98b1528f46cff7f2d993e762863e95b641d4904"
+      },
+      "after": {
+        "bytes": 913,
+        "sha256": "15a49b8aad9468b0b8e6fbfb324e0a3a9eb3b28ea6ce01a1b3ec49c1f2182e35"
+      }
+    },
+    {
+      "path": "docs/revision-manifests/references.json",
+      "change": "modified",
+      "before": {
+        "bytes": 573,
+        "sha256": "8195fec435f23f02d827510e0e40ea02c8655c28b9a2d07ffce405f0231700f0"
+      },
+      "after": {
+        "bytes": 1279,
+        "sha256": "de5ad5e3e558d9851c18f6eaed840fd04289cd27a4368bd252c84a4677c31a9d"
+      }
+    },
+    {
+      "path": "docs/revisions/final.md",
+      "change": "modified",
+      "before": {
+        "bytes": 1646,
+        "sha256": "0d3a3cf969aef77d1013d415b523147176db7c628bc43fe24eb6a21e58f5f1c5"
+      },
+      "after": {
+        "bytes": 1669,
+        "sha256": "e091b12b5eb9858b9292b925556dc007d6325ea844017d320d0a21edb1b92429"
+      }
+    },
+    {
+      "path": "docs/revisions/illustrated.md",
+      "change": "modified",
+      "before": {
+        "bytes": 4778,
+        "sha256": "78095b36ac9856c973171ca072b3ef6ca83614eaf7ecd2ae5778fb469ee8424b"
+      },
+      "after": {
+        "bytes": 4813,
+        "sha256": "658706950d3d657670b2f763fcfd96caa5ba25a1045f392ae48cb5d42320f96d"
+      }
+    },
+    {
+      "path": "docs/revisions/initial.md",
+      "change": "modified",
+      "before": {
+        "bytes": 1715,
+        "sha256": "7f7aadcb30aaec03fc8346e7edc9ecddc67eef94f47c8560ceed456710b30ce6"
+      },
+      "after": {
+        "bytes": 1738,
+        "sha256": "d67cb752327510d0c772202567e77f2d20a75622a56f01b3c23c229fc3fcf261"
+      }
+    },
+    {
+      "path": "docs/versions/final-paper.md",
+      "change": "modified",
+      "before": {
+        "bytes": 1691,
+        "sha256": "b323316b09c7e3f09496d234ab17a400d036404852c1a9f62a98ed2e9e5bc9f9"
+      },
+      "after": {
+        "bytes": 1735,
+        "sha256": "4e65f02e0cb13cb3f7dfd37c5ae93ab7780d4895a2c8a8175f0ca6b71ec9a3c7"
+      }
+    },
+    {
+      "path": "논문/최종_논문.hwpx",
+      "change": "deleted",
+      "before": {
+        "bytes": 9341032,
+        "sha256": "15a861e0c2e32f065966cf7524dd5933b86aab2fd62ec0781017aeb2df44e3c5"
+      },
+      "after": null
+    },
+    {
+      "path": "논문/최종_논문.hwpx.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 436,
+        "sha256": "60d3fb288ca7aefa58e45efd0cdfe1455bbae01964d960d4aa5a05ab4b94eecd"
+      }
+    },
+    {
+      "path": "논문/최종_논문.pdf",
+      "change": "modified",
+      "before": {
+        "bytes": 800724,
+        "sha256": "1dbb7d4d6d39fad3d271d0eb3d1c1384b17280ca00374fc2528bf6a76f5a698a"
+      },
+      "after": {
+        "bytes": 778248,
+        "sha256": "3d546c8ad4ce6104d7b63e7a53fd8bf96bab3df497b63d818787be85dd0cfbd8"
+      }
+    },
+    {
+      "path": "원고단계/초기/원고.hwp",
+      "change": "deleted",
+      "before": {
+        "bytes": 2617344,
+        "sha256": "e8cd7aa91675f015add1358881b62d0626483fbf9fa0c12903a7c0ac3649e4d4"
+      },
+      "after": null
+    },
+    {
+      "path": "원고단계/초기/원고.hwp.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 417,
+        "sha256": "f8a50437fcdd2209c557d840e971a69cfde57d660545309520bf83c1dda97ebe"
+      }
+    },
+    {
+      "path": "원고단계/초기/원고.pdf",
+      "change": "modified",
+      "before": {
+        "bytes": 695829,
+        "sha256": "e856530a916e91762043b6cc640890aedc34cd5dde129453b8362312bff2d90a"
+      },
+      "after": {
+        "bytes": 701674,
+        "sha256": "a1e8c8da1c054c6f0b4f42baa1847c3837f1a5a976b671db40a8434b9f7d1ff2"
+      }
+    },
+    {
+      "path": "원고단계/최종/원고.hwp",
+      "change": "deleted",
+      "before": {
+        "bytes": 2797568,
+        "sha256": "4d8b4e9628885b988449a088a2e6283d339ca2f0ecae3b983b4a2389ec70fe54"
+      },
+      "after": null
+    },
+    {
+      "path": "원고단계/최종/원고.hwp.md",
+      "change": "added",
+      "before": null,
+      "after": {
+        "bytes": 417,
+        "sha256": "f8a50437fcdd2209c557d840e971a69cfde57d660545309520bf83c1dda97ebe"
+      }
+    },
+    {
+      "path": "원고단계/최종/원고.pdf",
+      "change": "modified",
+      "before": {
+        "bytes": 725432,
+        "sha256": "6b12ab3e7ecabc44996270461ee21585ecceab7d990bd2a7eb5e00f41c787ff2"
+      },
+      "after": {
+        "bytes": 703262,
+        "sha256": "2839a037d389950ec30e1dbd5accb95793e1b5b0e4be84272381169c3a383f38"
+      }
+    }
+  ]
+}

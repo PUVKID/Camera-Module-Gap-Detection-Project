@@ -23,7 +23,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 </details>
 
-[📄 PDF로 읽기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [📝 HWPX 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+[📄 PDF로 읽기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [📝 HWPX 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
 
 </div>
 
@@ -31,7 +31,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 [현재 원문 PDF·공식 링크 교체 위치](docs/PAPERS.md) · [모든 실제 차수·최종본·전체 비교](docs/REVISION_INDEX.md)
 
-- **사진 포함 최종**: [PDF 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [편집 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+- **사진 포함 최종**: [PDF 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [편집 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
 
 공식 공개 URL은 아직 등록하지 않았습니다. 추후 [논문 전용 표](docs/PAPERS.md)의 교체 칸과 이 항목을 함께 갱신합니다.
 
@@ -66,7 +66,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 **논문 그림** — 공개 HWPX 원고의 처리 흐름도: 정렬·전처리·이진화·ROI 기반 갭 측정 과정입니다.
 
-[근거 파일 보기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+[근거 파일 보기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
 
 </details>
 
@@ -117,7 +117,7 @@ E --> F[갭·누락·이상치·화질·시간 비교]
     └── 최종_논문.hwpx
 ```
 
-- [전체 최종 원고](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
+- [전체 최종 원고](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
 
 ## 🧩 갭 측정과 필터 비교
 
@@ -160,3 +160,30 @@ PDF와 HWPX 원고에 제조 부품 영상, 이진화 결과, 처리 흐름도�
 연구 방법과 결과, 다음에 확인할 과제를 함께 살펴볼 수 있습니다.
 
 </div>
+
+
+> 공개 PDF에서는 지정된 개인정보와 학과·학부 정보를 제외했습니다. 저자·공동저자의 성명, 학교, 이메일, ORCID와 사진은 보존합니다. 편집 원문 링크는 비공개 보관 안내로 연결됩니다.
+
+
+<details>
+<summary>📚 차수별 논문 공개본 전체 보기</summary>
+
+| 원고·공개 경로 | 논문 |
+| :--- | :--- |
+| 논문/최종_논문.pdf | [📄 PDF 열기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) |
+| 원고단계/초기/원고.pdf | [📄 PDF 열기](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B4%88%EA%B8%B0/%EC%9B%90%EA%B3%A0.pdf) |
+| 원고단계/최종/원고.pdf | [📄 PDF 열기](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B5%9C%EC%A2%85/%EC%9B%90%EA%B3%A0.pdf) |
+
+</details>
+
+
+<details>
+<summary>🧹 공개 자료 정리 기록</summary>
+
+| 검수 대상 | 연결 자료 | 상세·이번 비교 |
+| :--- | :--- | :--- |
+| **기존 코드와 자료** | [📁 검수 자료](docs/publication-review) | [📖 정리 내용](docs/publication-review/item-1.md) · [🔎 파일 비교](docs/publication-review/공개파일변경.json) |
+
+[🗂️ 전체 차수와 자료](docs/REVISION_INDEX.md)
+
+</details>
