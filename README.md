@@ -23,24 +23,29 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 </details>
 
-[📄 PDF로 읽기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [📝 HWPX 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
+[📄 PDF로 읽기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [최신 편집 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 </div>
 
-## 📄 내 논문 PDF
+## 📄 논문과 최신 자료
 
-[현재 원문 PDF·공식 링크 교체 위치](docs/PAPERS.md) · [모든 실제 차수·최종본·전체 비교](docs/REVISION_INDEX.md)
+| 자료 | 원문 파일 |
+|---|---|
+| 사진 포함 최종 논문 · 갭 검출 | [PDF 다운로드](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) |
+| 사진 포함 최종 논문 · 갭 검출 | [HWPX 다운로드](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) |
+| 이진화·필터·ROI 연구노트 | [PDF 다운로드](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/Binarization_%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8.pdf) |
+| 외부 참고논문 · Electronics | [PDF 다운로드](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf) |
 
-- **사진 포함 최종**: [PDF 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [편집 원본](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
-
-공식 공개 URL은 아직 등록하지 않았습니다. 추후 [논문 전용 표](docs/PAPERS.md)의 교체 칸과 이 항목을 함께 갱신합니다.
+[📚 자료별 설명](docs/PAPERS.md) · [🗂️ 코드 차수와 변경 이력](docs/REVISION_INDEX.md)
 
 ## 🗂️ 모든 실제 차수와 최종본
 
+아래 표는 코드 개발과 원고 수정 당시의 변화입니다. 현재 다운로드는 최신 완성 문서로 연결하며 이전 첨부는 변경 이력에서 구분합니다.
+
 | 단계 | 설명 | 파일 종류 | 전체 차이 |
 |---|---|---|---|
-| [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 동적 ROI 정렬·6개 샘플라인·필터·이진화·갭 측정 방법을 서술한 원고입니다. 임의의 1차 번호를 붙이지 않습니다. 초록의 약1,000장과 본문의546장, 처리시간·필터 서술의 내부 차이는 원고 그대로 읽어야 합니다.나중 단계의 값으로 소급 정정하지 않습니다.라벨은 원본 폴더명과 구별한 안내명입니다.라벨 자체가 새 연구 차수는 아닙니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/initial.diff) · [자료 폴더](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B4%88%EA%B8%B0) |
-| [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | HWP 본문에서는 초기의 사사 자리표시자를 IITP-2024-00436954와 경기대학교 컴퓨터과학연구소 지원 문구로 바꾼 차이가 있습니다. 다만 함께 저장된 두 원본 PDF의 추출 본문은 동일하고 초기 사사 자리표시자가 남습니다. 파일명이 최종이라는 이유로 HWP와 PDF가 완전히 같다고 판단하지 않습니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/final.diff) · [자료 폴더](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B5%9C%EC%A2%85) |
+| [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 동적 ROI 정렬·6개 샘플라인·필터·이진화·갭 측정 방법을 서술한 원고입니다. 임의의 1차 번호를 붙이지 않습니다. 초록의 약1,000장과 본문의546장, 처리시간·필터 서술의 내부 차이는 원고 그대로 읽어야 합니다.나중 단계의 값으로 소급 정정하지 않습니다.라벨은 원본 폴더명과 구별한 안내명입니다.라벨 자체가 새 연구 차수는 아닙니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/initial.diff) · [최신 자료](%EB%85%BC%EB%AC%B8) |
+| [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | HWP 본문에서는 초기의 사사 자리표시자를 IITP-2024-00436954와 경기대학교 컴퓨터과학연구소 지원 문구로 바꾼 차이가 있습니다. 다만 함께 저장된 두 원본 PDF의 추출 본문은 동일하고 초기 사사 자리표시자가 남습니다. 파일명이 최종이라는 이유로 HWP와 PDF가 완전히 같다고 판단하지 않습니다. | hwp·pdf | [직전 단계 비교](docs/revision-diffs/final.diff) · [최신 자료](%EB%85%BC%EB%AC%B8) |
 | [사진 포함 최종 · HWPX 단계](docs/revisions/illustrated.md) | 기존 공개 HWPX와 네이티브 변환 PDF를 보존합니다. 원고 본문·표·삽입 연구 그림 전체를 읽는 자료이며, 별도 실행 코드와 제조 원데이터는 포함하지 않습니다. | hwpx·jpeg·pdf·png | [직전 단계 비교](docs/revision-diffs/illustrated.diff) · [자료 폴더](%EB%85%BC%EB%AC%B8) |
 | [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | 프로젝트의 84쪽 이진화·필터·ROI 코드 노트와 원문에 CC BY4.0이 표시된 외부 참고논문을 원문으로 보존합니다. 외부 논문의 저자를 그대로 표시하고 본인의 실적으로 합치지 않습니다. | md·pdf | [직전 단계 비교](docs/revision-diffs/references.diff) · [자료 폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) |
 
@@ -66,7 +71,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 **논문 그림** — 공개 HWPX 원고의 처리 흐름도: 정렬·전처리·이진화·ROI 기반 갭 측정 과정입니다.
 
-[근거 파일 보기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
+[최신 편집 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 </details>
 
@@ -117,7 +122,7 @@ E --> F[갭·누락·이상치·화질·시간 비교]
     └── 최종_논문.hwpx
 ```
 
-- [전체 최종 원고](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
+- [최신 편집 원문](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 ## 🧩 갭 측정과 필터 비교
 
@@ -162,19 +167,21 @@ PDF와 HWPX 원고에 제조 부품 영상, 이진화 결과, 처리 흐름도�
 </div>
 
 
-> 공개 PDF에서는 지정된 개인정보와 학과·학부 정보를 제외했습니다. 저자·공동저자의 성명, 학교, 이메일, ORCID와 사진은 보존합니다. 편집 원문 링크는 비공개 보관 안내로 연결됩니다.
-
-
-<details>
-<summary>📚 차수별 논문 공개본 전체 보기</summary>
-
-| 원고·공개 경로 | 논문 |
-| :--- | :--- |
-| 논문/최종_논문.pdf | [📄 PDF 열기](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) |
-| 원고단계/초기/원고.pdf | [📄 PDF 열기](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B4%88%EA%B8%B0/%EC%9B%90%EA%B3%A0.pdf) |
-| 원고단계/최종/원고.pdf | [📄 PDF 열기](%EC%9B%90%EA%B3%A0%EB%8B%A8%EA%B3%84/%EC%B5%9C%EC%A2%85/%EC%9B%90%EA%B3%A0.pdf) |
-
-</details>
 
 
 
+
+
+
+
+## 📚 현재 첨부 문서
+
+이전 원고·발표의 변경 설명과 코드 차수는 위의 이력에서 확인할 수 있습니다. 다운로드는 문서 계보별 최신 완성본으로 연결합니다.
+
+| 문서 | 자료 폴더 | 상세 | 직전 공개본 전체 비교 |
+|---|---|---|---|
+| 사진 포함 최종 논문 · 갭 검출 | [폴더](%EB%85%BC%EB%AC%B8) | [설명](docs/latest/camera-gap-binarization.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+| 이진화·필터·ROI 연구노트 | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/binarization-research-notes.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+| 외부 참고논문 · Electronics | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/external-electronics-reference.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+
+[📝 최신 문서 구성 변경](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C.md)

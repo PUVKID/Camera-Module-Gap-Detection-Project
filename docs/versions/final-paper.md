@@ -1,10 +1,10 @@
 # 📄 최종 원고
 
-[📄 PDF로 읽기](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [📝 HWPX 원본](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md)
+[📄 PDF로 읽기](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) · [최신 편집 원문](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx)
 
 정렬·전처리·이진화와 ROI 측정으로 카메라 모듈 갭을 비교하는 원고입니다.
 
-[최종 원고 읽기](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md) · [프로젝트 소개](../../README.md) · [연구 자료](../VERSIONS.md)
+[최신 편집 원문](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) · [프로젝트 소개](../../README.md) · [연구 자료](../VERSIONS.md)
 
 ## 🔎 연구 범위
 
@@ -24,8 +24,8 @@
 
 ## 📍 관련 자료
 
-- [논문/최종_논문.hwpx](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md) · `원고 본문` · Contents/section0.xml §3.1, §3.4–3.6
-- [논문/최종_논문.hwpx](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx.md) · `원고 본문` · Contents/section0.xml §3.6 및 결론
+- [최신 편집 원문](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) · `원고 본문` · Contents/section0.xml §3.1, §3.4–3.6
+- [최신 편집 원문](../../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) · `원고 본문` · Contents/section0.xml §3.6 및 결론
 
 셀 번호는 0부터, 소스 행 번호와 PDF 쪽 번호는 1부터 셉니다. 
 

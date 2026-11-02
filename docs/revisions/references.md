@@ -8,12 +8,14 @@
 
 직전 단계: 확인된 비교 대상 없음.
 
-## 📁 실제 파일
+## 📁 당시 파일 기록
+
+아래 첨부의 크기·해시는 이 단계의 이전 파일 기록입니다. 현재 첨부와 실제 크기·해시는 [최신 자료 안내](../PAPERS.md)에서 확인할 수 있습니다. 코드·그래프는 기존 파일을 유지했습니다.
 
 | 파일 | 종류 | 바이트 | SHA-256 |
 |---|---|---:|---|
-| [참고자료/Binarization_연구노트.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/Binarization_%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8.pdf) | .pdf | 15825642 | `085e7f5224e555aa6e4a2006ed865c695be778f7726442a31882932d7d08fe83` |
-| [참고자료/electronics-14-03455.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf) | .pdf | 3269089 | `1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659` |
+| `참고자료/Binarization_연구노트.pdf` | .pdf | 15825642 | `085e7f5224e555aa6e4a2006ed865c695be778f7726442a31882932d7d08fe83` |
+| `참고자료/electronics-14-03455.pdf` | .pdf | 3269089 | `1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659` |
 | [참고자료/ATTRIBUTION.md](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/ATTRIBUTION.md) | .md | 822 | `bf9bc7c4357a90fc6f98998dbbfe3d942bed0bb3bc11889b798fa1303d6a2e8b` |
 
 ## 🔎 해석·검증 범위
