@@ -1,29 +1,25 @@
-# 📚 실제 차수와 원고 단계
+<div align="center">
 
-아래 표는 코드 개발과 원고 수정 당시의 변화입니다. 현재 다운로드는 최신 완성 문서로 연결하며 이전 첨부는 변경 이력에서 구분합니다.
+# 🗂️ 차수별 프로젝트 안내
 
-연구 단계·원본 폴더 차수·논문 수정·발표 차수는 서로 다른 구분입니다. 실제 파일과 본문으로 확인한 단계만 정리했습니다. 코드 차수와 원고 수정의 설명·비교 이력은 유지하고, 현재 첨부는 문서 계보별 최신 완성본으로 연결합니다.
+연구 원고·실험 코드·발표 자료의 목적과 사용 순서를 단계별로 살펴봅니다.
 
-| 단계 | 내용 | 파일 종류 | 폴더·자료 | 직전 단계 전체 비교 |
-|---|---|---|---|---|
-| [초기 원고 · 번호 없는 원본](revisions/initial.md) | 동적 ROI 정렬·6개 샘플라인·필터·이진화·갭 측정 방법을 서술한 원고입니다. 임의의 1차 번호를 붙이지 않습니다. 초록의 약1,000장과 본문의546장, 처리시간·필터 서술의 내부 차이는 원고 그대로 읽어야 합니다.나중 단계의 값으로 소급 정정하지 않습니다.라벨은 원본 폴더명과 구별한 안내명입니다.라벨 자체가 새 연구 차수는 아닙니다. | hwp·pdf | [최신 PDF](../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) | [전체 차이](revision-diffs/initial.diff) · [최신 자료](../%EB%85%BC%EB%AC%B8) |
-| [최종 원고 · HWP/PDF 단계](revisions/final.md) | HWP 본문에서는 초기의 사사 자리표시자를 IITP-2024-00436954와 경기대학교 컴퓨터과학연구소 지원 문구로 바꾼 차이가 있습니다. 다만 함께 저장된 두 원본 PDF의 추출 본문은 동일하고 초기 사사 자리표시자가 남습니다. 파일명이 최종이라는 이유로 HWP와 PDF가 완전히 같다고 판단하지 않습니다. | hwp·pdf | [최신 PDF](../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) | [전체 차이](revision-diffs/final.diff) · [최신 자료](../%EB%85%BC%EB%AC%B8) |
-| [사진 포함 최종 · HWPX 단계](revisions/illustrated.md) | 기존 공개 HWPX와 네이티브 변환 PDF를 보존합니다. 원고 본문·표·삽입 연구 그림 전체를 읽는 자료이며, 별도 실행 코드와 제조 원데이터는 포함하지 않습니다. | hwpx·jpeg·pdf·png | [최신 편집 원문](../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) | [전체 차이](revision-diffs/illustrated.diff) · [자료 폴더](../%EB%85%BC%EB%AC%B8) |
-| [이진화 연구노트·외부 참고논문](revisions/references.md) | 프로젝트의 84쪽 이진화·필터·ROI 코드 노트와 원문에 CC BY4.0이 표시된 외부 참고논문을 원문으로 보존합니다. 외부 논문의 저자를 그대로 표시하고 본인의 실적으로 합치지 않습니다. | md·pdf | [직접 자료](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/Binarization_%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8.pdf) | [전체 차이](revision-diffs/references.diff) · [자료 폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) |
+</div>
+
+[🏠 프로젝트 전체 소개](../README.md)
+
+| 단계 | 이 단계의 목적 | 자료 | 직전 변화 |
+| --- | --- | --- | --- |
+| [초기 원고 · 번호 없는 원본](revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/initial.diff) |
+| [최종 원고 · HWP/PDF 단계](revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/final.diff) |
+| [사진 포함 최종 · HWPX 단계](revisions/illustrated.md) | 사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF로 갭 검출 연구를 읽는 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/illustrated.diff) |
+| [이진화 연구노트·외부 참고논문](revisions/references.md) | 84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.21쪽 Electronics 논문은 외부 저자의 연구 참고문헌입니다. | [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](revision-diffs/references.diff) |
 
 
+## 📚 자료 이용
 
+각 상세 설명은 입력·처리·출력과 파일 구성, 설정·사용법 및 결과 해석을 연결합니다. 원고는 연구별 최신 전체 문서로, 코드와 실험 기록은 해당 단계의 자료로 연결합니다.
 
-[🏠 첫 화면](../README.md)
+[📄 최신 논문·발표·편집 원본](PAPERS.md)
 
-## 📚 현재 첨부 문서
-
-이전 원고·발표의 변경 설명과 코드 차수는 위의 이력에서 확인할 수 있습니다. 다운로드는 문서 계보별 최신 완성본으로 연결합니다.
-
-| 문서 | 자료 폴더 | 상세 | 직전 공개본 전체 비교 |
-|---|---|---|---|
-| 사진 포함 최종 논문 · 갭 검출 | [폴더](../%EB%85%BC%EB%AC%B8) | [설명](latest/camera-gap-binarization.md) | [전체 비교](changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
-| 이진화·필터·ROI 연구노트 | [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](latest/binarization-research-notes.md) | [전체 비교](changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
-| 외부 참고논문 · Electronics | [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](latest/external-electronics-reference.md) | [전체 비교](changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
-
-[📝 최신 문서 구성 변경](changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C.md)
+[📝 안내 변경 기록](changes/2026-11-03-%EC%B0%A8%EC%88%98%EB%B3%84%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8%EC%95%88%EB%82%B4.md)
