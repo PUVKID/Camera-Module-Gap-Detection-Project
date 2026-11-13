@@ -2,7 +2,9 @@
 
 # 이진화·필터·ROI 연구노트
 
-84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.21쪽 Electronics 논문은 외부 저자의 연구 참고문헌입니다.
+84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
+
+21쪽 Electronics 논문은 외부 저자의 연구 참고문헌입니다.
 
 [목적·구성·사용법·결과의 상세 안내](../revisions/references.md) · [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md)
 
