@@ -9,7 +9,7 @@
 **영상 정렬과 영역별 필터로 카메라 모듈의 틈 위치와 길이를 측정하는 연구입니다.**
 
 <!-- reading-levels17:start -->
-| 읽기 수준 · 안내 내용 |
+| 내용 |
 | --- |
 | **읽기 수준**<br>[LEVEL 1 - Beginner](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)<br><br>**안내 내용**<br>낯선 용어를 풀고 입력부터 결과까지 구체적인 예로 읽기 |
 | **읽기 수준**<br>[LEVEL 2 - Explorer](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md)<br><br>**안내 내용**<br>핵심 개념과 처리 흐름의 관계 이해 |
@@ -105,7 +105,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 ## 논문과 최신 자료
 
-| 자료 · 원문 파일 |
+| 내용 |
 | --- |
 | **자료**<br>사진 포함 최종 논문 · 갭 검출<br><br>**원문 파일**<br>[PDF 다운로드](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) |
 | **자료**<br>사진 포함 최종 논문 · 갭 검출<br><br>**원문 파일**<br>[HWPX 다운로드](%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) |
@@ -118,7 +118,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 ## 전체 차수
 
-| 차수·단계 · 주요 내용 · 자료 · 직전 비교 |
+| 내용 |
 | --- |
 | **차수·단계**<br>[초기 원고 · 번호 없는 원본](docs/revisions/initial.md)<br><br>**주요 내용**<br>필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다.<br><br>**자료**<br>[폴더](%EB%85%BC%EB%AC%B8)<br><br>**직전 비교**<br>[전체 비교](docs/revision-diffs/initial.diff) |
 | **차수·단계**<br>[최종 원고 · HWP/PDF 단계](docs/revisions/final.md)<br><br>**주요 내용**<br>초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다.<br><br>**자료**<br>[폴더](%EB%85%BC%EB%AC%B8)<br><br>**직전 비교**<br>[전체 비교](docs/revision-diffs/final.diff) |
@@ -292,7 +292,7 @@ PDF와 HWPX 원고에 제조 부품 영상, 이진화 결과, 처리 흐름도�
 
 현재 제공하는 원문과 직전 공개본의 비교입니다. 이전 원고·발표와 코드는 전체 차수 표에서 확인할 수 있습니다.
 
-| 문서 · 자료 폴더 · 상세 · 직전 공개본 전체 비교 |
+| 내용 |
 | --- |
 | **문서**<br>사진 포함 최종 논문 · 갭 검출<br><br>**자료 폴더**<br>[폴더](%EB%85%BC%EB%AC%B8)<br><br>**상세**<br>[설명](docs/latest/camera-gap-binarization.md)<br><br>**직전 공개본 전체 비교**<br>[전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
 | **문서**<br>이진화·필터·ROI 연구노트<br><br>**자료 폴더**<br>[폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C)<br><br>**상세**<br>[설명](docs/latest/binarization-research-notes.md)<br><br>**직전 공개본 전체 비교**<br>[전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |

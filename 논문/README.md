@@ -8,7 +8,7 @@
 
 **이 폴더에 연결된 연구·개발 단계의 목적과 차이는 아래 개별 설명에서 확인할 수 있습니다.**
 
-| 차수·단계 · 주요 내용 · 자료 · 직전 비교 |
+| 내용 |
 | --- |
 | **차수·단계**<br>[초기 원고 · 번호 없는 원본](../docs/revisions/initial.md)<br><br>**주요 내용**<br>필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다.<br><br>**자료**<br>[폴더](.)<br><br>**직전 비교**<br>[전체 비교](../docs/revision-diffs/initial.diff) |
 | **차수·단계**<br>[최종 원고 · HWP/PDF 단계](../docs/revisions/final.md)<br><br>**주요 내용**<br>초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다.<br><br>**자료**<br>[폴더](.)<br><br>**직전 비교**<br>[전체 비교](../docs/revision-diffs/final.diff) |

@@ -1148,7 +1148,7 @@ ROI와 투영 예시
 
 ## 파일별 역할
 
-| 파일 · 이용 방법 |
+| 내용 |
 | --- |
 | **파일**<br>[참고자료/Binarization_연구노트.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/Binarization_%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8.pdf)<br><br>**이용 방법**<br>전체 원문·도표 읽기 |
 | **파일**<br>[참고자료/electronics-14-03455.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf)<br><br>**이용 방법**<br>전체 원문·도표 읽기 |
