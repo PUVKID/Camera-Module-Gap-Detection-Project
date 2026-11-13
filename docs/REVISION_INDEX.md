@@ -10,12 +10,12 @@
 
 [프로젝트 전체 소개](../README.md)
 
-| 차수·단계 | 주요 내용 | 자료 | 직전 비교 |
-| --- | --- | --- | --- |
-| [초기 원고 · 번호 없는 원본](revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/initial.diff) |
-| [최종 원고 · HWP/PDF 단계](revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/final.diff) |
-| [사진 포함 최종 · HWPX 단계](revisions/illustrated.md) | [상세 설명](#layout18-table-1-row-3-field-1) | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/illustrated.diff) |
-| [이진화 연구노트·외부 참고논문](revisions/references.md) | [상세 설명](#layout18-table-1-row-4-field-1) | [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](revision-diffs/references.diff) |
+| 차수·단계 · 주요 내용 · 자료 · 직전 비교 |
+| --- |
+| **차수·단계**<br>[초기 원고 · 번호 없는 원본](revisions/initial.md)<br><br>**주요 내용**<br>필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다.<br><br>**자료**<br>[폴더](../%EB%85%BC%EB%AC%B8)<br><br>**직전 비교**<br>[전체 비교](revision-diffs/initial.diff) |
+| **차수·단계**<br>[최종 원고 · HWP/PDF 단계](revisions/final.md)<br><br>**주요 내용**<br>초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다.<br><br>**자료**<br>[폴더](../%EB%85%BC%EB%AC%B8)<br><br>**직전 비교**<br>[전체 비교](revision-diffs/final.diff) |
+| **차수·단계**<br>[사진 포함 최종 · HWPX 단계](revisions/illustrated.md)<br><br>**주요 내용**<br>[상세 설명](#layout18-table-1-row-3-field-1)<br><br>**자료**<br>[폴더](../%EB%85%BC%EB%AC%B8)<br><br>**직전 비교**<br>[전체 비교](revision-diffs/illustrated.diff) |
+| **차수·단계**<br>[이진화 연구노트·외부 참고논문](revisions/references.md)<br><br>**주요 내용**<br>[상세 설명](#layout18-table-1-row-4-field-1)<br><br>**자료**<br>[폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C)<br><br>**직전 비교**<br>[전체 비교](revision-diffs/references.diff) |
 
 <a id="layout18-table-1-row-3-field-1"></a>
 
