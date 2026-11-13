@@ -2,7 +2,11 @@
 
 # electronics-14-03455 외부 참고논문
 
-84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
+<!-- reading-levels17:start -->
+**읽기 수준 선택** · [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<!-- reading-levels17:end -->
+
+**84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.**
 
 21쪽 Electronics 논문은 외부 저자의 연구 참고문헌입니다.
 
@@ -21,12 +25,54 @@
 
 ## 연결된 내용
 
-| 구성 | 읽을 내용 |
-| --- | --- |
-| 이진화 종류 | 전역 임계값·Otsu·적응형·반전·삼진화 등 방법을 비교합니다. |
-| 필터와 ROI | 공간·주파수·BM3D 등 필터와 ROI 내 흰 픽셀의 1D 투영 예시를 읽습니다. |
-| 외부 연구 | 스마트폰 소형 모듈의 구조 결함을 실시간·노이즈 강건 방식으로 분류한 비지도 연구를 참고합니다. |
-| 출처 보존 | 외부 논문의 DOI10.3390/electronics14173455와 CC BY4.0·원저자 표기를 유지합니다. |
+<a id="layout18-table-1-row-1"></a>
+
+**이진화 종류**
+
+**구성**
+
+이진화 종류
+
+**읽을 내용**
+
+전역 임계값·Otsu·적응형·반전·삼진화 등 방법을 비교합니다.
+
+<a id="layout18-table-1-row-2"></a>
+
+**필터와 ROI**
+
+**구성**
+
+필터와 ROI
+
+**읽을 내용**
+
+공간·주파수·BM3D 등 필터와 ROI 내 흰 픽셀의 1D 투영 예시를 읽습니다.
+
+<a id="layout18-table-1-row-3"></a>
+
+**외부 연구**
+
+**구성**
+
+외부 연구
+
+**읽을 내용**
+
+스마트폰 소형 모듈의 구조 결함을 실시간·노이즈 강건 방식으로 분류한 비지도 연구를 참고합니다.
+
+<a id="layout18-table-1-row-4"></a>
+
+**출처 보존**
+
+**구성**
+
+출처 보존
+
+**읽을 내용**
+
+외부 논문의 DOI10.3390/electronics14173455와 CC BY4.0·원저자 표기를 유지합니다.
+
 
 <a id="-해석-범위"></a>
 
@@ -37,9 +83,22 @@
 <details>
 <summary>파일·크기·SHA-256과 자료 연결</summary>
 
-| 원문 파일 | 바이트 | SHA-256 |
-|---|---:|---|
-| [electronics-14-03455.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf) | 3269089 | `1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659` |
+<a id="layout18-table-2-row-1"></a>
+
+**[electronics-14-03455.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf)**
+
+**원문 파일**
+
+[electronics-14-03455.pdf](../../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf)
+
+**바이트**
+
+3269089
+
+**SHA-256**
+
+`1b5d7c09cec6b7afab978f01b569f75bd763bc3b458d9e87cd50727317458659`
+
 
 </details>
 
