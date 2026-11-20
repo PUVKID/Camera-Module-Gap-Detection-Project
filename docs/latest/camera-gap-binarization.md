@@ -27,7 +27,7 @@
 | --- | --- |
 | <a id="layout18-table-1-row-1"></a> 삽입 연구 그림 | 정렬·ROI·필터·이진화의 차이를 사진과 도표로 확인합니다. |
 | <a id="layout18-table-1-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 연결하고 저자·소속·사사를 원문 그대로 제공합니다. |
-| <a id="layout18-table-1-row-3"></a> 동적 정렬 | YOLO 키 포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
+| <a id="layout18-table-1-row-3"></a> 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | <a id="layout18-table-1-row-4"></a> 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | <a id="layout18-table-1-row-5"></a> 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
 | <a id="layout18-table-1-row-6"></a> 평가 지표 | 평균·표준편차·누락률·이상치율과 PSNR·SSIM·처리시간을 구분합니다. |

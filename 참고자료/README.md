@@ -6,7 +6,7 @@
 **읽기 수준 선택** · [LEVEL 1 - Beginner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
 <!-- reading-levels17:end -->
 
-**84 쪽 Binarization 연구노트는 임계 값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.**
+**84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.**
 
 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다.
 
@@ -29,7 +29,7 @@
 
 | 차수·단계 | 주요 내용 | 자료 | 직전 비교 |
 | --- | --- | --- | --- |
-| [이진화 연구노트·외부 참고논문](../docs/revisions/references.md) | <a id="layout18-table-2-row-1-field-1"></a>84 쪽 Binarization 연구노트는 임계 값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](.) | [전체 비교](../docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
+| [이진화 연구노트·외부 참고논문](../docs/revisions/references.md) | <a id="layout18-table-2-row-1-field-1"></a>84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](.) | [전체 비교](../docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
 
 
 [프로젝트](../README.md) · [전체 차수](../docs/REVISION_INDEX.md)

@@ -92,7 +92,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 | [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/initial.diff) |
 | [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/final.diff) |
 | [사진 포함 최종 · HWPX 단계](docs/revisions/illustrated.md) | <a id="layout18-table-4-row-3-field-1"></a>사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF로 갭 검출 연구를 읽는 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/illustrated.diff) |
-| [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | <a id="layout18-table-4-row-4-field-1"></a>84 쪽 Binarization 연구노트는 임계 값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
+| [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | <a id="layout18-table-4-row-4-field-1"></a>84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
 
 
 <a id="-프로젝트-소개"></a>
@@ -105,7 +105,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 | 항목 | 원고에서 다루는 내용 |
 | --- | --- |
-| 동적 정렬 | YOLO 키 포인트의 left_top/right_top으로 회전·이동을 보정합니다. |
+| 동적 정렬 | YOLO 키포인트의 left_top/right_top으로 회전·이동을 보정합니다. |
 | 갭 측정 | 6개 ROI 안의 샘플 라인에서 검정 픽셀 연속 구간을 분석합니다. |
 | 필터 비교 | 공간·주파수·비국소 필터와 순차 조합을 비교합니다. |
 | 품질·비용 분석 | 갭 편차·누락률·이상치율·PSNR·SSIM·처리시간을 설명합니다. |
@@ -139,13 +139,13 @@ E --> F[갭·누락·이상치·화질·시간 비교]
 
 ## 갭 측정과 필터 비교
 
-원고는 ROI별 6개 샘플 X 좌표, 최소 5 픽셀의 검정 그룹, 5 픽셀 이하 간격의 그룹 병합 규칙을 설명합니다. 상단에는 Anisotropic 필터와 임계 값 100, 하단에는 Wiener 필터와 임계 값 130을 적용하는 예도 제시합니다.
+원고는 ROI별 6개 샘플 X 좌표, 최소 5 픽셀의 검정 그룹, 5 픽셀 이하 간격의 그룹 병합 규칙을 설명합니다. 상단에는 Anisotropic 필터와 임계값 100, 하단에는 Wiener 필터와 임계값 130을 적용하는 예도 제시합니다.
 
 5 픽셀 기준은 초기 배치 실험에서 정한 경험적 설정입니다. 통계적 최적화나 환경별 적응 기준의 검증은 후속 과제로 남아 있으므로, 모든 제조 환경에 통용되는 기준으로 사용하지 않습니다.
 
 Fast Global Smoother+Sharpen, Bilateral+Sharpen, Median+Sharpen 등 조합의 측정 안정성과 연산 비용을 비교합니다. ROI 그룹의 평균 차이와 표준편차 합으로 후보를 정렬하고 상위 10% 필터군을 고르는 절차도 설명합니다.
 
-PSNR·SSIM은 화질 유사 도, 갭 편차·누락률·이상치율은 측정 안정성을 보는 지표이므로 서로 대신 하지 않습니다. 학습 기반 denoiser는 비교 대상으로 서술한 부분과 향후 연구로 남긴 부분이 있어 실제 수행 범위를 구분해야 합니다.
+PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 안정성을 보는 지표이므로 서로 대신 하지 않습니다. 학습 기반 denoiser는 비교 대상으로 서술한 부분과 향후 연구로 남긴 부분이 있어 실제 수행 범위를 구분해야 합니다.
 
 <a name="quick-start"></a>
 <a id="-원고-읽기"></a>
@@ -222,7 +222,7 @@ PDF와 HWPX 원고에 제조 부품 영상, 이 진화 결과, 처리 흐름도�
 | --- | --- |
 | 초기 설계 | 반사 노이즈와 국부 밝기 변화가 측정에 미치는 영향을 함께 다룹니다. |
 | 초기 서술의 범위 | 데이터 장수·처리시간·필터 표현의 원고 내부 차이는 이후 단계 값으로 소급해서 바꾸지 않습니다. |
-| 동적 정렬 | YOLO 키 포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
+| 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
 | 평가 지표 | 평균·표준편차·누락률·이상치율과 PSNR·SSIM·처리시간을 구분합니다. |
@@ -261,7 +261,7 @@ PDF와 HWPX 원고에 제조 부품 영상, 이 진화 결과, 처리 흐름도�
 | --- | --- |
 | <a id="layout18-table-11-row-1"></a> 지원 문구 개정 | HWP의 사사 자리 표시자를 IITP-2024-00436954와 경기대학교 컴퓨터 과학 연구소 지원 문구로 바꾼 차이가 있습니다. |
 | <a id="layout18-table-11-row-2"></a> 편집본과 PDF 구분 | 당시 함께 저장된 초기·최종 PDF의 추출 본문은 같았고 초기 사사 자리 표시자가 남았습니다.<br>파일명만으로 HWP와 같은 판이라고 결론 내리지 않습니다. |
-| <a id="layout18-table-11-row-3"></a> 동적 정렬 | YOLO 키 포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
+| <a id="layout18-table-11-row-3"></a> 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | <a id="layout18-table-11-row-4"></a> 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | <a id="layout18-table-11-row-5"></a> 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
 | <a id="layout18-table-11-row-6"></a> 평가 지표 | 평균·표준편차·누락률·이상치율과 PSNR·SSIM·처리시간을 구분합니다. |
@@ -301,7 +301,7 @@ PDF와 HWPX 원고에 제조 부품 영상, 이 진화 결과, 처리 흐름도�
 | --- | --- |
 | <a id="layout18-table-14-row-1"></a> 삽입 연구 그림 | 정렬·ROI·필터·이진화의 차이를 사진과 도표로 확인합니다. |
 | <a id="layout18-table-14-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 연결하고 저자·소속·사사를 원문 그대로 제공합니다. |
-| <a id="layout18-table-14-row-3"></a> 동적 정렬 | YOLO 키 포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
+| <a id="layout18-table-14-row-3"></a> 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | <a id="layout18-table-14-row-4"></a> 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | <a id="layout18-table-14-row-5"></a> 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
 | <a id="layout18-table-14-row-6"></a> 평가 지표 | 평균·표준편차·누락률·이상치율과 PSNR·SSIM·처리시간을 구분합니다. |
@@ -335,7 +335,7 @@ PDF와 HWPX 원고에 제조 부품 영상, 이 진화 결과, 처리 흐름도�
 
 ### 참고자료 · 이진화 연구노트와 외부 논문
 
-84 쪽 Binarization 연구노트는 임계 값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
+84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
 
 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다.
 
