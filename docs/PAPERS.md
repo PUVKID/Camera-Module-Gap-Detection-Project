@@ -10,8 +10,7 @@
 
 | 자료 | 원문 파일 |
 | --- | --- |
-| 사진 포함 최종 논문 · 갭 검출 | [PDF 다운로드](../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.pdf) |
-| 사진 포함 최종 논문 · 갭 검출 | [HWPX 다운로드](../%EB%85%BC%EB%AC%B8/%EC%B5%9C%EC%A2%85_%EB%85%BC%EB%AC%B8.hwpx) |
+| 사진 포함 최종 논문 · 갭 검출 | [작성·게재 상태](%EB%85%BC%EB%AC%B8%EC%83%81%ED%83%9C.md) |
 | 이진화·필터·ROI 연구노트 | [PDF 다운로드](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/Binarization_%EC%97%B0%EA%B5%AC%EB%85%B8%ED%8A%B8.pdf) |
 | 외부 참고논문 · Electronics | [PDF 다운로드](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C/electronics-14-03455.pdf) |
 

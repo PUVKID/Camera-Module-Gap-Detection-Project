@@ -10,28 +10,12 @@
 
 [프로젝트 전체 소개](../README.md)
 
-| 차수·단계 | 자료 |
-| --- | --- |
-| [초기 원고 · 번호 없는 원본](revisions/initial.md) | **주요 내용** 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다.<br>**자료** [폴더](../%EB%85%BC%EB%AC%B8)<br>**직전 비교** [전체 비교](revision-diffs/initial.diff) |
-| [최종 원고 · HWP/PDF 단계](revisions/final.md) | **주요 내용** 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다.<br>**자료** [폴더](../%EB%85%BC%EB%AC%B8)<br>**직전 비교** [전체 비교](revision-diffs/final.diff) |
-| [사진 포함 최종 · HWPX 단계](revisions/illustrated.md) | **주요 내용** [상세 설명](#layout18-table-1-row-3-field-1)<br>**자료** [폴더](../%EB%85%BC%EB%AC%B8)<br>**직전 비교** [전체 비교](revision-diffs/illustrated.diff) |
-| [이진화 연구노트·외부 참고논문](revisions/references.md) | **주요 내용** [상세 설명](#layout18-table-1-row-4-field-1)<br>**자료** [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C)<br>**직전 비교** [전체 비교](revision-diffs/references.diff) |
-
-<a id="layout18-table-1-row-3-field-1"></a>
-
-**[사진 포함 최종 · HWPX 단계](revisions/illustrated.md)**
-
-**주요 내용**
-
-사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF로 갭 검출 연구를 읽는 단계입니다.
-
-<a id="layout18-table-1-row-4-field-1"></a>
-
-**[이진화 연구노트·외부 참고논문](revisions/references.md)**
-
-**주요 내용**
-
-84쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.21쪽 Electronics 논문은 외부 저자의 연구 참고문헌입니다.
+| 차수·단계 | 주요 내용 | 자료 | 직전 비교 |
+| --- | --- | --- | --- |
+| [초기 원고 · 번호 없는 원본](revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/initial.diff) |
+| [최종 원고 · HWP/PDF 단계](revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/final.diff) |
+| [사진 포함 최종 · HWPX 단계](revisions/illustrated.md) | <a id="layout18-table-1-row-3-field-1"></a>사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF로 갭 검출 연구를 읽는 단계입니다. | [폴더](../%EB%85%BC%EB%AC%B8) | [전체 비교](revision-diffs/illustrated.diff) |
+| [이진화 연구노트·외부 참고논문](revisions/references.md) | <a id="layout18-table-1-row-4-field-1"></a>84 쪽 Binarization 연구노트는 임계 값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](../%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
 
 
 <a id="-자료-이용"></a>
