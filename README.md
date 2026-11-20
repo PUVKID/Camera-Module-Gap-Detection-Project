@@ -103,7 +103,7 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 동적 ROI 정렬과 이진화 기반 갭 측정을 다룬 연구 원고입니다.
 
-| 항목 (Category) | 원고에서 다루는 내용 |
+| 항목 | 원고에서 다루는 내용 |
 | --- | --- |
 | 동적 정렬 | YOLO 키 포인트의 left_top/right_top으로 회전·이동을 보정합니다. |
 | 갭 측정 | 6개 ROI 안의 샘플 라인에서 검정 픽셀 연속 구간을 분석합니다. |
