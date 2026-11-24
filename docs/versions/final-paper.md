@@ -6,7 +6,7 @@
 **읽기 수준 선택** · [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
 <!-- reading-levels17:end -->
 
-**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF로 갭 검출 연구를 읽는 단계입니다.**
+**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.**
 
 [목적·구성·사용법·결과의 상세 안내](../revisions/illustrated.md) · [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md)
 
@@ -26,7 +26,7 @@
 | 구성 | 읽을 내용 |
 | --- | --- |
 | <a id="layout18-table-1-row-1"></a> 삽입 연구 그림 | 정렬·ROI·필터·이진화의 차이를 사진과 도표로 확인합니다. |
-| <a id="layout18-table-1-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 연결하고 저자·소속·사사를 원문 그대로 제공합니다. |
+| <a id="layout18-table-1-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 정리했습니다. 저자·소속·사사는 로컬 원문에 보존하며 미게재 원고 본문과 편집 원본은 공개하지 않습니다. |
 | <a id="layout18-table-1-row-3"></a> 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | <a id="layout18-table-1-row-4"></a> 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | <a id="layout18-table-1-row-5"></a> 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
