@@ -3,10 +3,10 @@
 # 사진 포함 최종 · 정렬부터 측정까지 읽는 원고
 
 <!-- reading-levels17:start -->
-**읽기 수준** · [LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+읽기 수준 · [LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
 
 <details open>
-<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
 
 <a id="reading-level-1"></a>
 
@@ -38,7 +38,7 @@
 
 ### LEVEL 1·5 픽셀 규칙과 필터 후보 선택
 
-작은 검정 점은 잡음일 수 있고 하나의 틈이 중간에 끊겨 보일 수도 있습니다. **짧은 조각을 제외하는 규칙과 가까운 조각을 합치는 규칙**을 따로 읽으세요. 상단과 하단의 밝기가 달라 필터·기준값도 다르게 설정한 예가 있습니다.
+작은 검정 점은 잡음일 수 있고 하나의 틈이 중간에 끊겨 보일 수도 있습니다. 짧은 조각을 제외하는 규칙과 가까운 조각을 합치는 규칙을 따로 읽으세요. 상단과 하단의 밝기가 달라 필터·기준값도 다르게 설정한 예가 있습니다.
 
 | 조건·자료 | 의미와 확인 방법 |
 | --- | --- |
@@ -69,7 +69,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 
@@ -132,7 +132,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
 
 <a id="reading-level-3"></a>
 
@@ -195,7 +195,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 
@@ -258,7 +258,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 
@@ -311,7 +311,7 @@ PSNR/SSIM 을 측정 정확도의 대리 지표로 치환하지 않고 28.6% 편
 
 <!-- reading-levels17:end -->
 
-**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.**
+사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.
 
 분야: 컴퓨터 비전 › 제조 영상 전처리 › 이진화·동적 ROI·갭 길이 측정
 

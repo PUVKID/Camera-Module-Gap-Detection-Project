@@ -3,10 +3,10 @@
 # 참고자료 · 이진화 연구노트와 외부 논문
 
 <!-- reading-levels17:start -->
-**읽기 수준** · [LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
+읽기 수준 · [LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
 
 <details open>
-<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+<summary>LEVEL 1 · Beginner — 목적과 동작부터</summary>
 
 <a id="reading-level-1"></a>
 
@@ -24,7 +24,7 @@
 
 ### LEVEL 1 · 연구노트와 외부 논문의 역할
 
-노트는 여러 흑백 변환 방법을 배우는 자료이고 외부 논문은 다른 저자의 연구입니다. **참고 자료가 있다고 검사 앱이 완성된 것은 아닙니다.** 원고에서 어려운 임계값·필터·투영 용어를 찾아 노트와 비교해 보세요.
+노트는 여러 흑백 변환 방법을 배우는 자료이고 외부 논문은 다른 저자의 연구입니다. 참고 자료가 있다고 검사 앱이 완성된 것은 아닙니다. 원고에서 어려운 임계값·필터·투영 용어를 찾아 노트와 비교해 보세요.
 
 | 조건·자료 | 의미와 확인 방법 |
 | --- | --- |
@@ -38,7 +38,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
+<summary>LEVEL 2 · Explorer — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 
@@ -70,7 +70,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+<summary>LEVEL 3 · Practitioner — 준비·실행·결과 확인</summary>
 
 <a id="reading-level-3"></a>
 
@@ -102,7 +102,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
+<summary>LEVEL 4 · Advanced — 구현·설계·실패 처리</summary>
 
 <a id="reading-level-4"></a>
 
@@ -134,7 +134,7 @@
 </details>
 
 <details>
-<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
+<summary>LEVEL 5 · Expert — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 
@@ -156,7 +156,7 @@
 
 <!-- reading-levels17:end -->
 
-**84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.**
+84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
 
 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다.
 

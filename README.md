@@ -6,16 +6,16 @@
 
 # Camera Module Gap Project
 
-**영상 정렬과 영역별 필터로 카메라 모듈의 틈 위치와 길이를 측정하는 연구입니다.**
+영상 정렬과 영역별 필터로 카메라 모듈의 틈 위치와 길이를 측정하는 연구입니다.
 
 <!-- reading-levels17:start -->
 | 읽기 수준 | 안내 내용 |
 | --- | --- |
-| [**LEVEL 1 - Beginner**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 낯선 용어를 풀고 입력부터 결과까지 구체적인 예로 읽기 |
-| [**LEVEL 2 - Explorer**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 핵심 개념과 처리 흐름의 관계 이해 |
-| [**LEVEL 3 - Practitioner**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 실험·사용 절차와 결과 해석 따라가기 |
-| [**LEVEL 4 - Advanced**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 코드 구조·설정·설계 선택과 제약 검토 |
-| [**LEVEL 5 - Expert**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 논문·프로토콜·분모·누수·미검증 범위 대조 |
+| [LEVEL 1 - Beginner](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 낯선 용어를 풀고 입력부터 결과까지 구체적인 예로 읽기 |
+| [LEVEL 2 - Explorer](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 핵심 개념과 처리 흐름의 관계 이해 |
+| [LEVEL 3 - Practitioner](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 실험·사용 절차와 결과 해석 따라가기 |
+| [LEVEL 4 - Advanced](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 코드 구조·설정·설계 선택과 제약 검토 |
+| [LEVEL 5 - Expert](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 논문·프로토콜·분모·누수·미검증 범위 대조 |
 <!-- reading-levels17:end -->
 
 분야: 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
@@ -211,7 +211,7 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 <a id="-초기-원고--이진화와-갭-측정의-연결"></a>
 
 <details>
-<summary><strong>초기 원고 · 이진화와 갭 측정의 연결</strong></summary>
+<summary>초기 원고 · 이진화와 갭 측정의 연결</summary>
 
 <a id="초기-원고--이진화와-갭-측정의-연결"></a>
 
@@ -250,7 +250,7 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary><strong>최종 HWP 단계 · 사사와 원고 표현 정리</strong></summary>
+<summary>최종 HWP 단계 · 사사와 원고 표현 정리</summary>
 
 <a id="최종-hwp-단계--사사와-원고-표현-정리"></a>
 
@@ -290,7 +290,7 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary><strong>사진 포함 최종 · 정렬부터 측정까지 읽는 원고</strong></summary>
+<summary>사진 포함 최종 · 정렬부터 측정까지 읽는 원고</summary>
 
 <a id="사진-포함-최종--정렬부터-측정까지-읽는-원고"></a>
 
@@ -330,7 +330,7 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary><strong>참고자료 · 이진화 연구노트와 외부 논문</strong></summary>
+<summary>참고자료 · 이진화 연구노트와 외부 논문</summary>
 
 <a id="참고자료--이진화-연구노트와-외부-논문"></a>
 

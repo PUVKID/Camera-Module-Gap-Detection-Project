@@ -4,7 +4,7 @@
 
 <!-- reading-levels17:start -->
 <details>
-<summary><strong>읽기 수준 선택</strong></summary>
+<summary>읽기 수준 선택</summary>
 
 | 레벨 | 읽는 목적 |
 | --- | --- |
@@ -17,7 +17,7 @@
 </details>
 <!-- reading-levels17:end -->
 
-**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다.**  
+사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다.  
 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.
 
 [목적·구성·사용법·결과의 상세 안내](../revisions/illustrated.md) · [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md)
