@@ -11,11 +11,11 @@
 <!-- reading-levels17:start -->
 | 읽기 수준 | 안내 내용 |
 | --- | --- |
-| [LEVEL 1 - Beginner](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 낯선 용어를 풀고 입력부터 결과까지 구체적인 예로 읽기 |
-| [LEVEL 2 - Explorer](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 핵심 개념과 처리 흐름의 관계 이해 |
-| [LEVEL 3 - Practitioner](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 실험·사용 절차와 결과 해석 따라가기 |
-| [LEVEL 4 - Advanced](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 코드 구조·설정·설계 선택과 제약 검토 |
-| [LEVEL 5 - Expert](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 논문·프로토콜·분모·누수·미검증 범위 대조 |
+| [**LEVEL 1 - Beginner**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 낯선 용어를 풀고 입력부터 결과까지 구체적인 예로 읽기 |
+| [**LEVEL 2 - Explorer**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 핵심 개념과 처리 흐름의 관계 이해 |
+| [**LEVEL 3 - Practitioner**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 실험·사용 절차와 결과 해석 따라가기 |
+| [**LEVEL 4 - Advanced**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 코드 구조·설정·설계 선택과 제약 검토 |
+| [**LEVEL 5 - Expert**](docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 논문·프로토콜·분모·누수·미검증 범위 대조 |
 <!-- reading-levels17:end -->
 
 분야: 컴퓨터 비전 › 기하 정렬·영상 처리 › ROI·이진화·1차원 갭 측정
@@ -87,12 +87,12 @@ Gap Detection for Compact Camera Modules Based on Dynamic ROI Alignment and Opti
 
 ## 전체 차수
 
-| 차수·단계 | 주요 내용 | 자료 | 직전 비교 |
-| --- | --- | --- | --- |
-| [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/initial.diff) |
-| [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/final.diff) |
-| [사진 포함 최종 · HWPX 단계](docs/revisions/illustrated.md) | <a id="layout18-table-4-row-3-field-1"></a>사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다. | [폴더](%EB%85%BC%EB%AC%B8) | [전체 비교](docs/revision-diffs/illustrated.diff) |
-| [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | <a id="layout18-table-4-row-4-field-1"></a>84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [전체 비교](docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
+| 차수·단계 | 주요 내용 | 자료 · 직전 비교 |
+| --- | --- | --- |
+| [초기 원고 · 번호 없는 원본](docs/revisions/initial.md) | 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8)<br>[전체 비교](docs/revision-diffs/initial.diff) |
+| [최종 원고 · HWP/PDF 단계](docs/revisions/final.md) | 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다. | [폴더](%EB%85%BC%EB%AC%B8)<br>[전체 비교](docs/revision-diffs/final.diff) |
+| [사진 포함 최종 · HWPX 단계](docs/revisions/illustrated.md) | <a id="layout18-table-4-row-3-field-1"></a>사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다.<br>두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다. | [폴더](%EB%85%BC%EB%AC%B8)<br>[전체 비교](docs/revision-diffs/illustrated.diff) |
+| [이진화 연구노트·외부 참고논문](docs/revisions/references.md) | <a id="layout18-table-4-row-4-field-1"></a>84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다. 21 쪽 Electronics 논문은 외부 저자의 연구 참고 문헌입니다. | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C)<br>[전체 비교](docs/revision-diffs/references-%EC%97%B4%EB%9E%8C.md) |
 
 
 <a id="-프로젝트-소개"></a>
@@ -182,7 +182,7 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 
 | 상황 | 확인할 내용 |
 | --- | --- |
-| 원고를 바로 읽고 싶습니다. | 상단의 작성·게재 상태와 연구 설명을 확인합니다. 미게재 원고 PDF 본문은 공개하지 않습니다. |
+| 원고를 바로 읽고 싶습니다. | 상단의 작성·게재 상태와 연구 설명을 확인합니다.<br>미게재 원고 PDF 본문은 공개하지 않습니다. |
 | 편집 가능한 원고가 필요합니다. | HWPX 원본은 로컬에 보존하며 공개하지 않습니다. |
 | 처리시간 단위가 혼동됩니다. | 일부 그래프 축 숫자와 본문의 초 단위가 달라 원고의 위치를 함께 확인해야 합니다. |
 
@@ -192,11 +192,11 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 
 현재 공개 안내와 직전 공개본의 비교입니다. 원고의 단계별 변경은 전체 차수 표에서 확인할 수 있으며, 미게재 원고 본문과 편집 원본은 로컬에 보존합니다.
 
-| 문서 | 자료 폴더 | 상세 | 직전 공개본 전체 비교 |
-| --- | --- | --- | --- |
-| 사진 포함 최종 논문 · 갭 검출 | [폴더](%EB%85%BC%EB%AC%B8) | [설명](docs/latest/camera-gap-binarization.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
-| 이진화·필터·ROI 연구노트 | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/binarization-research-notes.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
-| 외부 참고논문 · Electronics | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/external-electronics-reference.md) | [전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+| 문서 | 자료 폴더 | 상세 · 직전 공개본 전체 비교 |
+| --- | --- | --- |
+| 사진 포함 최종 논문 · 갭 검출 | [폴더](%EB%85%BC%EB%AC%B8) | [설명](docs/latest/camera-gap-binarization.md)<br>[전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+| 이진화·필터·ROI 연구노트 | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/binarization-research-notes.md)<br>[전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
+| 외부 참고논문 · Electronics | [폴더](%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C) | [설명](docs/latest/external-electronics-reference.md)<br>[전체 비교](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C-%EC%A0%84%EC%B2%B4%EB%B9%84%EA%B5%90.md) |
 
 [최신 문서 구성 변경](docs/changes/2026-11-02-%EC%B5%9C%EC%8B%A0%EB%AC%B8%EC%84%9C.md)
 
@@ -211,9 +211,9 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 <a id="-초기-원고--이진화와-갭-측정의-연결"></a>
 
 <details>
-<summary>초기 원고 · 이진화와 갭 측정의 연결</summary>
+<summary><strong>초기 원고 · 이진화와 갭 측정의 연결</strong></summary>
 
-### 초기 원고 · 이진화와 갭 측정의 연결
+<a id="초기-원고--이진화와-갭-측정의-연결"></a>
 
 필터·이진화 품질을 동적 ROI 정렬과 갭 길이 측정으로 연결한 초기 원고 단계입니다.
 
@@ -250,9 +250,9 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary>최종 HWP 단계 · 사사와 원고 표현 정리</summary>
+<summary><strong>최종 HWP 단계 · 사사와 원고 표현 정리</strong></summary>
 
-### 최종 HWP 단계 · 사사와 원고 표현 정리
+<a id="최종-hwp-단계--사사와-원고-표현-정리"></a>
 
 초기 설계를 유지하면서 최종 HWP의 사사·지원 문구 등을 정리한 원고 단계입니다.
 
@@ -290,16 +290,16 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary>사진 포함 최종 · 정렬부터 측정까지 읽는 원고</summary>
+<summary><strong>사진 포함 최종 · 정렬부터 측정까지 읽는 원고</strong></summary>
 
-### 사진 포함 최종 · 정렬부터 측정까지 읽는 원고
+<a id="사진-포함-최종--정렬부터-측정까지-읽는-원고"></a>
 
 사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.
 
 | 구성 | 처리 내용 |
 | --- | --- |
 | <a id="layout18-table-14-row-1"></a> 삽입 연구 그림 | 정렬·ROI·필터·이진화의 차이를 사진과 도표로 확인합니다. |
-| <a id="layout18-table-14-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 정리했습니다. 저자·소속·사사는 로컬 원문에 보존하며 미게재 원고 본문과 편집 원본은 공개하지 않습니다. |
+| <a id="layout18-table-14-row-2"></a> 최종 원문 | 편집 원본과 PDF의 본문·그림을 같은 연구 단계로 정리했습니다.<br>저자·소속·사사는 로컬 원문에 보존하며 미게재 원고 본문과 편집 원본은 공개하지 않습니다. |
 | <a id="layout18-table-14-row-3"></a> 동적 정렬 | YOLO 키포인트의 left_top·right_top을 기준으로 회전·위치를 맞춥니다. |
 | <a id="layout18-table-14-row-4"></a> 전처리 비교 | 공간·주파수·비국소 필터와 순차 조합이 이진화에 미치는 영향을 설명합니다. |
 | <a id="layout18-table-14-row-5"></a> 갭 측정 | ROI의 6개 샘플 라인과 1D 투영을 이용해 길이를 산출합니다. |
@@ -330,9 +330,9 @@ PSNR·SSIM은 화질 유사도, 갭 편차·누락률·이상치율은 측정 �
 </details>
 
 <details>
-<summary>참고자료 · 이진화 연구노트와 외부 논문</summary>
+<summary><strong>참고자료 · 이진화 연구노트와 외부 논문</strong></summary>
 
-### 참고자료 · 이진화 연구노트와 외부 논문
+<a id="참고자료--이진화-연구노트와-외부-논문"></a>
 
 84 쪽 Binarization 연구노트는 임계값·필터·ROI·프로젝션 관련 개념과 Python 예시를 모은 자료입니다.
 

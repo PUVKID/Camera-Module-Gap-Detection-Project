@@ -3,10 +3,22 @@
 # 최종 원고
 
 <!-- reading-levels17:start -->
-**읽기 수준 선택** · [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) · [LEVEL 2 - Explorer](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) · [LEVEL 3 - Practitioner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) · [LEVEL 4 - Advanced](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) · [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md)
+<details>
+<summary><strong>읽기 수준 선택</strong></summary>
+
+| 레벨 | 읽는 목적 |
+| --- | --- |
+| [LEVEL 1 - Beginner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md) | 목적과 입력·출력을 쉬운 말로 이해하기 |
+| [LEVEL 2 - Explorer](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md) | 주요 기능과 전체 처리 흐름 살펴보기 |
+| [LEVEL 3 - Practitioner](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md) | 설정·실행 순서와 결과 확인하기 |
+| [LEVEL 4 - Advanced](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md) | 구현 선택과 조건·한계 비교하기 |
+| [LEVEL 5 - Expert](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md) | 세부 근거와 재현 조건 검토하기 |
+
+</details>
 <!-- reading-levels17:end -->
 
-**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다. 두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.**
+**사진·본문·소속·사사를 포함한 최종 HWPX와 같은 판의 12쪽 PDF를 정리한 단계입니다.**  
+두 원고는 로컬에 보존하며, 공개 안내에서는 연구 설명과 작성·게재 상태를 확인합니다.
 
 [목적·구성·사용법·결과의 상세 안내](../revisions/illustrated.md) · [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md)
 

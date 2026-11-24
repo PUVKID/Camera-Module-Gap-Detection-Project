@@ -5,6 +5,9 @@
 <!-- reading-levels17:start -->
 **읽기 수준** · [LEVEL 1](#reading-level-1) · [LEVEL 2](#reading-level-2) · [LEVEL 3](#reading-level-3) · [LEVEL 4](#reading-level-4) · [LEVEL 5](#reading-level-5)
 
+<details open>
+<summary><strong>LEVEL 1 · Beginner</strong> — 목적과 동작부터</summary>
+
 <a id="reading-level-1"></a>
 
 ## LEVEL 1 - Beginner
@@ -31,6 +34,12 @@
 | <a id="layout18-table-1-row-4"></a> 공간·주파수·비국소 필터 | 주변 픽셀, 주파수 성분, 닮은 무늬를 이용하는 필터군을 비교합니다.<br>반사·잡음·국부 밝기가 이진화 경계를 흐리는 문제를 다룹니다. |
 
 [동일 수준 프로젝트 안내](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md)
+
+
+</details>
+
+<details>
+<summary><strong>LEVEL 2 · Explorer</strong> — 구성과 연결 원리</summary>
 
 <a id="reading-level-2"></a>
 
@@ -59,6 +68,12 @@
 
 [동일 수준 프로젝트 안내](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md)
 
+
+</details>
+
+<details>
+<summary><strong>LEVEL 3 · Practitioner</strong> — 준비·실행·결과 확인</summary>
+
 <a id="reading-level-3"></a>
 
 ## LEVEL 3 - Practitioner
@@ -86,6 +101,12 @@
 
 [동일 수준 프로젝트 안내](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md)
 
+
+</details>
+
+<details>
+<summary><strong>LEVEL 4 · Advanced</strong> — 구현·설계·실패 처리</summary>
+
 <a id="reading-level-4"></a>
 
 ## LEVEL 4 - Advanced
@@ -112,6 +133,12 @@
 | <a id="layout18-table-16-row-4"></a> 공간·주파수·비국소 필터 | 주변 픽셀, 주파수 성분, 닮은 무늬를 이용하는 필터군을 비교합니다.<br>반사·잡음·국부 밝기가 이진화 경계를 흐리는 문제를 다룹니다. |
 
 [동일 수준 프로젝트 안내](../%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md)
+
+
+</details>
+
+<details>
+<summary><strong>LEVEL 5 · Expert</strong> — 근거·프로토콜·한계 검토</summary>
 
 <a id="reading-level-5"></a>
 
@@ -260,3 +287,6 @@
 ---
 
 [프로젝트](../../README.md) · [전체 차수](../REVISION_INDEX.md) · [자료 폴더](../../%EB%85%BC%EB%AC%B8) · [최종 원고 · HWP/PDF 단계](final.md)
+
+</details>
+
