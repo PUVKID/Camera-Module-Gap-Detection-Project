@@ -4,7 +4,31 @@
 
 <a id="-camera-module-gap-project"></a>
 
-# Camera Module Gap Project
+<!-- readme-header32:start -->
+<a name="camera-module-gap-project"></a>
+<p align="center"><img src="assets/readme/icon.svg" alt="" width="72" height="72" /></p>
+<h1 align="center" id="project-title">Camera Module Gap Project</h1>
+<p align="center">검사 영상의 틈을 찾는 처리 흐름</p>
+<p align="center">
+  <a href="README.md"><img src="assets/readme/language-ko-active.svg" alt="한국어 · 현재 언어" width="126" height="32" /></a>
+  <a href="en/README.md"><img src="assets/readme/language-en-link.svg" alt="English" width="126" height="32" /></a>
+</p>
+<p align="center">
+  <a href="docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A81.md"><img src="assets/readme/level-1.svg" alt="LEVEL 1 - Beginner" width="92" height="32" /></a>
+  <a href="docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A82.md"><img src="assets/readme/level-2.svg" alt="LEVEL 2 - Explorer" width="92" height="32" /></a>
+  <a href="docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A83.md"><img src="assets/readme/level-3.svg" alt="LEVEL 3 - Practitioner" width="92" height="32" /></a>
+  <a href="docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A84.md"><img src="assets/readme/level-4.svg" alt="LEVEL 4 - Advanced" width="92" height="32" /></a>
+  <a href="docs/%EC%9D%BD%EA%B8%B0%EC%95%88%EB%82%B4/%EB%A0%88%EB%B2%A85.md"><img src="assets/readme/level-5.svg" alt="LEVEL 5 - Expert" width="92" height="32" /></a>
+</p>
+<picture>
+  <source media="(max-width: 600px) and (prefers-color-scheme: dark)" srcset="assets/readme/flow-ko-dark-mobile.svg" />
+  <source media="(max-width: 600px)" srcset="assets/readme/flow-ko-light-mobile.svg" />
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/flow-ko-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="assets/readme/flow-ko-light.svg" />
+  <img src="assets/readme/flow-ko-light.svg" alt="Camera Module Gap Project: 검사 영상 → ROI 정렬 · 이진화 → 갭 위치 · 길이" width="100%" />
+</picture>
+<!-- readme-header32:end -->
+
 
 영상 정렬과 영역별 필터로 카메라 모듈의 틈 위치와 길이를 측정하는 연구입니다.
 

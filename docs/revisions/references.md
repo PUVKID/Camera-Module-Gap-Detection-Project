@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 <a id="-참고자료--이진화-연구노트와-외부-논문"></a>
 
 # 참고자료 · 이진화 연구노트와 외부 논문

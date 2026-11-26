@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 <a id="-제조용-갭-검출의-신뢰성-향상을-위한-이미지-이진화-및-필터-최적화-연구"></a>
 
 # 제조용 갭 검출의 신뢰성 향상을 위한 이미지 이진화 및 필터 최적화 연구

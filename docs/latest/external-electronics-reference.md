@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 <a id="-electronics-14-03455-외부-참고논문"></a>
 
 # electronics-14-03455 외부 참고논문

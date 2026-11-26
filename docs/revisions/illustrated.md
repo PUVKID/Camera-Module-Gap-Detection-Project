@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 <a id="-사진-포함-최종--정렬부터-측정까지-읽는-원고"></a>
 
 # 사진 포함 최종 · 정렬부터 측정까지 읽는 원고

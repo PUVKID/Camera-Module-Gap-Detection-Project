@@ -1,3 +1,7 @@
+<!-- language-choice:start -->
+🔵 **한국어** · [English overview](../../en/README.md)
+<!-- language-choice:end -->
+
 <a id="-초기-원고--이진화와-갭-측정의-연결"></a>
 
 # 초기 원고 · 이진화와 갭 측정의 연결
