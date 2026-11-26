@@ -25,7 +25,7 @@
   <source media="(max-width: 600px)" srcset="assets/readme/flow-ko-light-mobile.svg" />
   <source media="(prefers-color-scheme: dark)" srcset="assets/readme/flow-ko-dark.svg" />
   <source media="(prefers-color-scheme: light)" srcset="assets/readme/flow-ko-light.svg" />
-  <img src="assets/readme/flow-ko-light.svg" alt="Camera Module Gap Project: 검사 영상 → ROI 정렬 · 이진화 → 갭 위치 · 길이" width="100%" />
+  <img src="assets/readme/flow-ko-light.svg" alt="검사 영상: 카메라 모듈 검사 영상 → ROI 정렬 · 이진화: 기준 위치를 맞추고 영역별 이진화 → 갭 위치 · 길이: 주사선으로 측정한 틈 위치·길이" width="100%" />
 </picture>
 <!-- readme-header32:end -->
 
